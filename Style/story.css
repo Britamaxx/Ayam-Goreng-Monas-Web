@@ -4,6 +4,54 @@
   box-sizing: border-box;
 }
 
+.story-hero-custom {
+  padding: 60px 0;
+  overflow: hidden;
+}
+
+.container-custom {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.text-content-custom {
+  flex: 1;
+  padding-right: 40px;
+  text-align: left;
+  position: relative;
+}
+
+.title-custom {
+  font-size: 2.5rem;
+  font-weight: 900;
+  line-height: 1.1;
+  color: #d64531;
+  text-transform: capitalize;
+  margin-bottom: 20px;
+}
+
+.subtitle-custom {
+  font-size: 1.1rem;
+  font-weight: 300;
+  line-height: 1.5;
+  color: black;
+  max-width: 80%;
+}
+
+.image-content-custom {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.chicken-image-custom {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
 .story-section {
   margin-top: 50px;
   padding: 20px;
