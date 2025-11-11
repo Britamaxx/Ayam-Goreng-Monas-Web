@@ -1,12 +1,7 @@
 <!DOCTYPE html>
-<html lang="id">
+<html>
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ayam Goreng Monas</title>
-    <link rel="icon" type="image/png" sizes="16x16" href="./source/Logo.png" />
-
-    <!-- CSS -->
     <link rel="stylesheet" href="./style/header.css" />
     <link rel="stylesheet" href="./style/menu.css" />
     <link rel="stylesheet" href="./style/location.css" />
@@ -15,16 +10,14 @@
     <link rel="stylesheet" href="./style/story.css" />
     <link rel="stylesheet" href="./style/footer.css" />
     <link rel="stylesheet" href="./style/news.css" />
-
+    <link rel="icon" type="image/png" sizes="16x16" href="./source/Logo.png" />
     <script src="./script.js" defer></script>
   </head>
-
   <body>
-    <!-- Header -->
     <section class="main-header">
       <div class="header-left">
         <div class="restaurant-logo">
-          <img src="./source/Logo.png" alt="Logo Ayam Goreng Monas" />
+          <img src="./source/Logo.png" alt="restaurant-logo" />
         </div>
         <div class="restaurant-name">AYAM GORENG MONAS</div>
       </div>
@@ -38,16 +31,17 @@
       </div>
     </section>
 
-    <!-- Menu Section -->
     <section class="menu">
       <h2>Menu Kami</h2>
 
       <div class="menu-grid">
         <div class="menu-item">
-          <img
-            src="./Source/Daftar menu/Paket Monas.png"
-            alt="Paket Ayam Monas"
-          />
+          <div class="menu-image-wrapper">
+            <img
+              src="./Source/Daftar menu/Paket Monas.png"
+              alt="Paket Ayam Monas"
+            />
+          </div>
           <div class="menu-info">
             <p>Paket Ayam Monas</p>
             <span class="favorite">#FAVORITE</span>
@@ -55,17 +49,21 @@
         </div>
 
         <div class="menu-item">
-          <img src="./Source/Daftar menu/Bakwan.png" alt="Bakwan" />
+          <div class="menu-image-wrapper">
+            <img src="./Source/Daftar menu/Bakwan.png" alt="Bakwan" />
+          </div>
           <div class="menu-info">
             <p>Bakwan</p>
           </div>
         </div>
 
         <div class="menu-item">
-          <img
-            src="./Source/Daftar menu/Chicken Strip.png"
-            alt="Chicken Strip"
-          />
+          <div class="menu-image-wrapper">
+            <img
+              src="./Source/Daftar menu/Chicken Strip.png"
+              alt="Chicken Strip"
+            />
+          </div>
           <div class="menu-info">
             <p>Chicken Strip</p>
             <span class="favorite">#FAVORITE</span>
@@ -73,14 +71,21 @@
         </div>
 
         <div class="menu-item">
-          <img src="./Source/Daftar menu/French fries.png" alt="French Fries" />
+          <div class="menu-image-wrapper">
+            <img
+              src="./Source/Daftar menu/French fries.png"
+              alt="French Fries"
+            />
+          </div>
           <div class="menu-info">
             <p>French Fries</p>
           </div>
         </div>
 
         <div class="menu-item">
-          <img src="./Source/Daftar menu/Es Blewah.png" alt="Es Blewah" />
+          <div class="menu-image-wrapper">
+            <img src="./Source/Daftar menu/Es Blewah.png" alt="Es Blewah" />
+          </div>
           <div class="menu-info">
             <p>Es Blewah</p>
             <span class="favorite">#FAVORITE</span>
@@ -88,7 +93,9 @@
         </div>
 
         <div class="menu-item">
-          <img src="./Source/Daftar menu/Siomay.png" alt="Siomay" />
+          <div class="menu-image-wrapper">
+            <img src="./Source/Daftar menu/Siomay.png" alt="Siomay" />
+          </div>
           <div class="menu-info">
             <p>Siomay</p>
             <span class="favorite">#FAVORITE</span>
@@ -97,7 +104,6 @@
       </div>
     </section>
 
-    <!-- Footer -->
     <section class="footer">
       <div class="footer-container">
         <div class="footer-logo">
@@ -134,23 +140,23 @@
         </div>
 
         <div class="footer-social">
-          <a href="#" class="social-icon"
-            ><img src="./source/instagram.svg" alt="Instagram"
-          /></a>
-          <a href="#" class="social-icon"
-            ><img src="./source/tiktok.svg" alt="TikTok"
-          /></a>
-          <a href="#" class="social-icon"
-            ><img src="./source/x.svg" alt="X"
-          /></a>
-          <a href="#" class="social-icon"
-            ><img src="./source/facebook.svg" alt="Facebook"
-          /></a>
+          <a href="#" class="social-icon">
+            <img src="./source/instagram.svg" alt="Instagram" />
+          </a>
+          <a href="#" class="social-icon">
+            <img src="./source/tiktok.svg" alt="TikTok" />
+          </a>
+          <a href="#" class="social-icon">
+            <img src="./source/x.svg" alt="X" />
+          </a>
+          <a href="#" class="social-icon">
+            <img src="./source/facebook.svg" alt="Facebook" />
+          </a>
         </div>
       </div>
 
       <div class="footer-bottom">
-        <p>Copyright &copy; 2025 Ayam Goreng Monas. Hak Cipta Dilindungi.</p>
+        <p>Copyright &copy 2025 Ayam Goreng Monas. Hak Cipta Dilindungi.</p>
       </div>
     </section>
   </body>
