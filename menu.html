@@ -31,31 +31,61 @@
       </div>
     </section>
     <section class="menu">
-      <section class="menu">
-        <h2>Menu Kami</h2>
+      <h2>Menu Kami</h2>
 
-        <div class="menu-grid">
-          <?php 
-        // Sesuaikan nama tabel dan kolom dengan database Anda
-        $menu = mysqli_query($conn, "SELECT * FROM menu ORDER BY is_favorite DESC, nama_menu ASC");
-        
-        while($row = mysqli_fetch_assoc($menu)) { 
-        ?>
-          <div class="menu-item">
-            <img
-              src="<?php echo htmlspecialchars($row['gambar']); ?>"
-              alt="<?php echo htmlspecialchars($row['nama_menu']); ?>"
-            />
-            <div class="menu-info">
-              <p><?php echo htmlspecialchars($row['nama_menu']); ?></p>
-              <?php if(isset($row['is_favorite']) && $row['is_favorite'] == 1) { ?>
-              <span class="favorite">#FAVORITE</span>
-              <?php } ?>
-            </div>
+      <div class="menu-grid">
+        <div class="menu-item">
+          <img
+            src="./Source/Daftar menu/Paket Monas.png"
+            alt="Paket Ayam Monas"
+          />
+          <div class="menu-info">
+            <p>Paket Ayam Monas</p>
+            <span class="favorite">#FAVORITE</span>
           </div>
-          <?php } ?>
         </div>
-      </section>
+
+        <div class="menu-item">
+          <img src="./Source/Daftar menu/Bakwan.png" alt="Bakwan" />
+          <div class="menu-info">
+            <p>Bakwan</p>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <img
+            src="./Source/Daftar menu/Chicken Strip.png"
+            alt="Chicken Strip"
+          />
+          <div class="menu-info">
+            <p>Chicken Strip</p>
+            <span class="favorite">#FAVORITE</span>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <img src="./Source/Daftar menu/French fries.png" alt="French Fries" />
+          <div class="menu-info">
+            <p>French Fries</p>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <img src="./Source/Daftar menu/Es Blewah.png" alt="Es Blewah" />
+          <div class="menu-info">
+            <p>Es Blewah</p>
+            <span class="favorite">#FAVORITE</span>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <img src="./Source/Daftar menu/Siomay.png" alt="Siomay" />
+          <div class="menu-info">
+            <p>Siomay</p>
+            <span class="favorite">#FAVORITE</span>
+          </div>
+        </div>
+      </div>
     </section>
 
     <section class="footer">
