@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Slabo+27px&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -5,7 +6,7 @@
 }
 
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: "Slabo 27px", serif;
 }
 
 .footer {

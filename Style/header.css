@@ -1,3 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Slabo+27px&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 .main-header {
   width: 100%;
   background-color: #ffffff;
@@ -8,8 +14,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 6px 3vw; 
-  height: 70px; 
+  padding: 6px 3vw;
+  height: 70px;
   box-sizing: border-box;
 }
 
@@ -26,7 +32,7 @@
 }
 
 .restaurant-name {
-  font-family: "Finlandica", sans-serif;
+  font-family: "Slabo 27px", serif;
   font-size: 20px;
   font-weight: 700;
   color: #c0392b;
@@ -37,7 +43,7 @@
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  gap: 1.8rem; 
+  gap: 1.8rem;
 }
 
 .header-right a {
@@ -47,9 +53,9 @@
   font-weight: 600;
   color: #222;
   transition: color 0.3s ease;
-  line-height: 1; 
+  line-height: 1;
   display: inline-block;
-  padding: 6px 0; 
+  padding: 6px 0;
 }
 
 .header-right a:hover {
