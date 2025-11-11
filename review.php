@@ -1,0 +1,134 @@
+<?php
+include "conn.php";
+
+$reviews = mysqli_query($conn, "SELECT * FROM review ORDER BY id DESC");
+?>
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Ayam Goreng Monas</title>
+    <link rel="stylesheet" href="./style/header.css" />
+    <link rel="stylesheet" href="./style/menu.css" />
+    <link rel="stylesheet" href="./style/location.css" />
+    <link rel="stylesheet" href="./style/review.css" />
+    <link rel="stylesheet" href="./style/home.css" />
+    <link rel="stylesheet" href="./style/story.css" />
+    <link rel="stylesheet" href="./style/footer.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+    <link rel="icon" type="image/png" sizes="16x16" href="./source/Logo.png" />
+    <script src="./script.js" defer></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+  </head>
+  <body>
+    <section class="main-header">
+      <div class="header-left">
+        <div class="restaurant-logo">
+          <img src="./source/Logo.png" alt="restaurant-logo" />
+        </div>
+        <div class="restaurant-name">AYAM GORENG MONAS</div>
+      </div>
+      <div class="header-right">
+        <a href="index.html" class="nav home">Home</a>
+        <a href="story.html" class="nav story">Our Story</a>
+        <a href="menu.html" class="nav menu">Menu</a>
+        <a href="news.html" class="nav menu">News</a>
+        <a href="review.php" class="nav review">Review</a>
+        <a href="location.html" class="nav location">Location</a>
+      </div>
+    </section>
+    <section class="review">
+      <h2>Apa Kata Mereka?</h2>
+      <div class="Card-Review">
+        <div class="Review-list">
+          <?php while($row = mysqli_fetch_assoc($reviews)) { ?>
+                <div class="review-card">
+                    <div class="stars">
+                        <?php
+                            $filled = $row['rating'];
+                            $empty = 5 - $filled;
+                            for ($i = 0; $i < $filled; $i++) echo '<span class="star filled">★</span>';
+                            for ($i = 0; $i < $empty; $i++) echo '<span class="star">★</span>';
+                        ?>
+                    </div>
+                    <p class="review-comment">
+                        “<?php echo htmlspecialchars($row['komentar']); ?>”
+                    </p>
+                    <p class="reviewer-name">
+                        <strong><?php echo htmlspecialchars($row['nama']); ?></strong>
+                    </p>
+                    <small class="review-date">
+                        <?php echo htmlspecialchars($row['tanggal']); ?>
+                    </small>
+                </div>
+            <?php } ?>
+        </div>
+      </div>
+      <div class="Submit-Review">
+        <button class="add-review-btn" onclick="openReviewModal()">
+          <span class="plus-icon">+</span>
+            Tambahkan Review Anda Sendiri
+        </button>
+      </div>
+    </section>
+    <section class="footer">
+      <div class="footer-container">
+        <div class="footer-logo">
+          <img src="./Source/Logo.png" alt="Ayam Goreng Monas Logo" />
+          <p class="footer-slogan">Enak Tiada Tanding</p>
+        </div>
+
+        <div class="footer-column">
+          <h3>Link</h3>
+          <ul>
+            <li><a href="story.html">Kisah</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="news.html">Berita</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h3>Pemesanan</h3>
+          <ul>
+            <li>
+              <a href="https://wa.me/6281234567890" target="_blank">WhatsApp</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h3>Hubungi</h3>
+          <ul>
+            <li>
+              <a href="https://wa.me/6281234567890" target="_blank">WhatsApp</a>
+            </li>
+            <li><a href="mailto:ayamgorengmonas@gmail.com">Email</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-social">
+          <a href="#" class="social-icon">
+            <img src="./source/instagram.svg" alt="Instagram" />
+          </a>
+          <a href="#" class="social-icon">
+            <img src="./source/tiktok.svg" alt="TikTok" />
+          </a>
+          <a href="#" class="social-icon">
+            <img src="./source/x.svg" alt="X" />
+          </a>
+          <a href="#" class="social-icon">
+            <img src="./source/facebook.svg" alt="Facebook" />
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>Copyright &copy 2025 Ayam Goreng Monas. Hak Cipta Dilindungi.</p>
+      </div>
+    </section>
+  </body>
+</html>
