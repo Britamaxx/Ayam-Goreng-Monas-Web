@@ -1,82 +1,57 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+.menu {
+  text-align: center;
+  padding: 40px 8vw;
+  font-family: "Roboto", sans-serif;
 }
+
 .menu h2 {
-  font-size: 2rem;
-  margin-top: 30px;
+  font-size: 28px;
   margin-bottom: 30px;
-  color: #1a1a1a;
-  font-weight: 600;
-  text-align: center;
-}
-
-.menu Card,
-.menu Camilan {
-  margin-bottom: 50px;
-}
-
-.menu h3 {
-  font-size: 1.5rem;
-  margin-bottom: 25px;
-  color: #2a2a2a;
-  font-weight: 600;
-  text-align: center;
+  color: #000;
 }
 
 .menu-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 30px;
-  margin-bottom: 40px;
-  margin-left: 20px;
-  margin-right: 20px;
+  justify-items: center;
 }
 
 .menu-item {
-  background: white;
-  border-radius: 20px;
+  background-color: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   overflow: hidden;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  max-width: 260px;
+}
+
+.menu-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
 }
 
 .menu-item img {
   width: 100%;
-  height: 280px;
+  height: 200px;
   object-fit: cover;
-  display: block;
 }
 
 .menu-info {
-  padding: 20px;
-  text-align: center;
+  padding: 15px;
 }
 
-.menu-item p {
-  font-size: 18px;
-  font-weight: 600;
-  color: #1a1a1a;
-  margin-bottom: 8px;
+.menu-info p {
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #000;
 }
 
-.menu-item span {
+.favorite {
   display: inline-block;
-  font-size: 14px;
-  font-weight: 600;
-  padding: 6px 16px;
-  border-radius: 20px;
-  margin-top: 5px;
-}
-
-.menu-item span.favorite {
-  background-color: #fff3e0;
-  color: #e65100;
-}
-
-.menu-item span.new {
-  background-color: #ffebee;
-  color: #c62828;
+  background-color: #f2c994;
+  color: #8b5e00;
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 12px;
 }
