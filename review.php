@@ -35,7 +35,7 @@ $reviews = mysqli_query($conn, "SELECT * FROM review ORDER BY id DESC");
       <div class="header-right">
         <a href="index.html" class="nav home">Home</a>
         <a href="story.html" class="nav story">Our Story</a>
-        <a href="menu.html" class="nav menu">Menu</a>
+        <a href="menu.php" class="nav menu">Menu</a>
         <a href="news.html" class="nav menu">News</a>
         <a href="review.php" class="nav review">Review</a>
         <a href="location.html" class="nav location">Location</a>
