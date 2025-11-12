@@ -15,7 +15,25 @@ INSERT INTO review (nama, komentar, rating) VALUES
 ('Dimas Islamay', 'Tempatnya nyaman, recommended.', 5),
 ('Richo Anan', 'Harga terjangkau, rasa enak.', 4);
 
-SELECT * FROM review
+
+CREATE TABLE menu (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nama VARCHAR(50) NOT NULL,
+    gambar VARCHAR(100) NOT NULL,
+    status VARCHAR(20) DEFAULT NULL
+);
+
+INSERT INTO menu (nama, gambar, status) VALUES
+('Paket Ayam Monas', 'Paket Monas.png', 'FAVORITE'),
+('Bakwan', 'Bakwan.png', NULL),
+('Chicken Strip', 'Chicken Strip.png', 'FAVORITE'),
+('French Fries', 'French fries.png', NULL),
+('Es Blewah', 'Es Blewah.png', 'FAVORITE'),
+('Siomay', 'Siomay.png', 'FAVORITE');
+
+SELECT * FROM menu;
+
+
 
 
 
