@@ -14,7 +14,7 @@
   margin: 0 auto;
   display: flex;
   align-items: center;
-  padding: 0 20px;
+  padding: 20px;
 }
 
 .text-content-custom {
@@ -49,7 +49,6 @@
 
 .chicken-image-custom {
   max-width: 100%;
-  height: auto;
   display: block;
 }
 .story-section {
@@ -101,7 +100,6 @@
   flex-direction: row-reverse;
 }
 
-/* Timeline Dot */
 .timeline-dot {
   position: absolute;
   left: 50%;
@@ -116,7 +114,6 @@
 
 .timeline-content {
   flex: 1;
-  background: rgba(211, 211, 211, 0.8);
   padding: 35px;
   border-radius: 15px;
   margin: 10px;
@@ -140,7 +137,6 @@
   line-height: 1.8;
 }
 
-/* Timeline Image */
 .timeline-image {
   flex: 1;
 }
