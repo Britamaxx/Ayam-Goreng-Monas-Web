@@ -17,7 +17,6 @@ body {
   min-height: 100vh;
 }
 
-/* Tambahkan wrapper untuk konten utama */
 .main-header,
 .location {
   flex-shrink: 0;
