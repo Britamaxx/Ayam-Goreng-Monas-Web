@@ -6,113 +6,106 @@
   box-sizing: border-box;
 }
 
+body {
+  font-family: "Slabo 27px", serif;
+  background-color: #fff;
+  color: #000;
+}
+
 .review {
-  position: relative;
-  overflow: hidden;
+  width: 100%;
+  padding: 80px 0 60px 0;
 }
 
 .review h2 {
   text-align: center;
-  font-size: 4rem;
-  color: black;
-  margin-top: 20px;
+  font-size: 3.2rem;
+  color: #000;
   margin-bottom: 50px;
   font-weight: 700;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-  position: relative;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .Card-Review {
   max-width: 1200px;
   margin: 0 auto;
-  position: relative;
+  padding: 0 20px;
 }
 
 .Review-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 30px;
-  padding: 0 20px;
+  justify-items: center;
 }
 
 .review-card {
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
-  border-radius: 20px;
-  padding: 30px;
+  background: #fff;
+  border: 1px solid #d64531;
+  border-radius: 16px;
+  padding: 25px;
   transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-  border: #d64531 1px solid;
+  width: 100%;
+  max-width: 360px;
+}
+
+.review-card:hover {
+  transform: translateY(-5px);
 }
 
 .stars {
   display: flex;
-  gap: 5px;
-  margin-bottom: 20px;
   justify-content: center;
+  margin-bottom: 16px;
 }
 
 .star {
-  font-size: 24px;
-  color: #e0e0e0;
-  transition: all 0.3s ease;
+  font-size: 22px;
+  color: #ccc;
 }
 
 .star.filled {
-  color: #b73727;
+  color: #d64531;
 }
 
 .review-comment {
   font-size: 1rem;
-  line-height: 1.7;
   color: #333;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
+  text-align: center;
   font-style: italic;
-  position: relative;
-  z-index: 1;
-  min-height: 80px;
+  min-height: 60px;
 }
 
 .reviewer-name {
+  text-align: center;
   font-size: 1.1rem;
   color: #d64531;
-  margin-bottom: 8px;
-}
-
-.reviewer-name strong {
-  font-weight: 600;
+  margin-bottom: 5px;
 }
 
 .review-date {
+  text-align: center;
   font-size: 0.85rem;
   color: #888;
-  display: block;
 }
 
-.Submit-Review {
-  margin-top: 60px;
+.submit-section {
   text-align: center;
+  margin-top: 60px;
 }
 
 .add-review-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background-color: #ffffff;
-  color: #000000;
-  border: 1px solid #e0e0e0;
+  display: inline-block;
+  background-color: #d64531;
+  color: #fff;
+  padding: 10px 22px;
   border-radius: 8px;
-  padding: 8px 16px;
-  font-size: 0.9rem;
   font-weight: bold;
-  font-family: "Slabo 27px", serif;
-  cursor: pointer;
-  margin-bottom: 30px;
   text-decoration: none;
+  transition: all 0.3s ease;
 }
 
 .add-review-btn:hover {
-  background-color: #f8f8f8;
-  border-color: #cccccc;
+  background-color: #b73727;
 }

@@ -42,39 +42,37 @@ $reviews = mysqli_query($conn, "SELECT * FROM review ORDER BY id DESC");
       </div>
     </section>
     <section class="review">
-      <h2>Apa Kata Mereka?</h2>
-      <div class="Card-Review">
-        <div class="Review-list">
-          <?php while($row = mysqli_fetch_assoc($reviews)) { ?>
-                <div class="review-card">
-                    <div class="stars">
-                        <?php
-                            $filled = $row['rating'];
-                            $empty = 5 - $filled;
-                            for ($i = 0; $i < $filled; $i++) echo '<span class="star filled">★</span>';
-                            for ($i = 0; $i < $empty; $i++) echo '<span class="star">★</span>';
-                        ?>
-                    </div>
-                    <p class="review-comment">
-                        “<?php echo htmlspecialchars($row['komentar']); ?>”
-                    </p>
-                    <p class="reviewer-name">
-                        <strong><?php echo htmlspecialchars($row['nama']); ?></strong>
-                    </p>
-                    <small class="review-date">
-                        <?php echo htmlspecialchars($row['tanggal']); ?>
-                    </small>
-                </div>
-            <?php } ?>
+  <h2>Apa Kata Mereka?</h2>
+  <div class="Card-Review">
+    <div class="Review-list">
+      <?php while($row = mysqli_fetch_assoc($reviews)) { ?>
+        <div class="review-card">
+          <div class="stars">
+            <?php
+              $filled = $row['rating'];
+              $empty = 5 - $filled;
+              for ($i = 0; $i < $filled; $i++) echo '<span class="star filled">★</span>';
+              for ($i = 0; $i < $empty; $i++) echo '<span class="star">★</span>';
+            ?>
+          </div>
+          <p class="review-comment">
+            “<?php echo htmlspecialchars($row['komentar']); ?>”
+          </p>
+          <p class="reviewer-name">
+            <strong><?php echo htmlspecialchars($row['nama']); ?></strong>
+          </p>
+          <small class="review-date">
+            <?php echo htmlspecialchars($row['tanggal']); ?>
+          </small>
         </div>
-      </div>
-      <div class="Submit-Review">
-        <div class="Submit-Review">
-          <a href="form_review.php" class="add-review-btn">
-            Tambahkan Review
-          </a>
-      </div>
-      </div>
+      <?php } ?>
+    </div>
+  </div>
+
+  <div class="submit-section">
+    <a href="form_review.php" class="add-review-btn">Tambahkan Review</a>
+  </div>
+</section>
     </section>
     <section class="footer">
       <div class="footer-container">
