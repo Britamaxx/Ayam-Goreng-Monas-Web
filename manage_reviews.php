@@ -45,7 +45,7 @@ if (isset($_GET['hapus'])) {
 
     <section class="sidebar">
       <ul class="sidebar-menu">
-        <li class="dashboard"><a href="admin.html">Dashboard</a></li>
+        <li class="dashboard"><a href="admin.php">Dashboard</a></li>
         <li class="manage-menu"><a href="manage_menu.php">Manage Menu</a></li>
         <li class="manage-review active"><a href="manage_reviews.php">Manage Reviews</a></li>
       </ul>
