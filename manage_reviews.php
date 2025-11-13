@@ -48,6 +48,7 @@ if (isset($_GET['hapus'])) {
         <li class="dashboard"><a href="admin.php">Dashboard</a></li>
         <li class="manage-menu"><a href="manage_menu.php">Manage Menu</a></li>
         <li class="manage-review active"><a href="manage_reviews.php">Manage Reviews</a></li>
+        <li class="manage berita"><a href="manage_berita.html">Manage berita</a></li>
       </ul>
     </section>
 
