@@ -31,7 +31,13 @@ INSERT INTO menu (nama, gambar, status) VALUES
 ('Es Blewah', 'Es Blewah.png', 'FAVORITE'),
 ('Siomay', 'Siomay.png', 'FAVORITE');
 
-SELECT * FROM menu;
+CREATE TABLE berita (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    judul VARCHAR(50) NOT NULL,
+    gambar VARCHAR(255) NOT NULL,
+    deskripsi TEXT NOT NULL
+);
+
 
 
 
