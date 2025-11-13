@@ -52,19 +52,6 @@
   transition: transform 0.4s ease;
 }
 
-.card-item:hover {
-  transform: translateX(-8px);
-  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
-}
-
-.card-item:hover::before {
-  transform: scaleX(1);
-}
-
-.card-item:hover {
-  transform: scale(1.1) rotate(5deg);
-}
-
 .card-item h3 {
   color: #2c3e50;
   font-size: 20px;
