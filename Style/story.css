@@ -3,56 +3,29 @@
   padding: 0;
   box-sizing: border-box;
 }
-
-.story-hero-custom {
-  padding: 60px 0;
+.Container-header {
+  width: 100%;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
   overflow: hidden;
 }
 
-.container-custom {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  padding: 20px;
+.Container-header .image {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  line-height: 0;
 }
 
-.text-content-custom {
-  flex: 1;
-  padding-right: 40px;
-  text-align: left;
-  position: relative;
-}
-
-.title-custom {
-  font-size: 2.5rem;
-  font-weight: 900;
-  line-height: 1.1;
-  color: #d64531;
-  text-transform: capitalize;
-  margin-bottom: 20px;
-}
-
-.subtitle-custom {
-  font-size: 1.1rem;
-  font-weight: 300;
-  line-height: 1.5;
-  color: black;
-  max-width: 80%;
-}
-
-.image-content-custom {
-  flex: 1;
-  display: flex;
-  justify-content: flex-end;
-}
-
-.chicken-image-custom {
-  max-width: 100%;
+.Poster3 {
+  width: 100%;
+  height: auto;
   display: block;
+  object-fit: cover;
 }
+
 .story-section {
-  margin-top: 50px;
   padding: 20px;
   max-width: 1300px;
   margin-left: auto;
@@ -65,7 +38,7 @@
 }
 
 .story-header h2 {
-  font-size: 2.5rem;
+  font-size: 4rem;
   font-weight: bold;
 }
 
@@ -108,7 +81,7 @@
   height: 20px;
   background: #b73727;
   border-radius: 50%;
-  border: 4px solid #1a1a1a;
+  border: 3px solid #1a1a1a;
   z-index: 10;
 }
 

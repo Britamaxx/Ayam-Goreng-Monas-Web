@@ -10,7 +10,7 @@
 }
 
 .news h2 {
-  font-size: 2.5rem;
+  font-size: 4rem;
   font-weight: 700;
   margin-bottom: 3rem;
   text-align: center;
@@ -27,11 +27,11 @@
   background: #ffffff;
   border-radius: 16px;
   padding: 2rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
   transition: all 0.3s ease;
   border: 1px solid #f0f0f0;
   position: relative;
   overflow: hidden;
+  cursor: pointer;
 }
 
 .card-item::before {
@@ -41,18 +41,6 @@
   left: 0;
   width: 4px;
   height: 100%;
-  background: linear-gradient(180deg, #d64531, #e65100);
-  transform: scaleY(0);
-  transition: transform 0.3s ease;
-}
-
-.card-item:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
-}
-
-.card-item:hover::before {
-  transform: scaleY(1);
 }
 
 .card-item h3 {

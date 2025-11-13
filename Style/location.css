@@ -12,7 +12,7 @@
 }
 
 .location h2 {
-  font-size: 2rem;
+  font-size: 4rem;
   margin-bottom: 20px;
 }
 
@@ -33,10 +33,7 @@
   padding: 24px;
   text-align: left;
   transition: transform 0.2s ease;
-}
-
-.card:hover {
-  transform: translateY(-4px);
+  cursor: pointer;
 }
 
 .card h3 {
