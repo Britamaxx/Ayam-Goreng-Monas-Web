@@ -107,21 +107,6 @@
 
 .header-right a.active::after {
   width: 100%;
-  bottom: 0; 
+  bottom: 0;
   background-color: #c0392b;
-}
-
-@media (max-width: 768px) {
-  .main-header {
-    flex-direction: column;
-    gap: 10px;
-    height: auto;
-    padding: 10px 2vw;
-  }
-
-  .header-right {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1rem;
-  }
 }
