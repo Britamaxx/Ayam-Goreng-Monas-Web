@@ -7,12 +7,11 @@
 
 body {
   font-family: "Slabo 27px", serif;
-  /* max-width: 100vh; */
   height: 100vh;
 }
 
 .footer {
-  background-color: #ffffff;
+  background-color: #fff;
   color: #000000;
 }
 
@@ -22,6 +21,7 @@ body {
   align-items: start;
   gap: 80px;
   padding: 60px 8vw 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .footer-logo {
@@ -38,6 +38,7 @@ body {
   font-weight: bold;
   font-size: 18px;
   letter-spacing: 1px;
+  margin-bottom: 10px;
 }
 
 .footer-column {
@@ -93,6 +94,7 @@ body {
   height: 28px;
   transition: transform 0.3s;
   filter: none;
+  color: #e74c3c;
 }
 
 .footer-social img:hover {
@@ -101,11 +103,12 @@ body {
 }
 
 .footer-bottom {
-  border-top: 1px solid #000000;
-  margin-top: 40px;
+  border-top: 1px solid #e74c3c;
+
   padding: 15px 8vw 20px;
   text-align: center;
-  color: #000000;
+  color: #fff;
+  background-color: #e74c3c;
   font-size: 14px;
 }
 
