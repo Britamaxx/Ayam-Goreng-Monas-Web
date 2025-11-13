@@ -85,7 +85,7 @@ $reviews = mysqli_query($conn, "SELECT * FROM review ORDER BY id DESC");
           <h3>Link</h3>
           <ul>
             <li><a href="story.html">Kisah</a></li>
-            <li><a href="menu.html">Menu</a></li>
+            <li><a href="menu.php">Menu</a></li>
             <li><a href="news.html">Berita</a></li>
           </ul>
         </div>
