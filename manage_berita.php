@@ -5,48 +5,47 @@ if (!$conn) {
 }
 
 if (isset($_POST['tambah'])) {
-  $nama = $_POST['nama'];
-  $status = $_POST['status'];
+  $judul = $_POST['judul'];
+  $deskripsi = $_POST['deskripsi'];
   $gambar = $_FILES['gambar']['name'];
-  $target = "./Source/Daftar menu/" . basename($gambar);
+  $target = "./Source/Berita/" . basename($gambar);
 
-  $sql = "INSERT INTO menu (nama, gambar, status) VALUES ('$nama', '$gambar', '$status')";
+  $sql = "INSERT INTO berita (judul, gambar, deskripsi) VALUES ('$judul', '$gambar', '$deskripsi')";
   mysqli_query($conn, $sql);
   move_uploaded_file($_FILES['gambar']['tmp_name'], $target);
-  echo "<script>alert('Menu berhasil ditambahkan!');</script>";
+  echo "<script>alert('Berita berhasil ditambahkan!');</script>";
 }
 
 if (isset($_GET['hapus'])) {
   $id = $_GET['hapus'];
-  mysqli_query($conn, "DELETE FROM menu WHERE id=$id");
-  echo "<script>alert('Menu berhasil dihapus!');</script>";
+  mysqli_query($conn, "DELETE FROM berita WHERE id=$id");
+  echo "<script>alert('Berita berhasil dihapus!');</script>";
 }
 
 if (isset($_POST['update'])) {
   $id = $_POST['id'];
-  $nama = $_POST['nama'];
-  $status = $_POST['status'];
+  $judul = $_POST['judul'];
+  $deskripsi = $_POST['deskripsi'];
 
   if (!empty($_FILES['gambar']['name'])) {
     $gambar = $_FILES['gambar']['name'];
-    $target = "./Source/Daftar menu/" . basename($gambar);
+    $target = "./Source/Berita/" . basename($gambar);
     move_uploaded_file($_FILES['gambar']['tmp_name'], $target);
-    $query = "UPDATE menu SET nama='$nama', gambar='$gambar', status='$status' WHERE id=$id";
+    $query = "UPDATE berita SET judul='$judul', gambar='$gambar', deskripsi='$deskripsi' WHERE id=$id";
   } else {
-    $query = "UPDATE menu SET nama='$nama', status='$status' WHERE id=$id";
+    $query = "UPDATE berita SET judul='$judul', deskripsi='$deskripsi' WHERE id=$id";
   }
 
   mysqli_query($conn, $query);
-  echo "<script>alert('Menu berhasil diperbarui!');</script>";
+  echo "<script>alert('Berita berhasil diperbarui!');</script>";
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dashboard Admin - Manage Menu</title>
+    <title>Dashboard Admin - Manage Berita</title>
     <link rel="icon" type="image/png" sizes="16x16" href="./source/Logo.png" />
     <link rel="stylesheet" href="./style/manage_menu.css" />
     <script src="https://unpkg.com/feather-icons"></script>
@@ -75,50 +74,50 @@ if (isset($_POST['update'])) {
     <section class="sidebar">
       <ul class="sidebar-menu">
         <li class="dashboard"><a href="admin.php">Dashboard</a></li>
-        <li class="manage-menu active"><a href="manage_menu.php">Manage Menu</a></li>
+        <li class="manage-menu"><a href="manage_menu.php">Manage Menu</a></li>
         <li class="manage-review"><a href="manage_reviews.php">Manage Reviews</a></li>
-        <li class="manage berita"><a href="manage_berita.php">Manage Berita</a></li>
+        <li class="manage-berita active"><a href="manage_berita.php">Manage Berita</a></li>
       </ul>
     </section>
 
     <section class="main-content">
       <div class="content-header">
-        <h1>Kelola Menu Restoran</h1>
-        <p>Pilih aksi di bawah untuk menambah, memperbarui, atau menghapus menu.</p>
+        <h1>Kelola Berita Restoran</h1>
+        <p>Tambah, ubah, atau hapus berita yang muncul di halaman pelanggan.</p>
       </div>
 
       <div class="crud-container">
         <div class="form-section">
-          <h2>Tambah Menu Baru</h2>
+          <h2>Tambah Berita Baru</h2>
           <form method="POST" enctype="multipart/form-data">
-            <input type="text" name="nama" placeholder="Nama menu" required />
+            <input type="text" name="judul" placeholder="Judul berita" required />
             <input type="file" name="gambar" required />
-            <input type="text" name="status" placeholder="Status (misal: FAVORITE)" />
+            <textarea name="deskripsi" rows="4" placeholder="Deskripsi berita..." required></textarea>
             <button type="submit" name="tambah">Tambah</button>
           </form>
         </div>
 
         <div class="table-section">
-          <h2>Daftar Menu</h2>
+          <h2>Daftar Berita</h2>
           <table border="1" cellpadding="8">
             <tr>
               <th>ID</th>
-              <th>Nama</th>
+              <th>Judul</th>
               <th>Gambar</th>
-              <th>Status</th>
+              <th>Deskripsi</th>
               <th>Aksi</th>
             </tr>
             <?php
-            $result = mysqli_query($conn, "SELECT * FROM menu");
+            $result = mysqli_query($conn, "SELECT * FROM berita");
             while ($row = mysqli_fetch_assoc($result)) {
               echo "<tr>";
               echo "<td>{$row['id']}</td>";
-              echo "<td>{$row['nama']}</td>";
-              echo "<td><img src='./Source/Daftar menu/{$row['gambar']}' width='70'></td>";
-              echo "<td>{$row['status']}</td>";
+              echo "<td>{$row['judul']}</td>";
+              echo "<td><img src='./Source/Berita/{$row['gambar']}' width='70'></td>";
+              echo "<td style='max-width:300px;text-align:justify;'>{$row['deskripsi']}</td>";
               echo "<td>
-                      <button onclick=\"fillForm('{$row['id']}', '{$row['nama']}', '{$row['status']}')\">Edit</button>
-                      <a href='?hapus={$row['id']}' onclick='return confirm(\"Hapus menu ini?\")'>
+                      <button onclick=\"fillForm('{$row['id']}', '{$row['judul']}', '{$row['deskripsi']}')\">Edit</button>
+                      <a href='?hapus={$row['id']}' onclick='return confirm(\"Hapus berita ini?\")'>
                         <button>Hapus</button>
                       </a>
                     </td>";
@@ -129,12 +128,12 @@ if (isset($_POST['update'])) {
         </div>
 
         <div class="form-section">
-          <h2>Update Menu</h2>
+          <h2>Update Berita</h2>
           <form method="POST" enctype="multipart/form-data">
             <input type="hidden" id="edit-id" name="id" />
-            <input type="text" id="edit-nama" name="nama" placeholder="Nama menu" required />
+            <input type="text" id="edit-judul" name="judul" placeholder="Judul berita" required />
             <input type="file" name="gambar" />
-            <input type="text" id="edit-status" name="status" placeholder="Status" />
+            <textarea id="edit-deskripsi" name="deskripsi" rows="4" placeholder="Deskripsi berita..."></textarea>
             <button type="submit" name="update">Update</button>
           </form>
         </div>
@@ -142,11 +141,12 @@ if (isset($_POST['update'])) {
     </section>
 
     <script>
-      feather.replace()
-      function fillForm(id, nama, status) {
+      feather.replace();
+
+      function fillForm(id, judul, deskripsi) {
         document.getElementById("edit-id").value = id;
-        document.getElementById("edit-nama").value = nama;
-        document.getElementById("edit-status").value = status;
+        document.getElementById("edit-judul").value = judul;
+        document.getElementById("edit-deskripsi").value = deskripsi;
         window.scrollTo(0, document.body.scrollHeight);
       }
     </script>

@@ -32,7 +32,7 @@
         <li class="dashboard active"><a href="admin.php">Dashboard</a></li>
         <li class="manage-menu"><a href="manage_menu.php">Manage Menu</a></li>
         <li class="manage review"><a href="manage_reviews.php">Manage Reviews</a></li>
-        <li class="manage berita"><a href="manage_berita.html">Manage Berita</a></li>
+        <li class="manage berita"><a href="manage_berita.php">Manage Berita</a></li>
       </ul>
     </section>
     <script>
