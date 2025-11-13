@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Slabo+27px&display=swap");
+
 * {
   margin: 0;
   padding: 0;
@@ -16,11 +17,20 @@ body {
   min-height: 100vh;
 }
 
+/* Tambahkan wrapper untuk konten utama */
+.main-header,
+.location {
+  flex-shrink: 0;
+}
+
 .location {
   text-align: center;
-  margin-top: 40px;
-  margin-bottom: 40px;
+  padding: 40px 20px;
   font-family: "Slabo 27px", serif;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 .location h2 {
@@ -34,6 +44,7 @@ body {
   justify-content: center;
   flex-wrap: wrap;
   gap: 25px;
+  padding-bottom: 40px;
 }
 
 .card {
@@ -46,6 +57,11 @@ body {
   text-align: left;
   transition: transform 0.2s ease;
   cursor: pointer;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
 }
 
 .card h3 {
@@ -69,9 +85,11 @@ body {
   font-weight: 600;
   margin: 14px 0;
 }
-span {
+
+.card .time span {
   color: black;
 }
+
 .detail-btn {
   background-color: transparent;
   border: 1.8px solid #d64531;
@@ -86,4 +104,9 @@ span {
 .detail-btn:hover {
   background-color: #d64531;
   color: #fff;
+}
+
+.footer {
+  flex-shrink: 0;
+  margin-top: auto;
 }
