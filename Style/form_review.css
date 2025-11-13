@@ -1,0 +1,56 @@
+h2 {
+  margin-bottom: 20px;
+}
+
+.form-section {
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.review-form {
+  display: inline-block;
+  text-align: left;
+  background: #fff;
+  padding: 30px;
+  border-radius: 15px;
+  width: 400px;
+  border: 1px solid #d64531;
+}
+
+.review-form label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.review-form input,
+.review-form select,
+.review-form textarea {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.submit-btn,
+.cancel-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  margin-right: 10px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.submit-btn {
+  background-color: #d64531;
+  color: white;
+  border: none;
+}
+
+.cancel-btn {
+  background-color: #ccc;
+  color: black;
+}

@@ -69,9 +69,11 @@ $reviews = mysqli_query($conn, "SELECT * FROM review ORDER BY id DESC");
         </div>
       </div>
       <div class="Submit-Review">
-        <button class="add-review-btn" onclick="openReviewModal()">
+        <div class="Submit-Review">
+          <a href="form_review.php" class="add-review-btn">
             Tambahkan Review
-        </button>
+          </a>
+      </div>
       </div>
     </section>
     <section class="footer">
