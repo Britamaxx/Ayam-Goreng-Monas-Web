@@ -31,40 +31,85 @@
     </section>
 
     <section class="menu">
-      <h2>Menu Kami</h2>
-      <div class="menu-grid">
-        <?php
-        $conn = mysqli_connect("localhost", "root", "", "ayamgoreng_monas");
+  <h2>Menu Kami</h2>
+  <div class="menu-grid">
+    <?php
+    $conn = mysqli_connect("localhost", "root", "", "ayamgoreng_monas");
 
-        if (!$conn) {
-          die("Koneksi gagal: " . mysqli_connect_error());
+    if (!$conn) {
+      die("Koneksi gagal: " . mysqli_connect_error());
+    }
+
+    $sql = "SELECT * FROM menu";
+    $result = mysqli_query($conn, $sql);
+
+    if (mysqli_num_rows($result) > 0) {
+      while ($row = mysqli_fetch_assoc($result)) {
+        $menuData = htmlspecialchars(json_encode($row), ENT_QUOTES, 'UTF-8');
+        echo '<div class="menu-item" onclick="openMenuModal(' . $menuData . ')">';
+        echo '  <div class="menu-image-wrapper">';
+        echo '    <img src="./Source/Daftar menu/' . htmlspecialchars($row['gambar']) . '" alt="' . htmlspecialchars($row['nama']) . '">';
+        echo '  </div>';
+        echo '  <div class="menu-info">';
+        echo '    <p>' . htmlspecialchars($row['nama']) . '</p>';
+        if (!empty($row['status'])) {
+          echo '    <span class="favorite">#' . htmlspecialchars($row['status']) . '</span>';
         }
+        echo '  </div>';
+        echo '</div>';
+      }
+    } else {
+      echo "<p>Tidak ada menu tersedia.</p>";
+    }
 
-        $sql = "SELECT * FROM menu";
-        $result = mysqli_query($conn, $sql);
+    mysqli_close($conn);
+    ?>
+  </div>
+</section>
 
-        if (mysqli_num_rows($result) > 0) {
-          while ($row = mysqli_fetch_assoc($result)) {
-            echo '<div class="menu-item">';
-            echo '  <div class="menu-image-wrapper">';
-            echo '    <img src="./Source/Daftar menu/' . htmlspecialchars($row['gambar']) . '" alt="' . htmlspecialchars($row['nama']) . '">';
-            echo '  </div>';
-            echo '  <div class="menu-info">';
-            echo '    <p>' . htmlspecialchars($row['nama']) . '</p>';
-            if (!empty($row['status'])) {
-              echo '    <span class="favorite">#' . htmlspecialchars($row['status']) . '</span>';
-            }
-            echo '  </div>';
-            echo '</div>';
-          }
-        } else {
-          echo "<p>Tidak ada menu tersedia.</p>";
-        }
-
-        mysqli_close($conn);
-        ?>
+<div id="menuModal" class="modal">
+  <button class="close-btn" onclick="closeMenuModal()">×</button>
+  <div class="modal-content">
+    <div class="modal-body">
+      <div class="modal-image">
+        <img id="modalImage" src="" alt="Menu">
       </div>
-    </section>
+      <div class="modal-details">
+        <h2 id="modalTitle"></h2>
+        <span id="modalStatus" class="modal-status"></span>
+        <p id="modalDescription"></p>
+
+        <div class="nutrition-info">
+          <h3>Ringkasan Gizi</h3>
+          <div class="nutrition-grid">
+            <div class="nutrient">
+              <img src="./Source/Kalori.svg" alt="Kalori">
+              <div>
+                <p>Kalori</p>
+                <strong id="kaloriValue">-</strong>
+              </div>
+            </div>
+            <div class="nutrient">
+              <img src="./Source/Karbo.svg" alt="Karbohidrat">
+              <div>
+                <p>Karbohidrat</p>
+                <strong id="karboValue">-</strong>
+              </div>
+            </div>
+            <div class="nutrient">
+              <img src="./Source/Protein.svg" alt="Protein">
+              <div>
+                <p>Protein</p>
+                <strong id="proteinValue">-</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
 
     <section class="footer">
       <div class="footer-container">
@@ -109,5 +154,44 @@
         <p>Copyright &copy; 2025 Ayam Goreng Monas. Hak Cipta Dilindungi.</p>
       </div>
     </section>
+  <script>
+      function openMenuModal(menuData) {
+      const modal = document.getElementById('menuModal');
+      document.getElementById('modalImage').src = './Source/Daftar menu/' + menuData.gambar;
+      document.getElementById('modalTitle').textContent = menuData.nama;
+      document.getElementById('modalDescription').textContent = menuData.deskripsi || 'Deskripsi belum tersedia.';
+
+      const statusEl = document.getElementById('modalStatus');
+      if (menuData.status) {
+        statusEl.textContent = '#' + menuData.status;
+        statusEl.style.display = 'inline-block';
+      } else {
+        statusEl.style.display = 'none';
+      }
+
+      // Isi data gizi (pastikan field ini ada di database)
+      document.getElementById('kaloriValue').textContent = menuData.kalori ? menuData.kalori + ' Kal' : '-';
+      document.getElementById('karboValue').textContent = menuData.karbohidrat ? menuData.karbohidrat + ' g' : '-';
+      document.getElementById('proteinValue').textContent = menuData.protein ? menuData.protein + ' g' : '-';
+
+      modal.style.display = 'block';
+      document.body.style.overflow = 'hidden';
+      }
+
+      function closeMenuModal() {
+        document.getElementById('menuModal').style.display = 'none';
+        document.body.style.overflow = 'auto';
+      }
+
+      window.onclick = e => {
+        const modal = document.getElementById('menuModal');
+        if (e.target === modal) closeMenuModal();
+      };
+
+      document.addEventListener('keydown', e => {
+        if (e.key === 'Escape') closeMenuModal();
+      });
+
+    </script>
   </body>
 </html>
