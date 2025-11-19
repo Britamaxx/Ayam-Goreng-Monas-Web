@@ -4,7 +4,6 @@ if (!$conn) {
   die("Koneksi gagal: " . mysqli_connect_error());
 }
 
-
 if (isset($_GET['hapus'])) {
   $id = $_GET['hapus'];
   mysqli_query($conn, "DELETE FROM review WHERE id=$id");
@@ -19,7 +18,7 @@ if (isset($_GET['hapus'])) {
     <title>Dashboard Admin - Manage Reviews</title>
     <link rel="icon" type="image/png" sizes="16x16" href="./source/Logo.png" />
     <link rel="stylesheet" href="./style/admin.css" />
-    <link rel="stylesheet" href="./style/header.css" />
+    <link rel="stylesheet" href="./style/manage_menu.css" />
     <script src="https://unpkg.com/feather-icons"></script>
   </head>
   <body>

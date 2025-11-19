@@ -49,6 +49,7 @@ if (isset($_POST['update'])) {
     <title>Dashboard Admin - Manage Menu</title>
     <link rel="icon" type="image/png" sizes="16x16" href="./source/Logo.png" />
     <link rel="stylesheet" href="./style/manage_menu.css" />
+    <link rel="stylesheet" href="./style/admin.css" />
     <script src="https://unpkg.com/feather-icons"></script>
   </head>
   <body>
@@ -114,7 +115,7 @@ if (isset($_POST['update'])) {
               echo "<tr>";
               echo "<td>{$row['id']}</td>";
               echo "<td>{$row['nama']}</td>";
-              echo "<td><img src='./Source/Daftar menu/{$row['gambar']}' width='70'></td>";
+              echo "<td><img class='menu-img' src='./Source/Daftar menu/{$row['gambar']}'></td>";
               echo "<td>{$row['status']}</td>";
               echo "<td>
                       <button onclick=\"fillForm('{$row['id']}', '{$row['nama']}', '{$row['status']}')\">Edit</button>

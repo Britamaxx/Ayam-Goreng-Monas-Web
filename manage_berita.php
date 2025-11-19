@@ -48,6 +48,7 @@ if (isset($_POST['update'])) {
     <title>Dashboard Admin - Manage Berita</title>
     <link rel="icon" type="image/png" sizes="16x16" href="./source/Logo.png" />
     <link rel="stylesheet" href="./style/manage_menu.css" />
+    <link rel="stylesheet" href="./style/admin.css" />
     <script src="https://unpkg.com/feather-icons"></script>
   </head>
   <body>
