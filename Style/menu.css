@@ -56,14 +56,13 @@
   font-weight: 600;
 }
 
-/* --- MODAL STYLING --- */
 .modal {
   display: none;
   position: fixed;
   inset: 0;
   background: rgba(0, 0, 0, 0.7);
   z-index: 9999;
-  overflow-y: auto;
+  overflow-y: hidden;
 }
 
 .modal-content {
@@ -71,7 +70,7 @@
   border-radius: 20px;
   width: 90%;
   max-width: 900px;
-  margin: 5% auto;
+  margin: 20% auto;
   overflow: hidden;
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
 }
