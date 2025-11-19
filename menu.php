@@ -154,7 +154,9 @@
         <p>Copyright &copy; 2025 Ayam Goreng Monas. Hak Cipta Dilindungi.</p>
       </div>
     </section>
+
   <script>
+      // Fungsi Modal Menu
       function openMenuModal(menuData) {
       const modal = document.getElementById('menuModal');
       document.getElementById('modalImage').src = './Source/Daftar menu/' + menuData.gambar;
@@ -169,7 +171,6 @@
         statusEl.style.display = 'none';
       }
 
-      // Isi data gizi (pastikan field ini ada di database)
       document.getElementById('kaloriValue').textContent = menuData.kalori ? menuData.kalori + ' Kal' : '-';
       document.getElementById('karboValue').textContent = menuData.karbohidrat ? menuData.karbohidrat + ' g' : '-';
       document.getElementById('proteinValue').textContent = menuData.protein ? menuData.protein + ' g' : '-';
@@ -192,6 +193,22 @@
         if (e.key === 'Escape') closeMenuModal();
       });
 
+      // ANIMASI MENU - MUNCUL SATU PER SATU
+      document.addEventListener('DOMContentLoaded', function() {
+        console.log('DOM loaded'); // Debug
+        
+        const menuItems = document.querySelectorAll('.menu-item');
+        console.log('Found menu items:', menuItems.length); // Debug
+        
+        if (menuItems.length > 0) {
+          menuItems.forEach((item, index) => {
+            setTimeout(() => {
+              item.classList.add('show');
+              console.log('Showing item', index); // Debug
+            }, index * 150); // 150ms delay per item
+          });
+        }
+      });
     </script>
   </body>
 </html>

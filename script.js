@@ -6,7 +6,7 @@ class Carousel {
     this.track = document.querySelector(".carousel-track");
     this.slides = document.querySelectorAll(".carousel-slide");
     this.dots = document.querySelectorAll(".dot");
-    this.carouselElement = document.querySelector(".image-carousel"); // Kita butuh ini untuk mouse enter/leave
+    this.carouselElement = document.querySelector(".image-carousel");
 
     this.currentIndex = 0;
     this.totalSlides = this.slides.length;
@@ -24,9 +24,6 @@ class Carousel {
       });
     });
 
-    // Ini adalah baris yang menyebabkan error sebelumnya
-    // Sekarang aman karena kita HANYA memanggil 'new Carousel()'
-    // jika '.image-carousel' ada.
     this.carouselElement.addEventListener("mouseenter", () => this.stopAutoPlay());
     this.carouselElement.addEventListener("mouseleave", () => this.startAutoPlay());
 
@@ -121,8 +118,26 @@ function setupStoryAnimation() {
 }
 
 /* =================================================================== */
+/* BAGIAN 3.5: FUNGSI ANIMASI MENU (Blueprint animasi menu) - BARU    */
+/* =================================================================== */
+function setupMenuAnimation() {
+  const menuItems = document.querySelectorAll(".menu-item");
+  
+  // Jika tidak ada menu items, skip
+  if (menuItems.length === 0) {
+    return;
+  }
+
+  // Langsung tambahkan animasi dengan delay bertahap
+  menuItems.forEach((item, index) => {
+    setTimeout(() => {
+      item.classList.add("show");
+    }, index * 300); // 150ms delay antar item
+  });
+}
+
+/* =================================================================== */
 /* BAGIAN 4: EKSEKUSI UTAMA (Setelah HTML dimuat)                      */
-/* INI ADALAH BAGIAN DENGAN PERBAIKAN KUNCI                           */
 /* =================================================================== */
 document.addEventListener("DOMContentLoaded", () => {
   
@@ -156,5 +171,9 @@ document.addEventListener("DOMContentLoaded", () => {
   // Fungsi ini sudah punya pengecekan internal (di BAGIAN 3)
   // jadi aman dipanggil di halaman manapun.
   setupStoryAnimation();
+
+  //--- Animasi Menu - BARU ---
+  // Panggil fungsi animasi menu
+  setupMenuAnimation();
 
 });

@@ -22,9 +22,20 @@
 
 .menu-item {
   cursor: pointer;
-  transition: transform 0.3s ease;
+  /* Animasi muncul bertahap - BARU */
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
 }
-.menu-item:hover {
+
+/* Tampilkan saat class 'show' ditambahkan - BARU */
+.menu-item.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Hover effect - hanya aktif setelah show */
+.menu-item.show:hover {
   transform: translateY(-5px);
 }
 
