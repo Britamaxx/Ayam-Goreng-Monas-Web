@@ -53,7 +53,7 @@ body {
 .restaurant-name {
   font-size: 18px;
   font-weight: 700;
-  color: #2c3e50;
+  color: #c0392b;
   letter-spacing: 0.5px;
 }
 
@@ -208,7 +208,6 @@ body {
   height: 100%;
 }
 
-/* Main Content Area */
 .main-content {
   margin-left: 260px;
   margin-top: 70px;
@@ -216,7 +215,6 @@ body {
   min-height: calc(100vh - 70px);
 }
 
-/* Responsive */
 @media (max-width: 768px) {
   .sidebar {
     transform: translateX(-100%);
