@@ -137,6 +137,41 @@ function setupMenuAnimation() {
 }
 
 /* =================================================================== */
+/* BAGIAN 3.7: FUNGSI ANIMASI REVIEW (Blueprint animasi review) - BARU */
+/* =================================================================== */
+function setupReviewAnimation() {
+  const reviewCards = document.querySelectorAll(".review-card");
+
+  if (reviewCards.length === 0) {
+    return;
+  }
+
+  const options = {
+    threshold: 0.1, // Picu saat 10% elemen terlihat
+    rootMargin: "0px 0px -50px 0px", // Memulai sedikit lebih awal
+  };
+
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        // Tambahkan class 'show' dengan delay bertahap
+        const index = Array.from(reviewCards).indexOf(entry.target);
+        setTimeout(() => {
+          entry.target.classList.add("show");
+          observer.unobserve(entry.target); // Berhenti mengamati setelah muncul
+        }, index * 300); // 100ms delay antar item
+      }
+    });
+  }, options);
+
+  reviewCards.forEach((card) => {
+    // Awalnya sembunyikan elemen dengan class 'hide'
+    card.classList.add('hide'); 
+    observer.observe(card);
+  });
+}
+
+/* =================================================================== */
 /* BAGIAN 4: EKSEKUSI UTAMA (Setelah HTML dimuat)                      */
 /* =================================================================== */
 document.addEventListener("DOMContentLoaded", () => {
@@ -175,5 +210,9 @@ document.addEventListener("DOMContentLoaded", () => {
   //--- Animasi Menu - BARU ---
   // Panggil fungsi animasi menu
   setupMenuAnimation();
+  
+  //--- Animasi Review - BARU ---
+  // Panggil fungsi animasi review
+  setupReviewAnimation();
 
 });
