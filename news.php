@@ -57,6 +57,8 @@ $berita = mysqli_query($conn, "SELECT * FROM berita ORDER BY id DESC");
                  alt="News Image" />
           </div>
         <?php } ?>
+      </div>
+      </section>
 
     <section class="footer">
       <div class="footer-container">
