@@ -31,7 +31,7 @@
 
       <div class="header-right">
         <a href="location.html" class="find-store">
-          <img src="map-icon.png" alt="map icon" />
+          <img src="Source/map-pin.svg" alt="map icon" />
           Find a Store
         </a>
       </div>
