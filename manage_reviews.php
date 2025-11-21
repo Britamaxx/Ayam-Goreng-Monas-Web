@@ -18,7 +18,7 @@ if (isset($_GET['hapus'])) {
     <title>Dashboard Admin - Manage Reviews</title>
     <link rel="icon" type="image/png" sizes="16x16" href="./source/Logo.png" />
     <link rel="stylesheet" href="./style/admin.css" />
-    <link rel="stylesheet" href="./style/manage_berita.css" />
+    <link rel="stylesheet" href="./style/manage_reviews.css" />
     <script src="https://unpkg.com/feather-icons"></script>
   </head>
   <body>
