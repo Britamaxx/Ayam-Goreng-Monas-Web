@@ -1,3 +1,6 @@
+/* ======================
+   RESET & BASE STYLE
+====================== */
 * {
   margin: 0;
   padding: 0;
@@ -10,6 +13,9 @@ body {
   color: #1a1a1a;
 }
 
+/* ======================
+   NAVBAR
+====================== */
 .navbar {
   position: fixed;
   top: 0;
@@ -31,13 +37,16 @@ body {
   color: #DC2626;
 }
 
+/* ======================
+   SIDEBAR
+====================== */
 .sidebar {
   position: fixed;
   top: 70px;
   left: 0;
   width: 240px;
   height: calc(100vh - 70px);
-  background: #B91C1C;         
+  background: #B91C1C;
   padding-top: 20px;
 }
 
@@ -71,6 +80,9 @@ body {
   border-left-color: #FBBF24;
 }
 
+/* ======================
+   MAIN CONTENT
+====================== */
 .main-content {
   margin-left: 260px;
   margin-top: 90px;
@@ -88,13 +100,66 @@ body {
   margin-top: 5px;
 }
 
+/* ======================
+   FORM CONTAINER
+====================== */
+.crud-container {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+/* Sama seperti manage_menu */
+.form-section {
+  background: #ffffff;
+  padding: 25px 30px;
+  border-radius: 14px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+  border: 1px solid #FFE8C7;
+}
+
+.form-section h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #DC2626;
+  margin-bottom: 16px;
+}
+
+.form-section input,
+.form-section textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 12px;
+  border: 1px solid #E5E7EB;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+/* Tombol sama persis */
+.form-section button {
+  padding: 10px 18px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  background: #DC2626;
+  color: white;
+}
+
+.form-section button:hover {
+  filter: brightness(1.1);
+}
+
+/* ======================
+   TABLE SECTION
+====================== */
 .table-section {
   background: #ffffff;
   padding: 25px 30px;
   border-radius: 14px;
   box-shadow: 0 4px 14px rgba(0,0,0,0.06);
   border: 1px solid #FFE8C7;
-  margin-top: 25px;
 }
 
 .table-section h2 {
@@ -107,8 +172,8 @@ body {
 .table-section table {
   width: 100%;
   border-collapse: collapse;
-  overflow: hidden;
   border-radius: 10px;
+  overflow: hidden;
 }
 
 .table-section th {
@@ -125,12 +190,14 @@ body {
   background: #FFF;
   border: 1px solid #d9d9d9;
   font-size: 14px;
+  vertical-align: top;
 }
 
 .table-section tr:hover td {
   background: #FFF7DA;
 }
 
+/* Tombol Edit/Hapus */
 .table-section button {
   padding: 6px 12px;
   border-radius: 6px;
@@ -146,12 +213,25 @@ body {
   filter: brightness(1.1);
 }
 
+/* ======================
+   GAMBAR BERITA
+====================== */
+.table-section img {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid #eee;
+}
+
+/* ======================
+   RESPONSIVE
+====================== */
 @media (max-width: 768px) {
   .main-content {
     margin-left: 0;
     padding: 20px;
   }
-
   .sidebar {
     display: none;
   }
