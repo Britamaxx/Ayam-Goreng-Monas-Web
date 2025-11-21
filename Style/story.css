@@ -99,9 +99,6 @@
   border-radius: 15px;
 }
 
-/* --- Tambahan untuk Animasi Scroll (Versi "Terbelah") --- */
-
-/* 1. Sembunyikan header (geser dari bawah) */
 .story-header {
   opacity: 0;
   transition: opacity 0.8s ease-out, transform 0.8s ease-out;
@@ -109,42 +106,31 @@
   will-change: opacity, transform;
 }
 
-/* 2. Sembunyikan timeline-item (HANYA opacity) */
-/* Kita tidak menggeser seluruh blok, hanya anak-anaknya */
 .timeline-item {
   opacity: 0;
-  transition: opacity 0.6s ease-out; /* Transisi opacity lebih cepat */
+  transition: opacity 0.6s ease-out; 
   will-change: opacity;
 }
 
-/* 3. Atur kondisi awal (tersembunyi) untuk ANAK-ANAKNYA */
 .timeline-item .timeline-content,
 .timeline-item .timeline-image {
-  transition: transform 0.8s ease-out; /* Mereka HANYA butuh transisi transform */
+  transition: transform 0.8s ease-out; 
   will-change: transform;
 }
 
-/* == INI LOGIKA BARU ANDA == */
-
-/* Untuk Blok KIRI (Konten Kiri, Gambar Kanan) */
 .timeline-item.left .timeline-content {
-  transform: translateX(-100px); /* Konten Kiri -> dari Kiri */
+  transform: translateX(-100px); 
 }
 .timeline-item.left .timeline-image {
-  transform: translateX(100px); /* Gambar Kanan -> dari Kanan */
+  transform: translateX(100px); 
 }
 
-/* Untuk Blok KANAN (Gambar Kiri, Konten Kanan) */
 .timeline-item.right .timeline-image {
-  transform: translateX(-100px); /* Gambar Kiri -> dari Kiri */
+  transform: translateX(-100px);
 }
 .timeline-item.right .timeline-content {
-  transform: translateX(100px); /* Konten Kanan -> dari Kanan */
+  transform: translateX(100px); 
 }
-
-/* --- KONDISI AKHIR (TERLIHAT) --- */
-
-/* Saat .show ditambahkan oleh JS, kembalikan semua ke normal */
 
 .story-header.show {
   opacity: 1;
@@ -152,10 +138,9 @@
 }
 
 .timeline-item.show {
-  opacity: 1; /* Munculkan opacity-nya */
+  opacity: 1;
 }
 
-/* ...dan kembalikan semua anak-anaknya ke posisi normal (transform 0) */
 .timeline-item.show .timeline-content,
 .timeline-item.show .timeline-image {
   transform: translateX(0);
