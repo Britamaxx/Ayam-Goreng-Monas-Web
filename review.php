@@ -36,7 +36,7 @@ $reviews = mysqli_query($conn, "SELECT * FROM review ORDER BY id DESC");
         <a href="index.html" class="nav home">Beranda</a>
         <a href="story.html" class="nav story">Cerita Kami</a>
         <a href="menu.php" class="nav menu">Menu</a>
-        <a href="news.html" class="nav news">Berita</a>
+        <a href="news.php" class="nav news">Berita</a>
         <a href="review.php" class="nav review active">Ulasan</a>
         <a href="location.html" class="nav location">Lokasi</a>
       </div>
@@ -86,7 +86,7 @@ $reviews = mysqli_query($conn, "SELECT * FROM review ORDER BY id DESC");
           <ul>
             <li><a href="story.html">Kisah</a></li>
             <li><a href="menu.php">Menu</a></li>
-            <li><a href="news.html">Berita</a></li>
+            <li><a href="news.php">Berita</a></li>
           </ul>
         </div>
 
