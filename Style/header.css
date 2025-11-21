@@ -14,7 +14,7 @@
   top: 0;
   z-index: 1000;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   padding: 6px 3vw;
   height: 70px;
@@ -30,6 +30,29 @@
   display: flex;
   align-items: center;
   gap: 10px;
+}
+
+.header-left,
+.header-right {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.header-left {
+  justify-content: flex-start;
+}
+
+.header-right {
+  justify-content: flex-end;
+}
+
+.header-middle {
+  flex: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.9rem;
 }
 
 .restaurant-logo img {
@@ -56,14 +79,7 @@
   color: #a93226;
 }
 
-.header-right {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 1.8rem;
-}
-
-.header-right a {
+.header-middle a {
   position: relative;
   text-decoration: none;
   font-family: "Slabo 27px", serif;
@@ -71,12 +87,11 @@
   font-weight: 600;
   color: #222;
   transition: color 0.3s ease;
-  line-height: 1;
-  display: inline-block;
   padding: 6px 0;
+  white-space: nowrap;
 }
 
-.header-right a::after {
+.header-middle a::after {
   content: "";
   position: absolute;
   left: 50%;
@@ -89,24 +104,34 @@
   border-radius: 1px;
 }
 
-.header-right a:hover::after {
+.header-middle a:hover::after,
+.header-middle a.active::after {
   width: 100%;
 }
 
-.header-right a:hover {
+.header-middle a:hover,
+.header-middle a.active {
   color: #c0392b;
 }
 
-.header-right a.nav-review:hover {
+.header-right .find-store {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 15px;
+  font-weight: 600;
   color: #c0392b;
 }
 
-.header-right a.active {
-  color: #c0392b;
+.header-right .find-store img {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
 }
 
-.header-right a.active::after {
-  width: 100%;
-  bottom: 0;
-  background-color: #c0392b;
+.header-right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 1.8rem;
 }

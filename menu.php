@@ -16,17 +16,24 @@
     <section class="main-header">
       <div class="header-left">
         <div class="restaurant-logo">
-          <img src="./source/Logo.png" alt="restaurant-logo" />
+          <img src="./source/Logo.png" alt="Restaurant Logo" />
         </div>
-        <div class="restaurant-name">AYAM GORENG MONAS</div>
+        <div class="restaurant-name">Ayam Goreng Monas</div>
       </div>
-      <div class="header-right">
-        <a href="index.html" class="nav home">Beranda</a>
+
+      <nav class="header-middle">
+        <a href="index.html" class="nav home">Beranda </a>
         <a href="story.html" class="nav story">Cerita Kami</a>
         <a href="menu.php" class="nav menu active">Menu</a>
         <a href="news.php" class="nav news">Berita</a>
-        <a href="review.php" class="nav review">Ulasan</a>
-        <a href="location.html" class="nav location">Lokasi</a>
+        <a href="review.php" class="nav nav-review">Ulasan</a>
+      </nav>
+
+      <div class="header-right">
+        <a href="location.html" class="find-store">
+          <img src="map-icon.png" alt="map icon" />
+          Find a Store
+        </a>
       </div>
     </section>
 
@@ -156,7 +163,6 @@
     </section>
 
   <script>
-      // Fungsi Modal Menu
       function openMenuModal(menuData) {
       const modal = document.getElementById('menuModal');
       document.getElementById('modalImage').src = './Source/Daftar menu/' + menuData.gambar;
@@ -193,19 +199,18 @@
         if (e.key === 'Escape') closeMenuModal();
       });
 
-      // ANIMASI MENU - MUNCUL SATU PER SATU
       document.addEventListener('DOMContentLoaded', function() {
-        console.log('DOM loaded'); // Debug
+        console.log('DOM loaded'); 
         
         const menuItems = document.querySelectorAll('.menu-item');
-        console.log('Found menu items:', menuItems.length); // Debug
+        console.log('Found menu items:', menuItems.length); 
         
         if (menuItems.length > 0) {
           menuItems.forEach((item, index) => {
             setTimeout(() => {
               item.classList.add('show');
-              console.log('Showing item', index); // Debug
-            }, index * 150); // 150ms delay per item
+              console.log('Showing item', index); 
+            }, index * 150); 
           });
         }
       });
