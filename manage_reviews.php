@@ -55,35 +55,37 @@ if (isset($_GET['hapus'])) {
         <p>Admin dapat melihat dan menghapus review pelanggan di sini.</p>
       </div>
 
-      <div class="table-section">
-        <h2>Daftar Review</h2>
-        <table border="1" cellpadding="8">
-          <tr>
-            <th>ID</th>
-            <th>Nama</th>
-            <th>Komentar</th>
-            <th>Rating</th>
-            <th>Tanggal</th>
-            <th>Aksi</th>
-          </tr>
-          <?php
-          $result = mysqli_query($conn, "SELECT * FROM review ORDER BY tanggal DESC");
-          while ($row = mysqli_fetch_assoc($result)) {
-            echo "<tr>";
-            echo "<td>{$row['id']}</td>";
-            echo "<td>{$row['nama']}</td>";
-            echo "<td>{$row['komentar']}</td>";
-            echo "<td>{$row['rating']}</td>";
-            echo "<td>{$row['tanggal']}</td>";
-            echo "<td>
-                    <a href='?hapus={$row['id']}' onclick='return confirm(\"Hapus review ini?\")'>
-                      <button>Hapus</button>
-                    </a>
-                  </td>";
-            echo "</tr>";
-          }
-          ?>
-        </table>
+      <div class="crud-container">
+        <div class="table-section">
+          <h2>Daftar Review</h2>
+          <table border="1" cellpadding="8">
+            <tr>
+              <th>ID</th>
+              <th>Nama</th>
+              <th>Komentar</th>
+              <th>Rating</th>
+              <th>Tanggal</th>
+              <th>Aksi</th>
+            </tr>
+            <?php
+            $result = mysqli_query($conn, "SELECT * FROM review ORDER BY tanggal DESC");
+            while ($row = mysqli_fetch_assoc($result)) {
+              echo "<tr>";
+              echo "<td>{$row['id']}</td>";
+              echo "<td>{$row['nama']}</td>";
+              echo "<td>{$row['komentar']}</td>";
+              echo "<td>{$row['rating']}</td>";
+              echo "<td>{$row['tanggal']}</td>";
+              echo "<td>
+                      <a href='?hapus={$row['id']}' onclick='return confirm(\"Hapus review ini?\")'>
+                        <button>Hapus</button>
+                      </a>
+                    </td>";
+              echo "</tr>";
+            }
+            ?>
+          </table>
+        </div>
       </div>
     </section>
 
