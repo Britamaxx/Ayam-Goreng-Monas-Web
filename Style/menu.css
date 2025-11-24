@@ -175,6 +175,36 @@
   color: #111;
 }
 
+.pagination-container {
+  margin-top: 50px;
+  text-align: center;
+  font-family: "Slabo 27px", serif;
+}
+
+.pagination-btn,
+.pagination-number {
+  display: inline-block;
+  padding: 10px 16px;
+  margin: 4px;
+  border: 1px solid #b55a37;
+  border-radius: 8px;
+  color: #b55a37;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.25s;
+}
+
+.pagination-btn:hover,
+.pagination-number:hover {
+  background-color: #b55a37;
+  color: white;
+}
+
+.pagination-number.active {
+  background-color: #b55a37;
+  color: white;
+}
+
 @media (max-width: 768px) {
   .modal-body {
     flex-direction: column;
