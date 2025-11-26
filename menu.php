@@ -154,13 +154,6 @@
         </div>
 
         <div class="footer-column">
-          <h3>Pemesanan</h3>
-          <ul>
-            <li><a href="https://wa.me/6281234567890" target="_blank">WhatsApp</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-column">
           <h3>Hubungi</h3>
           <ul>
             <li><a href="https://wa.me/6281234567890" target="_blank">WhatsApp</a></li>
