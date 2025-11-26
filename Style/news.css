@@ -52,6 +52,7 @@ body {
   display: flex;
   gap: 24px;
   align-items: center;
+  text-align: left;
 }
 
 .card-item:hover {
