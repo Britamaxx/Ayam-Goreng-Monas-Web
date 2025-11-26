@@ -106,36 +106,24 @@ body {
   background-color: #b73727;
 }
 
-/* --- Animasi Review --- */
-
-/* Keadaan awal: tersembunyi, bergerak ke atas sedikit */
 .review-card.hide {
   opacity: 0;
   transform: translateY(20px);
-  /* Tambahkan transisi agar animasi terlihat halus */
   transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
-
-/* Keadaan akhir: terlihat, kembali ke posisi awal */
 .review-card.show {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* --- Animasi Umum (Untuk Story Header/Timeline Item, dll.) --- */
-/* Elemen yang dianimasikan oleh IntersectionObserver atau setTimeout
-   harus memiliki properti awal ini agar dapat bertransisi. */
-
 .story-header:not(.show),
 .timeline-item:not(.show),
 .menu-item:not(.show) {
     opacity: 0;
-    /* Tambahkan sedikit pergeseran ke kiri sebagai contoh animasi */
     transform: translateX(-50px); 
     transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
-/* Keadaan akhir setelah JS menambahkan class .show */
 .story-header.show,
 .timeline-item.show,
 .menu-item.show {

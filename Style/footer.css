@@ -19,8 +19,8 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: start;
-  gap: 80px;
-  padding: 60px 8vw 0;
+  gap: 60px;
+  padding: 25px 60px;
   background-color: #cf3f2f;
 }
 
@@ -99,7 +99,7 @@ body {
 }
 
 .footer-bottom {
-  padding: 15px 8vw 20px;
+  padding: 15px 20px;
   text-align: center;;
   background-color:#cf3f2f ;
   font-size: 14px;
