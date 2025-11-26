@@ -44,7 +44,7 @@ $reviews = mysqli_query($conn, "SELECT * FROM review ORDER BY id DESC");
         </a>
       </div>
     </section>
-    <section class="review">
+<section class="review">
   <h2>Apa Kata Mereka?</h2>
   <div class="Card-Review">
     <div class="Review-list">
@@ -72,56 +72,56 @@ $reviews = mysqli_query($conn, "SELECT * FROM review ORDER BY id DESC");
     </div>
   </div>
 
-  <div class="submit-section">
-    <a href="form_review.php" class="add-review-btn">Tambahkan Review</a>
-  </div>
-</section>
-    </section>
-    <section class="footer">
-      <div class="footer-container">
-        <div class="footer-logo">
-          <img src="./Source/Logo.png" alt="Ayam Goreng Monas Logo" />
-          <p class="footer-slogan">Enak Tiada Tanding</p>
+    <div class="submit-section">
+      <a href="form_review.php" class="add-review-btn">Tambahkan Review</a>
+    </div>
+
+  </section>
+      <section class="footer">
+        <div class="footer-container">
+          <div class="footer-logo">
+            <img src="./Source/Logo.png" alt="Ayam Goreng Monas Logo" />
+            <p class="footer-slogan">Enak Tiada Tanding</p>
+          </div>
+
+          <div class="footer-column">
+            <h3>Link</h3>
+            <ul>
+              <li><a href="story.html">Kisah</a></li>
+              <li><a href="menu.php">Menu</a></li>
+              <li><a href="news.php">Berita</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-column">
+            <h3>Hubungi</h3>
+            <ul>
+              <li>
+                <a href="https://wa.me/6281234567890" target="_blank">WhatsApp</a>
+              </li>
+              <li><a href="mailto:ayamgorengmonas@gmail.com">Email</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-social">
+            <a href="#" class="social-icon">
+              <img src="./source/instagram.svg" alt="Instagram" />
+            </a>
+            <a href="#" class="social-icon">
+              <img src="./source/tiktok.svg" alt="TikTok" />
+            </a>
+            <a href="#" class="social-icon">
+              <img src="./source/x.svg" alt="X" />
+            </a>
+            <a href="#" class="social-icon">
+              <img src="./source/facebook.svg" alt="Facebook" />
+            </a>
+          </div>
         </div>
 
-        <div class="footer-column">
-          <h3>Link</h3>
-          <ul>
-            <li><a href="story.html">Kisah</a></li>
-            <li><a href="menu.php">Menu</a></li>
-            <li><a href="news.php">Berita</a></li>
-          </ul>
+        <div class="footer-bottom">
+          <p>Copyright &copy 2025 Ayam Goreng Monas. Hak Cipta Dilindungi.</p>
         </div>
-
-        <div class="footer-column">
-          <h3>Hubungi</h3>
-          <ul>
-            <li>
-              <a href="https://wa.me/6281234567890" target="_blank">WhatsApp</a>
-            </li>
-            <li><a href="mailto:ayamgorengmonas@gmail.com">Email</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-social">
-          <a href="#" class="social-icon">
-            <img src="./source/instagram.svg" alt="Instagram" />
-          </a>
-          <a href="#" class="social-icon">
-            <img src="./source/tiktok.svg" alt="TikTok" />
-          </a>
-          <a href="#" class="social-icon">
-            <img src="./source/x.svg" alt="X" />
-          </a>
-          <a href="#" class="social-icon">
-            <img src="./source/facebook.svg" alt="Facebook" />
-          </a>
-        </div>
-      </div>
-
-      <div class="footer-bottom">
-        <p>Copyright &copy 2025 Ayam Goreng Monas. Hak Cipta Dilindungi.</p>
-      </div>
-    </section>
+      </section>
   </body>
 </html>
