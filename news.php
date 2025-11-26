@@ -46,7 +46,7 @@ $pages = ceil($total / $limit);
       <div class="header-right">
         <a href="location.html" class="find-store">
           <img src="Source/map-pin.svg" alt="map icon" />
-          Find a Store
+          Temukan kami
         </a>
       </div>
     </section>
