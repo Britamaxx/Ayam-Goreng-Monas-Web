@@ -1,11 +1,19 @@
-
 <?php
 $conn = mysqli_connect("localhost", "root", "", "ayamgoreng_monas");
 if (!$conn) {
   die("Koneksi gagal: " . mysqli_connect_error());
 }
 
-$berita = mysqli_query($conn, "SELECT * FROM berita ORDER BY id DESC");
+$limit = 4; 
+$page  = isset($_GET['page']) ? $_GET['page'] : 1;
+$start = ($page - 1) * $limit;
+
+$berita = mysqli_query($conn, 
+  "SELECT * FROM berita ORDER BY id DESC LIMIT $start, $limit"
+);
+
+$total = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM berita"));
+$pages = ceil($total / $limit);
 ?>
 
 <!DOCTYPE html>
@@ -46,21 +54,31 @@ $berita = mysqli_query($conn, "SELECT * FROM berita ORDER BY id DESC");
     <section class="news">
       <h2>Berita</h2>
       <div class="Card-news">
-
         <?php while ($row = mysqli_fetch_assoc($berita)) { ?>
           <div class="card-item">
             <div class="card-item-content">
               <h3><?php echo $row['judul']; ?></h3>
               <p><?php echo $row['deskripsi']; ?></p>
-            </div>
 
-            <img src="./Source/Berita/<?php echo $row['gambar']; ?>" 
-                 alt="News Image" />
+              <a href="news-detail.php?id=<?php echo $row['id']; ?>" class="read-more">
+                Baca selengkapnya →
+              </a>
+            </div>
+            <img src="./Source/Berita/<?php echo $row['gambar']; ?>" alt="News Image" />
           </div>
         <?php } ?>
       </div>
-      </section>
-
+      <div class="pagination">
+        <?php for ($i = 1; $i <= $pages; $i++) { ?>
+          <a 
+            class="page-btn <?php echo ($i == $page) ? 'active' : ''; ?>"
+            href="news.php?page=<?php echo $i; ?>"
+          >
+            <?php echo $i; ?>
+          </a>
+        <?php } ?>
+      </div>
+    </section>
     <section class="footer">
       <div class="footer-container">
         <div class="footer-logo">
