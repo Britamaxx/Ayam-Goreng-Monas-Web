@@ -4,12 +4,7 @@
     <title>Ayam Goreng Monas</title>
     <link rel="stylesheet" href="./style/header.css" />
     <link rel="stylesheet" href="./style/menu.css" />
-    <link rel="stylesheet" href="./style/location.css" />
-    <link rel="stylesheet" href="./style/review.css" />
-    <link rel="stylesheet" href="./style/home.css" />
-    <link rel="stylesheet" href="./style/story.css" />
     <link rel="stylesheet" href="./style/footer.css" />
-    <link rel="stylesheet" href="./style/news.css" />
     <link rel="icon" type="image/png" sizes="16x16" href="./source/Logo.png" />
   </head>
   <body>
