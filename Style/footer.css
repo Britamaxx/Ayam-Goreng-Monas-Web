@@ -11,7 +11,6 @@ body {
 }
 
 .footer {
-  background-color: #fff;
   color: #000000;
   position: relative;
 }
@@ -22,7 +21,7 @@ body {
   align-items: start;
   gap: 80px;
   padding: 60px 8vw 0;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  background-color: #cf3f2f;
 }
 
 .footer-logo {
@@ -35,7 +34,6 @@ body {
 }
 
 .footer-slogan {
-  color: #e74c3c;
   font-weight: bold;
   font-size: 18px;
   letter-spacing: 1px;
@@ -47,7 +45,6 @@ body {
 }
 
 .footer-column h3 {
-  color: #000000;
   font-size: 18px;
   margin-bottom: 15px;
   position: relative;
@@ -60,7 +57,8 @@ body {
   bottom: -5px;
   width: 35px;
   height: 2px;
-  background-color: #e74c3c;
+  background-color: #cf3f2f;
+  
 }
 
 .footer-column ul {
@@ -74,14 +72,11 @@ body {
 }
 
 .footer-column ul li a {
-  color: #000000;
+  color:black;
   text-decoration: none;
   transition: color 0.3s;
 }
 
-.footer-column ul li a:hover {
-  color: #e74c3c;
-}
 
 .footer-social {
   display: flex;
@@ -104,12 +99,9 @@ body {
 }
 
 .footer-bottom {
-  border-top: 1px solid #e74c3c;
-
   padding: 15px 8vw 20px;
-  text-align: center;
-  color: #fff;
-  background-color: #e74c3c;
+  text-align: center;;
+  background-color:#cf3f2f ;
   font-size: 14px;
 }
 
