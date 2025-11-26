@@ -17,7 +17,7 @@ body {
 
 .footer-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: start;
   gap: 60px;
   padding: 25px 60px;
@@ -81,7 +81,6 @@ body {
   display: flex;
   gap: 15px;
   align-items: center;
-  margin-left: auto;
 }
 
 .footer-social img {

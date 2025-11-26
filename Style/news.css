@@ -1,23 +1,28 @@
+@import url("https://fonts.googleapis.com/css2?family=Slabo+27px&display=swap");
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-html,
-body {
-  height: 100%;
-}
-
 body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
+.main-header,
 .news {
-  max-width: 1200px;
-  margin: 0 auto;
+   flex-shrink: 0;
 }
 
+.news {
+  text-align: center;
+  padding: 40px 20px;
+  font-family: "Slabo 27px", serif;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
 .news h2 {
   font-size: 4rem;
   font-weight: 700;

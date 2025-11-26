@@ -7,9 +7,23 @@
 }
 
 body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.main-header,
+.review {
+  flex-shrink: 0;
+}
+
+.review {
+  text-align: center;
+  padding: 40px 20px;
   font-family: "Slabo 27px", serif;
-  background-color: #fff;
-  color: #000;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 .review h2 {
@@ -30,7 +44,10 @@ body {
 
 .Review-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(320px, 1fr);
+  overflow-x: auto;
+  padding-bottom: 10px;
   gap: 30px;
   justify-items: center;
 }
