@@ -86,6 +86,7 @@ flex-shrink: 0;
   font-size: 1.5rem;
   margin-bottom: 10px;
   letter-spacing: 2px;
+  text-align: justify;
 }
 
 .timeline-title {
@@ -93,11 +94,13 @@ flex-shrink: 0;
   color: #d64531;
   margin-bottom: 15px;
   font-weight: bold;
+  text-align:justify;
 }
 
 .timeline-description {
   font-size: 1rem;
   line-height: 1.8;
+  text-align: justify;
 }
 
 .timeline-image {
