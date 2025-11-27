@@ -325,6 +325,81 @@ body {
   border: 1px solid #FFE8C7;
 }
 
+.table-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.table-tools {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-left: 100px;
+}
+
+.search-menu {
+  padding: 10px 15px;
+  width: 260px;
+  border-radius: 8px;
+  border: 1px solid #FBBF24;
+  background: #FFFDF5;
+}
+
+.search-menu:focus {
+  border-color: #FB923C;
+  outline: none;
+  box-shadow: 0 0 5px rgba(251, 146, 60, 0.4);
+}
+
+.filter-btn {
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #F59E0B;
+  background: #FFF7DA;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.filter-btn:hover {
+  background: #FDE68A;
+}
+
+.add-btn {
+  background: #F97316;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.add-btn:hover {
+  filter: brightness(1.1);
+}
+
+.table-section table {
+  border: 1px solid #FBBF24;
+}
+
+.table-section th,
+.table-section td {
+  border-right: 1px solid #FDE68A;
+}
+
+.table-section tr:last-child td {
+  border-bottom: none;
+}
+
+.table-section th:last-child,
+.table-section td:last-child {
+  border-right: none;
+}
+
+
 .table-section h2 {
   font-size: 20px;
   font-weight: 700;

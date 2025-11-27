@@ -10,7 +10,7 @@ if (!$conn) {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dashboard Admin - Manage Menu</title>
+    <title>Dashboard Admin - Manage Berita</title>
     <link rel="icon" type="image/png" sizes="16x16" href="./source/Logo.png" />
     <link rel="stylesheet" href="../style_admin/manage_menu.css" />
     <script src="https://unpkg.com/feather-icons"></script>
@@ -21,11 +21,6 @@ if (!$conn) {
     include "../layout/sidebar_admin.php"; 
     ?>
     <section class="main-content">
-      <div class="content-header">
-        <h1>Kelola Menu Restoran</h1>
-        <p>Pilih aksi di bawah untuk menambah, memperbarui, atau menghapus menu.</p>
-      </div>
-
       <div class="table-section">
         <div class="table-header">
           <h2>Daftar Menu</h2>
@@ -37,34 +32,33 @@ if (!$conn) {
               <i data-feather="sliders"></i>
             </button>
 
-            <a href="tambah_menu.php">
+            <a href="tambah_berita.php">
               <button class="add-btn">+ Tambah</button>
             </a>
           </div>
         </div>
-
         <table border="1" cellpadding="8">
           <tr>
             <th>ID</th>
-            <th>Nama</th>
+            <th>Judul</th>
             <th>Gambar</th>
-            <th>Status</th>
+            <th>Deskripsi</th>
             <th>Aksi</th>
           </tr>
           <?php
-          $result = mysqli_query($conn, "SELECT * FROM menu");
+          $result = mysqli_query($conn, "SELECT * FROM berita");
           while ($row = mysqli_fetch_assoc($result)) {
             echo "<tr>";
             echo "<td>{$row['id']}</td>";
-            echo "<td>{$row['nama']}</td>";
-            echo "<td><img class='menu-img' src='../../Source/Daftar menu/{$row['gambar']}'></td>";
-            echo "<td>{$row['status']}</td>";
+            echo "<td>{$row['judul']}</td>";
+            echo "<td><img src='../../Source/Berita/{$row['gambar']}' width='70'></td>";
+            echo "<td style='max-width:300px;text-align:justify;'>{$row['deskripsi']}</td>";
             echo "<td>
-                    <a href='edit_menu.php?id={$row['id']}'><button>Edit</button><a/>
+                    <a href='edit_berita.php?id={$row['id']}'><button>Edit</button><a/>
                     <a href='?hapus={$row['id']}' onclick='return confirm(\"Hapus menu ini?\")'>
                       <button>Hapus</button>
                     </a>
-                  </td>"; 
+                  </td>";
             echo "</tr>";
           }
           ?>

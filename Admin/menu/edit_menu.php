@@ -41,7 +41,7 @@ if (isset($_POST['update'])) {
     <section class="main-content">
       <div class="content-header">
         <h1>Kelola Menu Restoran</h1>
-        <p>Pilih aksi di bawah untuk menambah, memperbarui, atau menghapus menu.</p>
+        <p>Pilih aksi di bawah untuk menambah, memperbarui, atau menghapus menu</p>
       </div>
       
       <div class="form-section">
@@ -52,6 +52,7 @@ if (isset($_POST['update'])) {
           <input type="file" name="gambar" />
           <input type="text" id="edit-status" name="status" placeholder="Status" />
           <button type="submit" name="update">Update</button>
+          <!-- <a href='edit_menu.php?id={$row['id']}'><button onclick=\"fillForm('{$row['id']}', '{$row['nama']}', '{$row['status']}')\">Edit</button></a> -->
         </form>
       </div>
     </section>
