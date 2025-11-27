@@ -7,7 +7,7 @@ if (!$conn) {
 if (isset($_GET['hapus'])) {
   $id = $_GET['hapus'];
   mysqli_query($conn, "DELETE FROM review WHERE id=$id");
-  echo "<script>alert('Review berhasil dihapus!');</script>";
+  echo "<script>alert('Review berhasil dihapus!'); window.location='manage_reviews.php';</script>";
 }
 ?>
 <!DOCTYPE html>
@@ -64,17 +64,25 @@ if (isset($_GET['hapus'])) {
               <th>Nama</th>
               <th>Komentar</th>
               <th>Rating</th>
+              <th>Foto</th>
               <th>Tanggal</th>
               <th>Aksi</th>
             </tr>
             <?php
             $result = mysqli_query($conn, "SELECT * FROM review ORDER BY tanggal DESC");
             while ($row = mysqli_fetch_assoc($result)) {
+
+              $foto = "-";
+              if (!empty($row['foto'])) {
+                $foto = "<img src='./uploads/{$row['foto']}' width='70'>";
+              }
+
               echo "<tr>";
               echo "<td>{$row['id']}</td>";
               echo "<td>{$row['nama']}</td>";
               echo "<td>{$row['komentar']}</td>";
               echo "<td>{$row['rating']}</td>";
+              echo "<td>$foto</td>";
               echo "<td>{$row['tanggal']}</td>";
               echo "<td>
                       <a href='?hapus={$row['id']}' onclick='return confirm(\"Hapus review ini?\")'>
