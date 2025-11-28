@@ -89,6 +89,68 @@ INSERT INTO story_timeline (tahun, judul, deskripsi, gambar, posisi) VALUES
 'Pada tahun 2025, Ayam Goreng Monas membuka cabang kedua di mall Samarinda Square. Kehadiran cabang ini memperkuat posisi brand sebagai ayam goreng lokal yang serius menjaga kualitas.',
 'Back3.jpg', 'left');
 
+CREATE TABLE header (
+  id INT PRIMARY KEY,
+  logo VARCHAR(255),
+  nama_bisnis VARCHAR(255),
+  location_url VARCHAR(255)
+);
+
+INSERT INTO header VALUES (
+  1, 'Logo.png', 'Ayam Goreng Monas', 'index.php'
+);
+
+CREATE TABLE footer (
+  id INT PRIMARY KEY,
+  logo VARCHAR(255),
+  slogan VARCHAR(255),
+  link_story VARCHAR(255),
+  link_menu VARCHAR(255),
+  link_news VARCHAR(255),
+  whatsapp VARCHAR(255),
+  email VARCHAR(255),
+  alamat TEXT,
+  maps_embed TEXT,
+  instagram VARCHAR(255),
+  tiktok VARCHAR(255),
+  x VARCHAR(255),
+  facebook VARCHAR(255)
+);
+
+INSERT INTO footer (
+  id,
+  logo,
+  slogan,
+  link_story,
+  link_menu,
+  link_news,
+  whatsapp,
+  email,
+  alamat,
+  maps_embed,
+  instagram,
+  tiktok,
+  x,
+  facebook
+)
+VALUES (
+  1,
+  'Logo.png',
+  'Enak Tiada Tanding',
+  'story.php',
+  'menu.php',
+  'news.php',
+  'https://wa.me/6281234567890',
+  'ayamgorengmonas@gmail.com',
+  'Samarinda Central Plaza lantai 3 Jl. P. Irian No.1, Karang Mumus, Kec. Samarinda Kota, Kota Samarinda',
+  '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d498.7080246178035!2d117.154641543488!3d-0.5036127999999974!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2df67f9e7cce7495%3A0x61022452c2cacfea!2sSamarinda%20Central%20Plaza!5e0!3m2!1sid!2sid!4v1764164547398!5m2!1sid!2sid" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>',
+  '#',
+  '#',
+  '#',
+  '#'
+);
+
+
 
 
 
