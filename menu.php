@@ -62,9 +62,7 @@
             echo '  </div>';
             echo '  <div class="menu-info">';
             echo '    <p>' . htmlspecialchars($row['nama']) . '</p>';
-            if (!empty($row['status'])) {
-              echo '    <span class="favorite">#' . htmlspecialchars($row['status']) . '</span>';
-            }
+            
             echo '  </div>';
             echo '</div>';
           }

@@ -8,9 +8,13 @@ if (isset($_POST['tambah'])) {
   $nama = $_POST['nama'];
   $status = $_POST['status'];
   $gambar = $_FILES['gambar']['name'];
+  $deskripsi = $_POST['deskripsi'];
+  $kalori = $_POST['kalori'];
+  $karbo = $_POST['karbohidrat'];
+  $protein = $_POST['protein'];
   $target = "./Source/Daftar menu/" . basename($gambar);
 
-  $sql = "INSERT INTO menu (nama, gambar, status) VALUES ('$nama', '$gambar', '$status')";
+  $sql = "INSERT INTO menu (nama, gambar, status, deskripsi, kalori, karbohidrat, protein) VALUES ('$nama', '$gambar', '$status', '$deskripsi', '$kalori', '$karbo', '$protein')";
   mysqli_query($conn, $sql);
   move_uploaded_file($_FILES['gambar']['tmp_name'], $target);
   echo "<script>alert('Menu berhasil ditambahkan!');</script>";
@@ -45,6 +49,11 @@ if (isset($_POST['tambah'])) {
             <input type="text" name="nama" placeholder="Nama menu" required />
             <input type="file" name="gambar" required />
             <input type="text" name="status" placeholder="Status (misal: FAVORITE)" />
+            <textarea name="deskripsi" placeholder="Deskripsi menu"></textarea>
+            <input type="number" name="kalori" placeholder="Kalori" />
+            <input type="number" name="karbohidrat" placeholder="Karbohidrat" />
+            <input type="number" name="protein" placeholder="Protein" />
+
             <button type="submit" name="tambah">Tambah</button>
           </form>
         </div>

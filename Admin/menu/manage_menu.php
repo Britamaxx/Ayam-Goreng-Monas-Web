@@ -49,6 +49,10 @@ if (!$conn) {
             <th>Nama</th>
             <th>Gambar</th>
             <th>Status</th>
+            <th>Deskripsi</th>
+            <th>Kalori</th>
+            <th>Karbohidrat</th>
+            <th>Protein</th>
             <th>Aksi</th>
           </tr>
           <?php
@@ -59,6 +63,11 @@ if (!$conn) {
             echo "<td>{$row['nama']}</td>";
             echo "<td><img class='menu-img' src='../../Source/Daftar menu/{$row['gambar']}'></td>";
             echo "<td>{$row['status']}</td>";
+            echo "<td>{$row['deskripsi']}</td>";
+            echo "<td>{$row['kalori']}</td>";
+            echo "<td>{$row['karbohidrat']}</td>";
+            echo "<td>{$row['protein']}</td>";
+
             echo "<td>
                     <a href='edit_menu.php?id={$row['id']}'><button>Edit</button><a/>
                     <a href='?hapus={$row['id']}' onclick='return confirm(\"Hapus menu ini?\")'>

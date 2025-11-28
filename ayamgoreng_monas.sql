@@ -25,6 +25,11 @@ CREATE TABLE menu (
     status VARCHAR(20) DEFAULT NULL
 );
 
+ALTER TABLE menu ADD deskripsi TEXT DEFAULT NULL;
+ALTER TABLE menu ADD kalori INT DEFAULT NULL;
+ALTER TABLE menu ADD karbohidrat INT DEFAULT NULL;
+ALTER TABLE menu ADD protein INT DEFAULT NULL;
+
 INSERT INTO menu (nama, gambar, status) VALUES
 ('Paket Ayam Monas', 'Paket Monas.png', 'FAVORITE'),
 ('Bakwan', 'Bakwan.png', NULL),
