@@ -51,7 +51,7 @@ if (isset($_POST['update'])) {
     Gambar Sekarang:<br>
     <img src="../../Source/<?= $lokasi['gambar']; ?>" width="150"><br><br>
 
-    Ganti Gambar (opsional):<br>
+    Ganti Gambar :<br>
     <input type="file" name="gambar"><br><br>
 
     <button type="submit" name="update">Update</button>
