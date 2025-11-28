@@ -25,7 +25,7 @@
       </nav>
 
       <div class="header-right">
-        <a href="location.html" class="find-store">
+        <a href="location.php" class="find-store">
           <img src="Source/map-pin.svg" alt="map icon" />
           Temukan kami
         </a>

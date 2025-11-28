@@ -1,19 +1,10 @@
 <?php
 $conn = mysqli_connect("localhost", "root", "", "ayamgoreng_monas");
 if (!$conn) {
-  die("Koneksi gagal: " . mysqli_connect_error());
+    die("Koneksi gagal: " . mysqli_connect_error());
 }
 
-$limit = 4; 
-$page  = isset($_GET['page']) ? $_GET['page'] : 1;
-$start = ($page - 1) * $limit;
-
-$berita = mysqli_query($conn, 
-  "SELECT * FROM berita ORDER BY id DESC LIMIT $start, $limit"
-);
-
-$total = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM berita"));
-$pages = ceil($total / $limit);
+$lokasi = mysqli_query($conn, "SELECT * FROM lokasi");
 ?>
 
 <!DOCTYPE html>
@@ -21,11 +12,13 @@ $pages = ceil($total / $limit);
   <head>
     <title>Ayam Goreng Monas</title>
     <link rel="stylesheet" href="./style/header.css" />
+    <link rel="stylesheet" href="./style/location.css" />
     <link rel="stylesheet" href="./style/footer.css" />
-    <link rel="stylesheet" href="./style/news.css" />
     <link rel="icon" type="image/png" sizes="16x16" href="./source/Logo.png" />
     <script src="./script.js" defer></script>
+    <script src="https://unpkg.com/feather-icons"></script>
   </head>
+
   <body>
     <section class="main-header">
       <div class="header-left">
@@ -39,46 +32,46 @@ $pages = ceil($total / $limit);
         <a href="index.html" class="nav home">Beranda </a>
         <a href="story.html" class="nav story">Cerita Kami</a>
         <a href="menu.php" class="nav menu">Menu</a>
-        <a href="news.php" class="nav news active">Berita</a>
+        <a href="news.php" class="nav news">Berita</a>
         <a href="review.php" class="nav nav-review">Ulasan</a>
       </nav>
 
       <div class="header-right">
-        <a href="location.php" class="find-store">
+        <a href="location.php" class="find-store active">
           <img src="Source/map-pin.svg" alt="map icon" />
           Temukan kami
         </a>
       </div>
     </section>
 
-    <section class="news">
-      <h2>Berita</h2>
-      <div class="Card-news">
-        <?php while ($row = mysqli_fetch_assoc($berita)) { ?>
-          <div class="card-item">
-            <div class="card-item-content">
-              <h3><?php echo $row['judul']; ?></h3>
-              <p><?php echo $row['deskripsi']; ?></p>
+    <section class="location">
+      <h2>Outlet Ayam Goreng Monas</h2>
 
-              <a href="news-detail.php?id=<?php echo $row['id']; ?>" class="read-more">
-                Baca selengkapnya →
-              </a>
+      <div class="location-card">
+        <?php while ($row = mysqli_fetch_assoc($lokasi)) { ?>
+          <div class="card">
+            <div class="card-content">
+              <h3><?php echo htmlspecialchars($row['nama']); ?></h3>
+
+              <p>
+                <?php echo nl2br(htmlspecialchars($row['alamat'])); ?>
+              </p>
+
+              <p class="time">
+                <i data-feather="clock"></i>
+                <span><?php echo htmlspecialchars($row['jam']); ?></span>
+              </p>
+
+              <button class="detail-btn">Temukan Kami</button>
             </div>
-            <img src="./Source/Berita/<?php echo $row['gambar']; ?>" alt="News Image" />
+
+            <img src="Source/<?php echo htmlspecialchars($row['gambar']); ?>"
+                 alt="<?php echo htmlspecialchars($row['nama']); ?>" />
           </div>
         <?php } ?>
       </div>
-      <div class="pagination">
-        <?php for ($i = 1; $i <= $pages; $i++) { ?>
-          <a 
-            class="page-btn <?php echo ($i == $page) ? 'active' : ''; ?>"
-            href="news.php?page=<?php echo $i; ?>"
-          >
-            <?php echo $i; ?>
-          </a>
-        <?php } ?>
-      </div>
     </section>
+
     <section class="footer">
       <div class="footer-container">
         <div class="footer-logo">
@@ -104,14 +97,16 @@ $pages = ceil($total / $limit);
         </div>
 
         <div class="Footer-cabang">
-      <h3>Cabang utama</h3>
-      <div class="footer-cabang-content">
-        <p>Samarinda Central Plaza lantai 3 Jl. P. Irian No.1, Karang Mumus,
-        Kec. Samarinda Kota, Kota Samarinda</p>
-        
-      </div>
-    </div>
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d498.7080246178035!2d117.154641543488!3d-0.5036127999999974!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2df67f9e7cce7495%3A0x61022452c2cacfea!2sSamarinda%20Central%20Plaza!5e0!3m2!1sid!2sid!4v1764164547398!5m2!1sid!2sid" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <h3>Cabang utama</h3>
+          <div class="footer-cabang-content">
+            <p>Samarinda Central Plaza lantai 3 Jl. P. Irian No.1, Karang Mumus,
+            Kec. Samarinda Kota, Kota Samarinda</p>
+          </div>
+        </div>
+
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d498.7080246178035!2d117.154641543488!3d-0.5036127999999974!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2df67f9e7cce7495%3A0x61022452c2cacfea!2sSamarinda%20Central%20Plaza!5e0!3m2!1sid!2sid!4v1764164547398!5m2!1sid!2sid"
+                style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
 
         <div class="footer-social">
           <a href="#" class="social-icon"><img src="./source/instagram.svg" alt="Instagram" /></a>
@@ -122,9 +117,13 @@ $pages = ceil($total / $limit);
       </div>
 
       <div class="footer-bottom">
-        <p>Copyright &copy; 2025 Ayam Goreng Monas. Hak Cipta Dilindungi.</p>
+        <p>Copyright &copy 2025 Ayam Goreng Monas. Hak Cipta Dilindungi.</p>
       </div>
     </section>
+
+    <script>
+      feather.replace();
+    </script>
 
   </body>
 </html>

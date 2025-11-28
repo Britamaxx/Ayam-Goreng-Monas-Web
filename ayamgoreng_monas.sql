@@ -44,6 +44,21 @@ INSERT INTO berita (judul, gambar, deskripsi) VALUES
 ('Ayam Goreng Monas Buka Cabang Baru di Samarinda!', 'berita1.jpg', 'Ayam Goreng Monas resmi membuka cabang baru di Samarinda pada awal bulan ini. Cabang terbaru ini hadir dengan konsep modern dan area makan lebih luas untuk memberikan pengalaman terbaik kepada pelanggan. Dengan menu andalan seperti Paket Ayam Monas dan Chicken Strip yang menjadi favorit, cabang baru ini diharapkan dapat memenuhi permintaan pelanggan yang terus meningkat. Banyak warga sekitar yang antusias dan sudah memadati lokasi sejak hari pertama pembukaan.'),
 ('Menu Favorit Ayam Goreng Monas Kini Tersedia Dalam Paket Hemat!', 'berita2.jpg', 'Untuk memenuhi kebutuhan pelanggan, Ayam Goreng Monas merilis Paket Hemat terbaru yang berisi ayam goreng krispi, nasi, minuman segar, dan pilihan tambahan lauk. Paket ini dirancang khusus untuk pelanggan yang ingin menikmati menu lezat dengan harga lebih terjangkau. Selain itu, promo Paket Hemat ini akan tersedia sepanjang bulan, sehingga pelanggan bisa menikmatinya kapan saja tanpa khawatir kehabisan.');
 
+CREATE TABLE lokasi (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nama VARCHAR(255) NOT NULL,
+    alamat TEXT NOT NULL,
+    jam VARCHAR(50) NOT NULL,
+    gambar VARCHAR(255) NOT NULL
+);
+
+INSERT INTO lokasi (nama, alamat, jam, gambar) VALUES
+('AGM Mall SCP', 'Samarinda Central Plaza lantai 3 Jl. P. Irian No.1, Karang Mumus, Kec. Samarinda Kota, Kota Samarinda', 
+'10.00 - 22.00 WIB', 'scp2.webp'),
+('AGM Mall Lembuswana', 'Lembuswana lantai dasar jl. Mayor Jendral S. Parman No.28, Gunung kelua, Samarinda Kota, Kota Samarinda',
+ '10.00 - 22.00 WIB', 'Back1.jpg'),
+('AGM Mall Samarinda Square', 'Samarinda Square lantai 1 Jl. M. Yamin Gunung kelua, Samarinda Ulu, Kota Samarinda',
+'10.00 - 22.00 WIB', 'Back3.jpg');
 
 
 
