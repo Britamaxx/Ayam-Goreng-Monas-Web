@@ -4,86 +4,95 @@ if (!$conn) {
   die("Koneksi gagal: " . mysqli_connect_error());
 }
 
-
-$timeline = mysqli_query($conn, "SELECT * FROM story_timeline ORDER BY tahun ASC");
-
 $header = mysqli_query($conn, "SELECT * FROM header WHERE id = 1");
 $h = mysqli_fetch_assoc($header);
 
 $footer = mysqli_query($conn, "SELECT * FROM footer WHERE id = 1");
 $f = mysqli_fetch_assoc($footer);
 ?>
-
 <!DOCTYPE html>
 <html>
   <head>
     <title><?php echo $h['nama_bisnis']; ?></title>
 
     <link rel="stylesheet" href="./style/header.css" />
-    <link rel="stylesheet" href="./style/story.css" />
+    <link rel="stylesheet" href="./style/home.css" />
+    <link rel="stylesheet" href="./style/hero.css" />
     <link rel="stylesheet" href="./style/footer.css" />
-    <link rel="icon" type="image/png" sizes="16x16" href="./source/<?php echo $h['logo']; ?>" />
 
+    <link rel="icon" type="image/png" sizes="16x16" href="./source/<?php echo $h['logo']; ?>" />
     <script src="./script.js" defer></script>
   </head>
 
   <body>
-
     <section class="main-header">
       <div class="header-left">
         <div class="restaurant-logo">
           <img src="./source/<?php echo $h['logo']; ?>" alt="Restaurant Logo" />
         </div>
-        <div class="restaurant-name"><?php echo $h['nama_bisnis']; ?></div>
+        <div class="restaurant-name">
+          <?php echo $h['nama_bisnis']; ?>
+        </div>
       </div>
 
       <nav class="header-middle">
-        <a href="index.php" class="nav home">Beranda</a>
-        <a href="story.php" class="nav story active">Cerita Kami</a>
+        <a href="index.php" class="nav home active">Beranda</a>
+        <a href="story.php" class="nav story">Cerita Kami</a>
         <a href="menu.php" class="nav menu">Menu</a>
         <a href="news.php" class="nav news">Berita</a>
         <a href="review.php" class="nav nav-review">Ulasan</a>
       </nav>
-
       <div class="header-right">
         <a href="location.php" class="find-store">
           <img src="Source/map-pin.svg" alt="map icon" />
           Temukan kami
         </a>
       </div>
+      
     </section>
 
-    <section class="story-section">
-      <div class="story-header">
-        <h2>Perjalanan Kami</h2>
-      </div>
-
-      <div class="timeline">
-
-        <?php while ($row = mysqli_fetch_assoc($timeline)) { ?>
-          <div class="timeline-item <?php echo $row['posisi']; ?>">
-            <div class="timeline-dot"></div>
-
-            <div class="timeline-content">
-              <div class="timeline-year"><?php echo $row['tahun']; ?></div>
-              <h2 class="timeline-title"><?php echo $row['judul']; ?></h2>
-              <p class="timeline-description">
-                <?php echo $row['deskripsi']; ?>
-              </p>
+    <section class="hero">
+      <div class="carousel-container">
+        <div class="image-carousel">
+          <div class="carousel-track">
+            <div class="carousel-slide">
+              <img src="./Source/Poster/Poster1.png" alt="Ayam Goreng Monas Poster 1" />
             </div>
-
-            <div class="timeline-image">
-              <img src="./source/<?php echo $row['gambar']; ?>" alt="Timeline Image" />
+            <div class="carousel-slide">
+              <img src="./Source/Poster/Poster2.png" alt="Ayam Goreng Monas Poster 2" />
+            </div>
+            <div class="carousel-slide">
+              <img src="./Source/Poster/Poster3.png" alt="Ayam Goreng Monas Poster 3" />
             </div>
           </div>
-        <?php } ?>
+        </div>
 
+        <div class="carousel-dots">
+          <button class="dot active" data-index="0"></button>
+          <button class="dot" data-index="1"></button>
+          <button class="dot" data-index="2"></button>
+        </div>
+      </div>
+    </section>
+
+    <section class="home">
+      <div class="home-container">
+        <div class="welcome-section">
+          <h1 class="tagline">Rasa yang tiada tanding</h1>
+          <p class="description">
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+          </p>
+          <div class="cta-buttons">
+            <a href="menu.php" class="btn btn-primary">Lihat Menu</a>
+            <a href="location.php" class="btn btn-secondary">Temukan Kami</a>
+          </div>
+        </div>
       </div>
     </section>
 
     <section class="footer">
       <div class="footer-container">
-        
+
         <div class="footer-logo">
           <img src="./Source/<?php echo $f['logo']; ?>" alt="Ayam Goreng Monas Logo" />
           <p class="footer-slogan"><?php echo $f['slogan']; ?></p>
@@ -117,16 +126,16 @@ $f = mysqli_fetch_assoc($footer);
 
         <div class="footer-social">
           <a href="<?php echo $f['instagram']; ?>" class="social-icon">
-            <img src="./source/instagram.svg" />
+            <img src="./source/instagram.svg" alt="Instagram" />
           </a>
           <a href="<?php echo $f['tiktok']; ?>" class="social-icon">
-            <img src="./source/tiktok.svg" />
+            <img src="./source/tiktok.svg" alt="TikTok" />
           </a>
           <a href="<?php echo $f['x']; ?>" class="social-icon">
-            <img src="./source/x.svg" />
+            <img src="./source/x.svg" alt="X" />
           </a>
           <a href="<?php echo $f['facebook']; ?>" class="social-icon">
-            <img src="./source/facebook.svg" />
+            <img src="./source/facebook.svg" alt="Facebook" />
           </a>
         </div>
 
