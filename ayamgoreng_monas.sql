@@ -151,6 +151,39 @@ VALUES (
 );
 
 
+CREATE TABLE pesanan (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    kode_pesanan VARCHAR(50) NOT NULL,
+    nama_pelanggan VARCHAR(100) NOT NULL,
+    total_harga INT NOT NULL,
+    cabang_id INT NULL,
+    status ENUM('pending','proses','selesai','batal') DEFAULT 'pending',
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (cabang_id) REFERENCES lokasi(id)
+);
+
+INSERT INTO pesanan (kode_pesanan, nama_pelanggan, total_harga, cabang_id, status, created_at) VALUES
+('AGM-2025-0001', 'Rizky Pratama', 52000, 1, 'selesai', NOW()),
+('AGM-2025-0002', 'Dewi Lestari', 78000, 2, 'proses', NOW()),
+('AGM-2025-0003', 'Fajar Nugroho', 43000, 3, 'pending', NOW()),
+('AGM-2025-0004', 'Imam Bahri', 91000, 1, 'selesai', NOW() - INTERVAL 1 DAY);
+
+
+CREATE TABLE pekerja (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nama VARCHAR(100) NOT NULL,
+    posisi VARCHAR(50) NOT NULL,
+    cabang_id INT NOT NULL,
+    shift VARCHAR(100) NOT NULL,
+    status ENUM('aktif','cuti','resign') DEFAULT 'aktif',
+    FOREIGN KEY (cabang_id) REFERENCES lokasi(id)
+);
+
+INSERT INTO pekerja (nama, posisi, cabang_id, shift, status) VALUES
+('Andi Saputra', 'Kasir', 1, 'Pagi (10.00 - 16.00)', 'aktif'),
+('Siti Rahma', 'Koki', 2, 'Full (10.00 - 22.00)', 'aktif'),
+('Budi Hartono', 'Pramusaji', 3, 'Sore (16.00 - 22.00)', 'aktif'),
+('Lina Oktaviani', 'Supervisor', 1, 'Full (10.00 - 22.00)', 'aktif');
 
 
 
