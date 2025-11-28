@@ -37,7 +37,7 @@ $pages = ceil($total / $limit);
 
       <nav class="header-middle">
         <a href="index.html" class="nav home">Beranda </a>
-        <a href="story.html" class="nav story">Cerita Kami</a>
+        <a href="story.php" class="nav story">Cerita Kami</a>
         <a href="menu.php" class="nav menu">Menu</a>
         <a href="news.php" class="nav news active">Berita</a>
         <a href="review.php" class="nav nav-review">Ulasan</a>
@@ -89,7 +89,7 @@ $pages = ceil($total / $limit);
         <div class="footer-column">
           <h3>Link</h3>
           <ul>
-            <li><a href="story.html">Kisah</a></li>
+            <li><a href="story.php">Kisah</a></li>
             <li><a href="menu.php">Menu</a></li>
             <li><a href="news.php">Berita</a></li>
           </ul>

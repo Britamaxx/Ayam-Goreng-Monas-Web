@@ -65,6 +65,33 @@ INSERT INTO lokasi (nama, alamat, jam, gambar) VALUES
 ('AGM Mall Samarinda Square', 'Samarinda Square lantai 1 Jl. M. Yamin Gunung kelua, Samarinda Ulu, Kota Samarinda',
 '10.00 - 22.00 WIB', 'Back3.jpg');
 
+CREATE TABLE story_timeline (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    tahun VARCHAR(10) NOT NULL,
+    judul VARCHAR(255) NOT NULL,
+    deskripsi TEXT NOT NULL,
+    gambar VARCHAR(255) NOT NULL,
+    posisi ENUM('left', 'right') NOT NULL DEFAULT 'left'
+);
+
+INSERT INTO story_timeline (tahun, judul, deskripsi, gambar, posisi) VALUES
+('2010', 'Awal Berdiri',
+'Ayam Goreng Monas lahir dari sebuah dapur kecil di rumah keluarga sederhana. Berawal dari resep ayam goreng warisan orang tua, yang dulu hanya disajikan saat kumpul keluarga, banyak teman dan tetangga memuji bumbu gurihnya yang meresap hingga ke tulang.',
+'scp3.webp', 'left');
+
+INSERT INTO story_timeline (tahun, judul, deskripsi, gambar, posisi) VALUES
+('2012', 'Cabang Pertama',
+'Pada tahun 2012, cabang pertama Ayam Goreng Monas resmi dibuka di pusat kota. Cabang pertama ini tidak besar, tetapi memiliki suasana hangat dengan meja kayu dan dapur terbuka.',
+'Back1.jpg', 'right');
+
+INSERT INTO story_timeline (tahun, judul, deskripsi, gambar, posisi) VALUES
+('2025', 'Cabang Kedua',
+'Pada tahun 2025, Ayam Goreng Monas membuka cabang kedua di mall Samarinda Square. Kehadiran cabang ini memperkuat posisi brand sebagai ayam goreng lokal yang serius menjaga kualitas.',
+'Back3.jpg', 'left');
+
+
+
+
 
 
 

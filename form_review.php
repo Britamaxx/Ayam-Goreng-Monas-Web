@@ -56,7 +56,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       </div>
       <div class="header-right">
         <a href="index.html" class="nav home">Beranda</a>
-        <a href="story.html" class="nav story">Cerita Kami</a>
+        <a href="story.php" class="nav story">Cerita Kami</a>
         <a href="menu.php" class="nav menu">Menu</a>
         <a href="news.html" class="nav news">Berita</a>
         <a href="review.php" class="nav review active">Ulasan</a>
@@ -105,7 +105,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="footer-column">
           <h3>Link</h3>
           <ul>
-            <li><a href="story.html">Kisah</a></li>
+            <li><a href="story.php">Kisah</a></li>
             <li><a href="menu.php">Menu</a></li>
             <li><a href="news.html">Berita</a></li>
           </ul>
