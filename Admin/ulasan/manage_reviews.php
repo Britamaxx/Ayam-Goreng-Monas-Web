@@ -4,11 +4,24 @@ if (!$conn) {
   die("Koneksi gagal: " . mysqli_connect_error());
 }
 
-if (isset($_GET['hapus'])) {
-  $id = $_GET['hapus'];
-  mysqli_query($conn, "DELETE FROM review WHERE id=$id");
-  echo "<script>alert('Review berhasil dihapus!'); window.location='manage_reviews.php';</script>";
+if (isset($_POST['update'])) {
+  $id = $_POST['id'];
+  $nama = $_POST['nama'];
+  $status = $_POST['status'];
+
+  if (!empty($_FILES['gambar']['name'])) {
+    $gambar = $_FILES['gambar']['name'];
+    $target = "./Source/Daftar menu/" . basename($gambar);
+    move_uploaded_file($_FILES['gambar']['tmp_name'], $target);
+    $query = "UPDATE menu SET nama='$nama', gambar='$gambar', status='$status' WHERE id=$id";
+  } else {
+    $query = "UPDATE menu SET nama='$nama', status='$status' WHERE id=$id";
+  }
+
+  mysqli_query($conn, $query);
+  echo "<script>alert('Menu berhasil diperbarui!');</script>";
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,39 +29,16 @@ if (isset($_GET['hapus'])) {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dashboard Admin - Manage Reviews</title>
-    <link rel="icon" type="image/png" sizes="16x16" href="./source/Logo.png" />
-    <link rel="stylesheet" href="./style/manage_menu.css" />
+    <link rel="icon" type="image/png" sizes="16x16" href="../source/Logo.png" />
+    <link rel="stylesheet" href="../style_admin/manage_menu.css" />
     <script src="https://unpkg.com/feather-icons"></script>
   </head>
   <body>
-    <section class="navbar">
-      <div class="header-left">
-        <div class="restaurant-logo">
-          <img src="./source/Logo.png" alt="restaurant-logo" />
-        </div>
-        <div class="restaurant-name">AYAM GORENG MONAS</div>
-      </div>
-      <div class="search-bar">
-        <input type="text" placeholder="Search..." />
-      </div>
-      <div class="header-right">
-        <div class="setting-button">
-          <i data-feather="settings" class="setting-btn"></i>
-        </div>
-        <div class="profile">
-          <img src="./source/admin.png" alt="admin-profile" />
-        </div>
-      </div>
-    </section>
-
-    <section class="sidebar">
-      <ul class="sidebar-menu">
-        <li class="manage-menu"><a href="manage_menu.php">Manage Menu</a></li>
-        <li class="manage-review active"><a href="manage_reviews.php">Manage Reviews</a></li>
-        <li class="manage berita"><a href="manage_berita.php">Manage berita</a></li>
-      </ul>
-    </section>
-
+    <?php 
+    include "../layout/header_admin.php";
+    include "../layout/sidebar_admin.php"; 
+    ?>
+  
     <section class="main-content">
       <div class="content-header">
         <h1>Kelola Review Pelanggan</h1>
@@ -96,9 +86,5 @@ if (isset($_GET['hapus'])) {
         </div>
       </div>
     </section>
-
-    <script>
-      feather.replace()
-    </script>
   </body>
 </html>
