@@ -165,6 +165,41 @@ VALUES (
   '#'
 );
 
+CREATE TABLE pesanan (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    kode_pesanan VARCHAR(50) NOT NULL,
+    nama_pelanggan VARCHAR(100) NOT NULL,
+    cabang_id INT NULL,
+    total_harga INT NOT NULL,
+    status ENUM('pending','proses','selesai','batal') DEFAULT 'pending',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (cabang_id) REFERENCES lokasi(id)
+);
+
+INSERT INTO pesanan (kode_pesanan, nama_pelanggan, cabang_id, total_harga, status, created_at) VALUES
+('ORD-202501-001', 'Andi', 1, 85000, 'selesai',  NOW() - INTERVAL 2 HOUR),
+('ORD-202501-002', 'Budi', 2, 120000, 'proses',   NOW() - INTERVAL 1 HOUR),
+('ORD-202501-003', 'Citra',3, 45000,  'pending',  NOW() - INTERVAL 30 MINUTE),
+('ORD-202501-004', 'Dewi', 1, 99000,  'selesai',  NOW() - INTERVAL 10 MINUTE),
+('ORD-202501-005', 'Eka',  2, 73000,  'batal',    NOW() - INTERVAL 5 MINUTE);
+
+CREATE TABLE pekerja (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nama VARCHAR(100) NOT NULL,
+    posisi VARCHAR(100) NOT NULL,
+    shift VARCHAR(50) NOT NULL,
+    status ENUM('aktif','cuti','resign') DEFAULT 'aktif',
+    cabang_id INT NULL,
+    FOREIGN KEY (cabang_id) REFERENCES lokasi(id)
+);
+
+INSERT INTO pekerja (nama, posisi, shift, status, cabang_id) VALUES
+('Rina',     'Kasir',           'Pagi',   'aktif', 1),
+('Doni',     'Koki',            'Siang',  'aktif', 1),
+('Sari',     'Pramusaji',       'Malam',  'aktif', 2),
+('Bayu',     'Supervisor',      'Pagi',   'cuti',  2),
+('Lilis',    'Crew Dapur',      'Malam',  'aktif', 3);
+
 
 
 
