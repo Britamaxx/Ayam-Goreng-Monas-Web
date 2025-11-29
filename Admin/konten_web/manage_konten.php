@@ -1,59 +1,37 @@
+
 <?php
 $conn = mysqli_connect("localhost", "root", "", "ayamgoreng_monas");
+if (!$conn) { die("Koneksi gagal: " . mysqli_connect_error()); }
 
-$tipe = $_POST['tipe']; 
-
-if (!empty($_FILES['logo']['name'])) {
-    $nama_file = $_FILES['logo']['name'];
-    $tmp = $_FILES['logo']['tmp_name'];
-
-    move_uploaded_file($tmp, "uploads/" . $nama_file);
-
-    $logo_sql = ", logo = '$nama_file' ";
-} else {
-    $logo_sql = "";
-}
-
-if ($tipe == "header") {
-
-    $nama = $_POST['nama_bisnis'];
-    $url  = $_POST['location_url'];
-
-    mysqli_query($conn,
-        "UPDATE header SET 
-            nama_bisnis = '$nama',
-            location_url = '$url'
-            $logo_sql
-        WHERE id = 1"
-    );
-
-    header("Location: admin_edit_header.php?success=1");
-    exit;
-
-}
-
-else if ($tipe == "footer") {
-
-    mysqli_query($conn,
-        "UPDATE footer SET 
-            slogan = '{$_POST['slogan']}',
-            link_story = '{$_POST['link_story']}',
-            link_menu = '{$_POST['link_menu']}',
-            link_news = '{$_POST['link_news']}',
-            whatsapp = '{$_POST['whatsapp']}',
-            email = '{$_POST['email']}',
-            alamat = '{$_POST['alamat']}',
-            maps_embed = '{$_POST['maps_embed']}',
-            instagram = '{$_POST['instagram']}',
-            tiktok = '{$_POST['tiktok']}',
-            x = '{$_POST['x']}',
-            facebook = '{$_POST['facebook']}'
-            $logo_sql
-        WHERE id = 1"
-    );
-
-    header("Location: admin_edit_footer.php?success=1");
-    exit;
-}
-
+$header = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM header WHERE id = 1"));
+$footer = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM footer WHERE id = 1"));
 ?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pengaturan Konten Website</title>
+</head>
+
+<body>
+
+<h1>Pengaturan Konten Website</h1>
+<p>Kelola konten website seperti header dan footer.</p>
+<hr>
+
+<h2>Header</h2>
+<p>
+    Logo, nama bisnis, dan bilah navigasi<br><br>
+    <a href="edit_header.php">Edit Header</a>
+</p>
+
+<hr>
+
+<h2>Footer</h2>
+<p>
+    Kontak, cabang utama, peta, dan media sosial<br><br>
+    <a href="edit_footer.php">Edit Footer</a>
+</p>
+
+</body>
+</html>
