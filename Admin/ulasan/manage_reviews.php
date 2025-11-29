@@ -44,7 +44,7 @@ if (isset($_POST['update'])) {
     <link rel="icon" type="image/png" sizes="16x16" href="../source/Logo.png" />
     <link rel="stylesheet" href="../style_admin/manage_menu.css" />
     <style>
-      /* Modal Overlay */
+      
       .modal-overlay {
         position: fixed;
         top: 0;
@@ -70,7 +70,7 @@ if (isset($_POST['update'])) {
         opacity: 1;
       }
 
-      /* Modal Content */
+    
       .modal-content {
         background: #ffffff;
         border-radius: 20px;
@@ -85,7 +85,7 @@ if (isset($_POST['update'])) {
         position: relative;
       }
 
-      /* Modal Icon */
+     
       .modal-icon {
         width: 80px;
         height: 80px;
@@ -111,7 +111,7 @@ if (isset($_POST['update'])) {
         }
       }
 
-      /* Modal Title */
+     
       .modal-title {
         font-size: 26px;
         font-weight: 700;
@@ -120,7 +120,7 @@ if (isset($_POST['update'])) {
         font-family: "Poppins", sans-serif;
       }
 
-      /* Modal Message */
+     
       .modal-message {
         font-size: 16px;
         color: #4B5563;
@@ -133,7 +133,7 @@ if (isset($_POST['update'])) {
         font-weight: 600;
       }
 
-      /* Modal Warning */
+    
       .modal-warning {
         font-size: 14px;
         color: #DC2626;
@@ -145,7 +145,7 @@ if (isset($_POST['update'])) {
         border-left: 4px solid #DC2626;
       }
 
-      /* Modal Actions */
+      
       .modal-actions {
         display: flex;
         gap: 12px;
@@ -168,7 +168,7 @@ if (isset($_POST['update'])) {
         font-family: "Poppins", sans-serif;
       }
 
-      /* Cancel Button */
+     
       .btn-cancel {
         background: #F3F4F6;
         color: #6B7280;
@@ -182,7 +182,7 @@ if (isset($_POST['update'])) {
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
       }
 
-      /* Delete Button */
+      
       .btn-delete {
         background: linear-gradient(135deg, #DC2626, #EF4444);
         color: white;
@@ -215,13 +215,13 @@ if (isset($_POST['update'])) {
   
     <section class="main-content">
       <div class="content-header">
-        <h1>Kelola Review Pelanggan</h1>
-        <p>Admin dapat melihat dan menghapus review pelanggan di sini.</p>
+        <h1>Kelola Ulasan Pelanggan</h1>
+        <p>Admin dapat melihat dan menghapus ulasan pelanggan di sini.</p>
       </div>
 
       <div class="crud-container">
         <div class="table-section">
-          <h2>Daftar Review</h2>
+          <h2>Daftar Ulasan</h2>
           <table border="1" cellpadding="8">
             <tr>
               <th>ID</th>

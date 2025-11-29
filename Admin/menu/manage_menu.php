@@ -4,7 +4,6 @@ if (!$conn) {
   die("Koneksi gagal: " . mysqli_connect_error());
 }
 
-// Handle delete request
 if (isset($_GET['hapus'])) {
   $id = $_GET['hapus'];
   $query = "DELETE FROM menu WHERE id=$id";
@@ -26,7 +25,7 @@ if (isset($_GET['hapus'])) {
     <link rel="icon" type="image/png" sizes="16x16" href="./source/Logo.png" />
     <link rel="stylesheet" href="../style_admin/manage_menu.css" />
     <style>
-      /* Modal Overlay */
+      
       .modal-overlay {
         position: fixed;
         top: 0;
@@ -52,7 +51,7 @@ if (isset($_GET['hapus'])) {
         opacity: 1;
       }
 
-      /* Modal Content */
+    
       .modal-content {
         background: #ffffff;
         border-radius: 20px;
@@ -67,7 +66,7 @@ if (isset($_GET['hapus'])) {
         position: relative;
       }
 
-      /* Modal Icon */
+     
       .modal-icon {
         width: 80px;
         height: 80px;
@@ -93,7 +92,7 @@ if (isset($_GET['hapus'])) {
         }
       }
 
-      /* Modal Title */
+     
       .modal-title {
         font-size: 26px;
         font-weight: 700;
@@ -102,7 +101,7 @@ if (isset($_GET['hapus'])) {
         font-family: "Poppins", sans-serif;
       }
 
-      /* Modal Message */
+     
       .modal-message {
         font-size: 16px;
         color: #4B5563;
@@ -115,7 +114,7 @@ if (isset($_GET['hapus'])) {
         font-weight: 600;
       }
 
-      /* Modal Warning */
+     
       .modal-warning {
         font-size: 14px;
         color: #DC2626;
@@ -127,7 +126,7 @@ if (isset($_GET['hapus'])) {
         border-left: 4px solid #DC2626;
       }
 
-      /* Modal Actions */
+      
       .modal-actions {
         display: flex;
         gap: 12px;
@@ -150,7 +149,7 @@ if (isset($_GET['hapus'])) {
         font-family: "Poppins", sans-serif;
       }
 
-      /* Cancel Button */
+    
       .btn-cancel {
         background: #F3F4F6;
         color: #6B7280;
@@ -164,7 +163,7 @@ if (isset($_GET['hapus'])) {
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
       }
 
-      /* Delete Button */
+     
       .btn-delete {
         background: linear-gradient(135deg, #DC2626, #EF4444);
         color: white;
@@ -232,7 +231,7 @@ if (isset($_GET['hapus'])) {
           <?php
           $result = mysqli_query($conn, "SELECT * FROM menu");
           while ($row = mysqli_fetch_assoc($result)) {
-            // Escape nama menu untuk JavaScript
+          
             $namaMenu = htmlspecialchars($row['nama'], ENT_QUOTES);
             
             echo "<tr>";

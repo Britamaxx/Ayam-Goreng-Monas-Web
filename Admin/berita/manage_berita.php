@@ -228,7 +228,12 @@ if (isset($_GET['hapus'])) {
             echo "<tr>";
             echo "<td>{$row['id']}</td>";
             echo "<td>{$row['judul']}</td>";
-            echo "<td><img src='../../../Source/Berita/{$row['gambar']}' width='70'></td>";
+            $gambar = "-";
+            if (!empty($row['gambar'])) {
+            $gambar = "<img src='../../Source/Berita/{$row['gambar']}' width='70' style='border-radius:6px;'>";
+            }
+            echo "<td>$gambar</td>";
+
             echo "<td style='max-width:300px;text-align:justify;'>{$row['deskripsi']}</td>";
             echo "<td>
                     <a href='edit_berita.php?id={$row['id']}'><button>Edit</button></a>
