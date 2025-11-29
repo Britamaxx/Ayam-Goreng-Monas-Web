@@ -321,7 +321,7 @@ include "../layout/sidebar_admin.php";
                                         <?php if (!empty($m['gambar'])): ?>
                                             <div class="menu-meta">
                                                 <img 
-                                                    src="../Source/Daftar menu/<?= htmlspecialchars($m['gambar']); ?>" 
+                                                    src="../../Source/Daftar menu/<?= htmlspecialchars($m['gambar']); ?>" 
                                                     alt="<?= htmlspecialchars($m['nama']); ?>" 
                                                     style="width: 50px; height: auto; object-fit: cover;"
                                                 >
