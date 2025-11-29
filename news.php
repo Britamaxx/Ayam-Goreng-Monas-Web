@@ -1,3 +1,4 @@
+news
 <?php
 $conn = mysqli_connect("localhost", "root", "", "ayamgoreng_monas");
 if (!$conn) {
@@ -39,13 +40,12 @@ $pages = ceil($total / $limit);
         <div class="restaurant-name"><?php echo $header['nama_bisnis']; ?></div>
       </div>
       <nav class="header-middle">
-        <a href="<?php echo $header['location_url']; ?>" class="nav home">Beranda</a>
-        <a href="story.php" class="nav story">Cerita Kami</a>
-        <a href="menu.php" class="nav menu">Menu</a>
-        <a href="news.php" class="nav nav-news active">Berita</a>
-        <a href="review.php" class="nav review">Ulasan</a>
+        <a href="index.php" class="nav home"><?php echo $header['nav_home']; ?></a>
+        <a href="story.php" class="nav story"><?php echo $header['nav_story']; ?></a>
+        <a href="menu.php" class="nav menu"><?php echo $header['nav_menu']; ?></a>
+        <a href="news.php" class="nav news active"><?php echo $header['nav_news']; ?></a>
+        <a href="review.php" class="nav nav-review"><?php echo $header['nav_review']; ?></a>
       </nav>
-
       <div class="header-right">
         <a href="location.php" class="find-store">
           <img src="Source/map-pin.svg" alt="map icon" />
