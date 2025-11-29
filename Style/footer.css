@@ -99,8 +99,9 @@ body {
 .footer-bottom {
   padding: 15px 20px;
   text-align: center;;
-  background-color:#cf3f2f ;
-  font-size: 14px;
+  background-color:#a02e22 ;
+  font-size: 18px;
+  color: white;
 }
 
 .Footer-cabang {
