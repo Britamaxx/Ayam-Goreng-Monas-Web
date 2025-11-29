@@ -1,20 +1,68 @@
+
 <?php
 $conn = mysqli_connect("localhost", "root", "", "ayamgoreng_monas");
+if (!$conn) {
+    die("Koneksi gagal: " . mysqli_connect_error());
+}
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+    $slogan     = $_POST['slogan'];
+    $link_story = $_POST['link_story'];
+    $link_menu  = $_POST['link_menu'];
+    $link_news  = $_POST['link_news'];
+    $whatsapp   = $_POST['whatsapp'];
+    $email      = $_POST['email'];
+    $alamat     = $_POST['alamat'];
+    $maps_embed = $_POST['maps_embed'];
+    $instagram  = $_POST['instagram'];
+    $tiktok     = $_POST['tiktok'];
+    $x          = $_POST['x'];
+    $facebook   = $_POST['facebook'];
+
+    if (!empty($_FILES['logo']['name'])) {
+        $logo = "uploads/" . basename($_FILES['logo']['name']);
+        move_uploaded_file($_FILES['logo']['tmp_name'], $logo);
+        $logo_update = ", logo='$logo'";
+    } else {
+        $logo_update = "";
+    }
+
+    $query = "
+        UPDATE footer SET
+            slogan='$slogan',
+            link_story='$link_story',
+            link_menu='$link_menu',
+            link_news='$link_news',
+            whatsapp='$whatsapp',
+            email='$email',
+            alamat='$alamat',
+            maps_embed='$maps_embed',
+            instagram='$instagram',
+            tiktok='$tiktok',
+            x='$x',
+            facebook='$facebook'
+            $logo_update
+        WHERE id = 1
+    ";
+
+    mysqli_query($conn, $query);
+
+    echo "<script>alert('Footer berhasil diperbarui'); window.location='manage_konten.php';</script>";
+    exit;
+}
+
 $footer = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM footer WHERE id = 1"));
 ?>
 
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Edit Footer</title>
-</head>
+<head><title>Edit Footer</title></head>
 
 <body>
 <h2>Edit Footer</h2>
 
-<form action="proses_update.php" method="POST" enctype="multipart/form-data">
-
-    <input type="hidden" name="tipe" value="footer">
+<form method="POST" enctype="multipart/form-data">
 
     <label>Slogan</label><br>
     <input type="text" name="slogan" value="<?= $footer['slogan'] ?>"><br><br>
@@ -52,7 +100,7 @@ $footer = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM footer WHERE id 
     <label>Facebook</label><br>
     <input type="text" name="facebook" value="<?= $footer['facebook'] ?>"><br><br>
 
-    <label>Logo (biarkan kosong jika tidak diubah)</label><br>
+    <label>Logo</label><br>
     <input type="file" name="logo"><br><br>
 
     <button type="submit">Simpan Perubahan</button>

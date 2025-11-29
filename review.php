@@ -1,3 +1,4 @@
+review
 <?php
 include "conn.php";
 
@@ -31,11 +32,11 @@ $reviews = mysqli_query($conn, "SELECT * FROM review ORDER BY id DESC");
       </div>
 
       <nav class="header-middle">
-        <a href="<?php echo $header['location_url']; ?>" class="nav home">Beranda</a>
-        <a href="story.php" class="nav story">Cerita Kami</a>
-        <a href="menu.php" class="nav menu">Menu</a>
-        <a href="news.php" class="nav news">Berita</a>
-        <a href="review.php" class="nav nav-review active">Ulasan</a>
+        <a href="index.php" class="nav home"><?php echo $header['nav_home']; ?></a>
+        <a href="story.php" class="nav story"><?php echo $header['nav_story']; ?></a>
+        <a href="menu.php" class="nav menu"><?php echo $header['nav_menu']; ?></a>
+        <a href="news.php" class="nav news"><?php echo $header['nav_news']; ?></a>
+        <a href="review.php" class="nav nav-review active"><?php echo $header['nav_review']; ?></a>
       </nav>
 
       <div class="header-right">

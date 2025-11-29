@@ -1,3 +1,5 @@
+
+
 <?php
 $conn = mysqli_connect("localhost", "root", "", "ayamgoreng_monas");
 if (!$conn) {
@@ -36,12 +38,13 @@ $f = mysqli_fetch_assoc($footer);
       </div>
 
       <nav class="header-middle">
-        <a href="index.php" class="nav home active">Beranda</a>
-        <a href="story.php" class="nav story">Cerita Kami</a>
-        <a href="menu.php" class="nav menu">Menu</a>
-        <a href="news.php" class="nav news">Berita</a>
-        <a href="review.php" class="nav nav-review">Ulasan</a>
+        <a href="index.php" class="nav home active"><?php echo $h['nav_home']; ?></a>
+        <a href="story.php" class="nav story"><?php echo $h['nav_story']; ?></a>
+        <a href="menu.php" class="nav menu"><?php echo $h['nav_menu']; ?></a>
+        <a href="news.php" class="nav news"><?php echo $h['nav_news']; ?></a>
+        <a href="review.php" class="nav nav-review"><?php echo $h['nav_review']; ?></a>
       </nav>
+
       <div class="header-right">
         <a href="location.php" class="find-store">
           <img src="Source/map-pin.svg" alt="map icon" />
