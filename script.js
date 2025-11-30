@@ -122,7 +122,7 @@ function setupStoryAnimation() {
 /* =================================================================== */
 function setupMenuAnimation() {
   const menuItems = document.querySelectorAll(".menu-item");
-  
+
   // Jika tidak ada menu items, skip
   if (menuItems.length === 0) {
     return;
@@ -166,7 +166,7 @@ function setupReviewAnimation() {
 
   reviewCards.forEach((card) => {
     // Awalnya sembunyikan elemen dengan class 'hide'
-    card.classList.add('hide'); 
+    card.classList.add('hide');
     observer.observe(card);
   });
 }
@@ -175,7 +175,7 @@ function setupReviewAnimation() {
 /* BAGIAN 4: EKSEKUSI UTAMA (Setelah HTML dimuat)                      */
 /* =================================================================== */
 document.addEventListener("DOMContentLoaded", () => {
-  
+
   //--- Perbaikan untuk Carousel ---
   // HANYA jalankan 'new Carousel()' JIKA elemen .image-carousel ADA di halaman.
   if (document.querySelector(".image-carousel")) {
@@ -210,9 +210,28 @@ document.addEventListener("DOMContentLoaded", () => {
   //--- Animasi Menu - BARU ---
   // Panggil fungsi animasi menu
   setupMenuAnimation();
-  
+
   //--- Animasi Review - BARU ---
   // Panggil fungsi animasi review
   setupReviewAnimation();
 
+});
+
+document.querySelectorAll(".read-more-btn").forEach(button => {
+  button.addEventListener("click", () => {
+
+    let card = button.closest(".card-item");
+    let shortText = card.querySelector(".news-short");
+    let fullText = card.querySelector(".news-full");
+
+    if (fullText.style.display === "none") {
+      fullText.style.display = "block";
+      shortText.style.display = "none";
+      button.textContent = "Tutup ↑";
+    } else {
+      fullText.style.display = "none";
+      shortText.style.display = "block";
+      button.textContent = "Baca selengkapnya →";
+    }
+  });
 });

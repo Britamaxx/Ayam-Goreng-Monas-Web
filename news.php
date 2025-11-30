@@ -61,11 +61,16 @@ $pages = ceil($total / $limit);
           <div class="card-item">
             <div class="card-item-content">
               <h3><?php echo $row['judul']; ?></h3>
-              <p><?php echo $row['deskripsi']; ?></p>
+              <p class="news-short">
+                <?php echo substr($row['deskripsi'], 0, 150) . "..."; ?>
+              </p>
 
-              <a href="news-detail.php?id=<?php echo $row['id']; ?>" class="read-more">
-                Baca selengkapnya →
-              </a>
+              <p class="news-full" style="display:none;">
+                <?php echo $row['deskripsi']; ?>
+              </p>
+
+              <button class="read-more-btn">Baca selengkapnya →</button>
+
             </div>
             <img src="./Source/Berita/<?php echo $row['gambar']; ?>" alt="News Image" />
           </div>

@@ -1,17 +1,20 @@
 @import url("https://fonts.googleapis.com/css2?family=Slabo+27px&display=swap");
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
 body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
+
 .main-header,
 .news {
-   flex-shrink: 0;
+  flex-shrink: 0;
 }
 
 .news {
@@ -23,6 +26,7 @@ body {
   flex-direction: column;
   justify-content: flex-start;
 }
+
 .news h2 {
   font-size: 4rem;
   font-weight: 700;
@@ -62,9 +66,7 @@ body {
 
 .card-item-content {
   flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
+  display: block; 
 }
 
 .card-item img {
@@ -131,6 +133,27 @@ body {
   color: white;
 }
 
+.news-full {
+  display: none;
+  margin-top: 10px;
+  color: #444;
+}
+
+.read-more-btn {
+  margin-top: 10px;
+  background: none;
+  border: none;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #d62828;
+  cursor: pointer;
+}
+
+.read-more-btn:hover {
+  text-decoration: underline;
+}
+
+
 @media (max-width: 768px) {
   .news {
     padding: 3rem 1.5rem;
@@ -154,3 +177,6 @@ body {
     font-size: 1.1rem;
   }
 }
+
+
+
