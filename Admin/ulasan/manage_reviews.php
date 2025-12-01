@@ -52,55 +52,58 @@ if (isset($_POST['update'])) {
     ?>
   
     <section class="main-content">
-      <div class="crud-container">
-        <div class="table-section">
+      <div class="table-section">
+        
+        <div class="table-header">
+          <h2>Daftar Ulasan</h2>
           
-          <div class="table-header">
-            <h2>Daftar Ulasan</h2>
-            
-            <div class="table-tools">
-              <input type="text" placeholder="Cari menu..." class="search-menu">
+          <div class="table-tools">
+            <input type="text" placeholder="Cari berita..." class="search-menu">
 
-              <button class="filter-btn">
-                <i data-feather="sliders"></i>
-              </button>
-            </div>
+            <button class="filter-btn">
+              <i data-feather="sliders"></i>
+            </button>
+
+            <a href="tambah_review.php">
+              <button class="add-btn">+ Tambah</button>
+            </a>
           </div>
-
-          <table border="1" cellpadding="8">
-            <tr>
-              <th>ID</th>
-              <th>Nama</th>
-              <th>Komentar</th>
-              <th>Rating</th>
-              <th>Foto</th>
-              <th>Tanggal</th>
-              <th>Aksi</th>
-            </tr>
-            <?php
-            $result = mysqli_query($conn, "SELECT * FROM review ORDER BY tanggal DESC");
-            while ($row = mysqli_fetch_assoc($result)) {
-
-              $foto = "-";
-              if (!empty($row['foto'])) {
-                $foto = "<img src='./uploads/{$row['foto']}' width='70'>";
-              }
-
-              echo "<tr>";
-              echo "<td>{$row['id']}</td>";
-              echo "<td>{$row['nama']}</td>";
-              echo "<td>{$row['komentar']}</td>";
-              echo "<td>{$row['rating']}</td>";
-              echo "<td>$foto</td>";
-              echo "<td>{$row['tanggal']}</td>";
-              echo "<td>
-                      <button onclick=\"showDeleteConfirmation({$row['id']}, '{$row['nama']}')\">Hapus</button>
-                    </td>";
-              echo "</tr>";
-            }
-            ?>
-          </table>
         </div>
+
+        <table border="1" cellpadding="8">
+          <tr>
+            <th>ID</th>
+            <th>Nama</th>
+            <th>Komentar</th>
+            <th>Rating</th>
+            <th>Foto</th>
+            <th>Tanggal</th>
+            <th>Aksi</th>
+          </tr>
+          <?php
+          $result = mysqli_query($conn, "SELECT * FROM review ORDER BY tanggal DESC");
+          while ($row = mysqli_fetch_assoc($result)) {
+
+            $foto = "-";
+            if (!empty($row['foto'])) {
+              $foto = "<img src='./uploads/{$row['foto']}' width='70'>";
+            }
+
+            echo "<tr>";
+            echo "<td>{$row['id']}</td>";
+            echo "<td>{$row['nama']}</td>";
+            echo "<td>{$row['komentar']}</td>";
+            echo "<td>{$row['rating']}</td>";
+            echo "<td>$foto</td>";
+            echo "<td>{$row['tanggal']}</td>";
+            echo "<td style='white-space: nowrap;'>
+                    <a href='edit_review.php?id={$row['id']}' style='display: inline-block; text-decoration: none;'><button>Edit</button></a>
+                    <button onclick=\"showDeleteConfirmation({$row['id']}, '{$row['nama']}')\">Hapus</button>
+                  </td>";
+            echo "</tr>";
+          }
+          ?>
+        </table>
       </div>
     </section>
 
