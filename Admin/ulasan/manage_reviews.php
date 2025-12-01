@@ -58,7 +58,7 @@ if (isset($_POST['update'])) {
           <h2>Daftar Ulasan</h2>
           
           <div class="table-tools">
-            <input type="text" placeholder="Cari berita..." class="search-menu">
+            <input type="text" placeholder="Cari ulasan..." class="search-menu">
 
             <button class="filter-btn">
               <i data-feather="sliders"></i>
