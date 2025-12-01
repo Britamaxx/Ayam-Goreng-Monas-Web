@@ -106,8 +106,8 @@ include "../layout/sidebar_admin.php";
         <td><?= $gambar; ?></td>
         <td><?= $row['posisi']; ?></td>
 
-        <td>
-          <a href="edit_story.php?id=<?= $row['id']; ?>">
+        <td style="white-space: nowrap;">
+          <a href="edit_story.php?id=<?= $row['id']; ?>" style="display: inline-block; text-decoration: none;">
             <button>Edit</button>
           </a>
 
