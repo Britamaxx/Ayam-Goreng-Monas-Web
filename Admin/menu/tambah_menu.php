@@ -39,7 +39,7 @@ if (isset($_POST['tambah'])) {
     <section class="main-content">
       <div class="content-header">
         <h1>Kelola Menu Restoran</h1>
-        <p>Pilih aksi di bawah untuk menambah, memperbarui, atau menghapus menu.</p>
+        <p style ="margin-bottom: 10px">Pilih aksi di bawah untuk menambah, memperbarui, atau menghapus menu.</p>
       </div>
 
       <div class="crud-container">

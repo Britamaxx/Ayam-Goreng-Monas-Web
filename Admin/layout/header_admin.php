@@ -10,7 +10,7 @@
   </div>
   <div class="header-right">
     <div class="setting-button">
-      <i data-feather="settings" class="setting-btn"></i>
+      <a href="../konten_Web/manage_konten.php"><i data-feather="settings" class="setting-btn"></i> </a>
     </div>
     <div class="profile">
       <img src="../../Source/admin.png" alt="admin-profile" />
