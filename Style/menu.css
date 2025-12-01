@@ -219,12 +219,11 @@ body {
 
 .pagination-btn,
 .pagination-number {
+  background: #d62828;
   display: inline-block;
   padding: 10px 16px;
   margin: 4px;
-  border: 1px solid #b55a37;
   border-radius: 8px;
-  color: #b55a37;
   text-decoration: none;
   font-weight: bold;
   transition: 0.25s;
@@ -232,12 +231,11 @@ body {
 
 .pagination-btn:hover,
 .pagination-number:hover {
-  background-color: #b55a37;
   color: white;
 }
 
 .pagination-number.active {
-  background-color: #b55a37;
+  background: #d62828;
   color: white;
 }
 
