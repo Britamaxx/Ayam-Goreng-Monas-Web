@@ -41,7 +41,7 @@ if (isset($_POST['update'])) {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dashboard Admin - Manage Reviews</title>
-    <link rel="icon" type="image/png" sizes="16x16" href="./source/<?php echo $h['logo']; ?>" />
+    <link rel="icon" type="image/png" sizes="16x16" href="./source/Logo.png" />
     <link rel="stylesheet" href="../style_admin/manage_menu.css" />
     <script src="https://unpkg.com/feather-icons"></script>
   </head>
@@ -54,14 +54,19 @@ if (isset($_POST['update'])) {
     <section class="main-content">
       <div class="crud-container">
         <div class="table-section">
-          <h2>Daftar Ulasan</h2>
-          <div class="table-tools">
-            <input type="text" placeholder="Cari menu..." class="search-menu">
+          
+          <div class="table-header">
+            <h2>Daftar Ulasan</h2>
+            
+            <div class="table-tools">
+              <input type="text" placeholder="Cari menu..." class="search-menu">
 
-            <button class="filter-btn">
-              <i data-feather="sliders"></i>
-            </button>
+              <button class="filter-btn">
+                <i data-feather="sliders"></i>
+              </button>
+            </div>
           </div>
+
           <table border="1" cellpadding="8">
             <tr>
               <th>ID</th>
