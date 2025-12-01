@@ -277,11 +277,6 @@ include "../layout/sidebar_admin.php";
 
         <div class="summary-row">
             <div class="summary-card">
-                <div class="summary-label">Pesanan hari ini</div>
-                <div class="summary-value red"><?= $pesananHariIni; ?></div>
-                <div class="summary-caption">Total order masuk (dari tabel <code>pesanan</code>)</div>
-            </div>
-            <div class="summary-card">
                 <div class="summary-label">Total menu aktif</div>
                 <div class="summary-value"><?= $totalMenu; ?></div>
                 <div class="summary-caption">Data dari tabel <code>menu</code></div>
@@ -417,113 +412,6 @@ include "../layout/sidebar_admin.php";
                         </table>
                     </div>
                 </section>
-
-                <!-- CARD PEKERJA (DARI DB) -->
-                <section class="card">
-                    <div class="card-header">
-                        <div>
-                            <div class="card-title">Daftar Pekerja</div>
-                            <div class="card-subtitle">Data dari tabel <code>pekerja</code></div>
-                        </div>
-                        <span class="badge">Pekerja</span>
-                    </div>
-
-                    <?php if ($pekerja && mysqli_num_rows($pekerja) > 0): ?>
-                        <ul class="pekerja-list">
-                            <?php while ($p = mysqli_fetch_assoc($pekerja)): ?>
-                                <li class="pekerja-item">
-                                    <div class="pekerja-nama">
-                                        <?= htmlspecialchars($p['nama']); ?>
-                                        <?php if ($p['status'] !== 'aktif'): ?>
-                                            <span class="pekerja-status">
-                                                <?= htmlspecialchars(ucfirst($p['status'])); ?>
-                                            </span>
-                                        <?php endif; ?>
-                                    </div>
-                                    <div class="pekerja-posisi"><?= htmlspecialchars($p['posisi']); ?></div>
-                                    <div class="pekerja-meta">
-                                        Cabang: <?= htmlspecialchars($p['nama_cabang'] ?? '-'); ?><br>
-                                        Shift: <?= htmlspecialchars($p['shift']); ?>
-                                    </div>
-                                </li>
-                            <?php endwhile; ?>
-                        </ul>
-                    <?php else: ?>
-                        <div class="empty-state">
-                            Belum ada data pekerja di tabel <code>pekerja</code>.
-                        </div>
-                    <?php endif; ?>
-                </section>
-            </div>
-        </div>
-        <?php
-        $qPesananTerbaru = "
-            SELECT ps.kode_pesanan,
-                   ps.nama_pelanggan,
-                   ps.total_harga,
-                   ps.status,
-                   ps.created_at,
-                   l.nama AS nama_cabang
-            FROM pesanan ps
-            LEFT JOIN lokasi l ON ps.cabang_id = l.id
-            ORDER BY ps.created_at DESC
-            LIMIT 5
-        ";
-        $pesananTerbaru = mysqli_query($conn, $qPesananTerbaru);
-        ?>
-
-        <div style="margin-top: 1.5rem;">
-            <section class="card">
-                <div class="card-header">
-                    <div>
-                        <div class="card-title">Pesanan Terbaru</div>
-                        <div class="card-subtitle">
-                            5 pesanan terakhir dari tabel <code>pesanan</code>
-                        </div>
-                    </div>
-                    <span class="badge">Pesanan</span>
-                </div>
-
-                <div class="table-wrapper">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Kode</th>
-                                <th>Pelanggan</th>
-                                <th>Cabang</th>
-                                <th>Total</th>
-                                <th>Status</th>
-                                <th>Waktu</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        <?php if ($pesananTerbaru && mysqli_num_rows($pesananTerbaru) > 0): ?>
-                            <?php while ($p = mysqli_fetch_assoc($pesananTerbaru)): ?>
-                                <tr>
-                                    <td><?= htmlspecialchars($p['kode_pesanan']); ?></td>
-                                    <td><?= htmlspecialchars($p['nama_pelanggan']); ?></td>
-                                    <td><?= htmlspecialchars($p['nama_cabang'] ?? '-'); ?></td>
-                                    <td>Rp <?= number_format($p['total_harga'], 0, ',', '.'); ?></td>
-                                    <td>
-                                        <span class="pill">
-                                            <?= htmlspecialchars(ucfirst($p['status'])); ?>
-                                        </span>
-                                    </td>
-                                    <td><?= date('d M Y H:i', strtotime($p['created_at'])); ?></td>
-                                </tr>
-                            <?php endwhile; ?>
-                        <?php else: ?>
-                            <tr>
-                                <td colspan="6" class="empty-state">
-                                    Belum ada data pesanan.
-                                </td>
-                            </tr>
-                        <?php endif; ?>
-                        </tbody>
-                    </table>
-                </div>
-            </section>
-        </div>
 
     </div>
 </div>
