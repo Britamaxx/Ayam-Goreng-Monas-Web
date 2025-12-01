@@ -22,20 +22,21 @@ CREATE TABLE menu (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nama VARCHAR(50) NOT NULL,
     gambar VARCHAR(100) NOT NULL,
-    status VARCHAR(20) DEFAULT NULL,
-    deskripsi TEXT DEFAULT NULL,
-    kalori INT DEFAULT NULL,
-    karbohidrat INT DEFAULT NULL,
-    protein INT DEFAULT NULL
+    status VARCHAR(20) DEFAULT NULL
 );
 
-INSERT INTO menu (nama, kalori, karbohidrat, protein, gambar, status) VALUES
-('Paket Ayam Monas', 230, 30, 10, 'Paket Monas.png', 'FAVORITE'),
-('Bakwan', 100, 20, 5, 'Bakwan.png', NULL),
-('Chicken Strip', 150, 14, 6, 'Chicken Strip.png', 'FAVORITE'),
-('French Fries', 140, 14, 2, 'French fries.png', NULL),
-('Es Blewah', 100, 10, 5, 'Es Blewah.png', 'FAVORITE'),
-('Siomay', 120, 14, 5, 'Siomay.png', 'FAVORITE');
+ALTER TABLE menu ADD deskripsi TEXT DEFAULT NULL;
+ALTER TABLE menu ADD kalori INT DEFAULT NULL;
+ALTER TABLE menu ADD karbohidrat INT DEFAULT NULL;
+ALTER TABLE menu ADD protein INT DEFAULT NULL;
+
+INSERT INTO menu (nama, gambar, status) VALUES
+('Paket Ayam Monas', 'Paket Monas.png', 'FAVORITE'),
+('Bakwan', 'Bakwan.png', NULL),
+('Chicken Strip', 'Chicken Strip.png', 'FAVORITE'),
+('French Fries', 'French fries.png', NULL),
+('Es Blewah', 'Es Blewah.png', 'FAVORITE'),
+('Siomay', 'Siomay.png', 'FAVORITE');
 
 CREATE TABLE berita (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -164,40 +165,18 @@ VALUES (
   '#'
 );
 
-CREATE TABLE pesanan (
+CREATE TABLE akun (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    kode_pesanan VARCHAR(50) NOT NULL,
-    nama_pelanggan VARCHAR(100) NOT NULL,
-    cabang_id INT NULL,
-    total_harga INT NOT NULL,
-    status ENUM('pending','proses','selesai','batal') DEFAULT 'pending',
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (cabang_id) REFERENCES lokasi(id)
+    username VARCHAR(50) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL
 );
 
-INSERT INTO pesanan (kode_pesanan, nama_pelanggan, cabang_id, total_harga, status, created_at) VALUES
-('ORD-202501-001', 'Andi', 1, 85000, 'selesai',  NOW() - INTERVAL 2 HOUR),
-('ORD-202501-002', 'Budi', 2, 120000, 'proses',   NOW() - INTERVAL 1 HOUR),
-('ORD-202501-003', 'Citra',3, 45000,  'pending',  NOW() - INTERVAL 30 MINUTE),
-('ORD-202501-004', 'Dewi', 1, 99000,  'selesai',  NOW() - INTERVAL 10 MINUTE),
-('ORD-202501-005', 'Eka',  2, 73000,  'batal',    NOW() - INTERVAL 5 MINUTE);
+INSERT INTO akun (username, password) VALUES
+('admin', '123');
 
-CREATE TABLE pekerja (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    nama VARCHAR(100) NOT NULL,
-    posisi VARCHAR(100) NOT NULL,
-    shift VARCHAR(50) NOT NULL,
-    status ENUM('aktif','cuti','resign') DEFAULT 'aktif',
-    cabang_id INT NULL,
-    FOREIGN KEY (cabang_id) REFERENCES lokasi(id)
-);
 
-INSERT INTO pekerja (nama, posisi, shift, status, cabang_id) VALUES
-('Rina',     'Kasir',           'Pagi',   'aktif', 1),
-('Doni',     'Koki',            'Siang',  'aktif', 1),
-('Sari',     'Pramusaji',       'Malam',  'aktif', 2),
-('Bayu',     'Supervisor',      'Pagi',   'cuti',  2),
-('Lilis',    'Crew Dapur',      'Malam',  'aktif', 3);
+
+
 
 
 
