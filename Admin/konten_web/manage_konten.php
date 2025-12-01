@@ -12,8 +12,9 @@ $footer = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM footer WHERE id 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dashboard Admin - Kelola Konten</title>
-  <link rel="stylesheet" href="../style_admin/manage_menu.css"> <!-- reuse css -->
+  <link rel="stylesheet" href="../style_admin/manage_menu.css">
   <link rel="icon" type="image/png" sizes="16x16" href="./source/Logo.png" />
+  <script src="https://unpkg.com/feather-icons"></script>
 </head>
 <body>
   <?php 
@@ -27,28 +28,35 @@ $footer = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM footer WHERE id 
       <p>Kelola konten website seperti header dan footer melalui dashboard.</p>
     </div>
 
-    <div class="content-card">
-      <div class="card-header">
+    <!-- Card Header Website -->
+    <div class="form-section">
+      <div class="table-header">
         <h2>Header Website</h2>
-        <a href="edit_header.php"><button>Edit Header</button></a>
+        <a href="edit_header.php">
+          <button type="button" class="add-btn">Edit Header</button>
+        </a>
       </div>
-      <div class="card-content">
-        <p>
+      <p>
         Logo, nama bisnis, dan bilah navigasi<br><br>
-      </div>
+      </p>
     </div>
 
-    <div class="content-card">
-      <div class="card-header">
+    <!-- Card Footer Website -->
+    <div class="form-section">
+      <div class="table-header">
         <h2>Footer Website</h2>
-        <a href="edit_footer.php"><button>Edit Footer</button></a>
+        <a href="edit_footer.php">
+          <button type="button" class="add-btn">Edit Footer</button>
+        </a>
       </div>
-      <div class="card-content">
-        <p>
+      <p>
         Kontak, cabang utama, peta, dan media sosial<br><br>
-      </div>
+      </p>
     </div>
   </section>
 
+  <script>
+    feather.replace()
+  </script>
 </body>
 </html>
