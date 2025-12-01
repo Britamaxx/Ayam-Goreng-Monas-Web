@@ -22,21 +22,20 @@ CREATE TABLE menu (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nama VARCHAR(50) NOT NULL,
     gambar VARCHAR(100) NOT NULL,
-    status VARCHAR(20) DEFAULT NULL
+    status VARCHAR(20) DEFAULT NULL,
+    deskripsi TEXT DEFAULT NULL,
+    kalori INT DEFAULT NULL,
+    karbohidrat INT DEFAULT NULL,
+    protein INT DEFAULT NULL
 );
 
-ALTER TABLE menu ADD deskripsi TEXT DEFAULT NULL;
-ALTER TABLE menu ADD kalori INT DEFAULT NULL;
-ALTER TABLE menu ADD karbohidrat INT DEFAULT NULL;
-ALTER TABLE menu ADD protein INT DEFAULT NULL;
-
-INSERT INTO menu (nama, gambar, status, kalori, karbohidrat, protein) VALUES
-('Paket Ayam Monas', 'Paket Monas.png', 'FAVORITE'),
-('Bakwan', 'Bakwan.png', NULL),
-('Chicken Strip', 'Chicken Strip.png', 'FAVORITE'),
-('French Fries', 'French fries.png', NULL),
-('Es Blewah', 'Es Blewah.png', 'FAVORITE'),
-('Siomay', 'Siomay.png', 'FAVORITE');
+INSERT INTO menu (nama, kalori, karbohidrat, protein, gambar, status) VALUES
+('Paket Ayam Monas', 230, 30, 10, 'Paket Monas.png', 'FAVORITE'),
+('Bakwan', 100, 20, 5, 'Bakwan.png', NULL),
+('Chicken Strip', 150, 14, 6, 'Chicken Strip.png', 'FAVORITE'),
+('French Fries', 140, 14, 2, 'French fries.png', NULL),
+('Es Blewah', 100, 10, 5, 'Es Blewah.png', 'FAVORITE'),
+('Siomay', 120, 14, 5, 'Siomay.png', 'FAVORITE');
 
 CREATE TABLE berita (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -199,9 +198,6 @@ INSERT INTO pekerja (nama, posisi, shift, status, cabang_id) VALUES
 ('Sari',     'Pramusaji',       'Malam',  'aktif', 2),
 ('Bayu',     'Supervisor',      'Pagi',   'cuti',  2),
 ('Lilis',    'Crew Dapur',      'Malam',  'aktif', 3);
-
-
-
 
 
 
