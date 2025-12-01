@@ -22,7 +22,8 @@ SET time_zone = "+00:00";
 --
 
 -- --------------------------------------------------------
-
+create database if not exists ayamgoreng_monas;
+use ayamgoreng_monas;
 --
 -- Table structure for table `akun`
 --
