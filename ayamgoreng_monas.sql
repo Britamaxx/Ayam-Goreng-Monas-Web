@@ -24,18 +24,20 @@ CREATE TABLE menu (
     gambar VARCHAR(100) NOT NULL,
     status VARCHAR(20) DEFAULT NULL,
     deskripsi TEXT DEFAULT NULL,
+    karbohidrat INT DEFAULT NULL,
     kalori INT DEFAULT NULL,
     protein INT DEFAULT NULL
 );
 
 
-INSERT INTO menu (nama, gambar, status) VALUES
-('Paket Ayam Monas', 'Paket Monas.png', 'FAVORITE'),
-('Bakwan', 'Bakwan.png', NULL),
-('Chicken Strip', 'Chicken Strip.png', 'FAVORITE'),
-('French Fries', 'French fries.png', NULL),
-('Es Blewah', 'Es Blewah.png', 'FAVORITE'),
-('Siomay', 'Siomay.png', 'FAVORITE');
+INSERT INTO menu (nama, kalori, karbohidrat, protein, gambar, status, deskripsi) VALUES
+('Paket Ayam Monas', 230, 30, 10, 'Paket Monas.png', 'FAVORITE', 'Satu porsi lengkap dengan ayam goreng renyah, nasi putih, sambal pedas, dan lalapan segar. Disajikan dengan minuman dingin untuk melengkapi hidangan.'),
+('Bakwan', 100, 20, 5, 'Bakwan.png', NULL, 'Sup bakso berisi bakso daging kenyal yang disajikan dalam kuah kaldu gurih dengan taburan bawang goreng dan daun bawang. Dilengkapi sambal untuk menambah cita rasa.'),
+('Chicken Strip', 150, 14, 6, 'Chicken Strip.png', 'FAVORITE', 'Potongan ayam fillet yang dilapisi tepung roti crispy, disajikan dengan nasi, saus sambal pedas, dan kecap manis. Cocok untuk pecinta ayam goreng tepung.'),
+('French Fries', 140, 14, 2, 'French fries.png', NULL, 'Kentang goreng renyah dipotong memanjang, disajikan dengan saus sambal dan kecap. Camilan favorit yang cocok dinikmati kapan saja.'),
+('Es Blewah', 100, 10, 5, 'Es Blewah.png', 'FAVORITE', 'Minuman segar dari jus melon dengan es batu, disajikan dalam gelas plastik. Sempurna untuk menghilangkan dahaga di cuaca panas.'),
+('Siomay', 120, 14, 5, 'Siomay.png', 'FAVORITE', 'Hidangan siomay kukus dengan saus kacang, disertai pare isi dan sosis goreng. Perpaduan rasa gurih dan sedikit pedas yang menggugah selera.');
+
 
 CREATE TABLE berita (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -208,7 +210,7 @@ INSERT INTO pekerja (nama, posisi, shift, status, cabang_id) VALUES
 ('Bayu',     'Supervisor',      'Pagi',   'cuti',  2),
 ('Lilis',    'Crew Dapur',      'Malam',  'aktif', 3);
 
-
+drop table menu;
 
 
 
