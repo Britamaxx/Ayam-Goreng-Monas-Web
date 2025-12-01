@@ -43,11 +43,6 @@ include "../layout/sidebar_admin.php";
 
 <section class="main-content">
 
-  <div class="content-header">
-    <h1>Kelola Cerita</h1>
-    <p>Kelola perjalanan bisnis melalui timeline seperti tahun, judul, deskripsi, gambar, dan posisi.</p>
-  </div>
-
   <div class="table-section">
 
     <div class="table-header">

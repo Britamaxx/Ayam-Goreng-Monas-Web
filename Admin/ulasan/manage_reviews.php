@@ -214,10 +214,6 @@ if (isset($_POST['update'])) {
     ?>
   
     <section class="main-content">
-      <div class="content-header">
-        <h1>Kelola Ulasan Pelanggan</h1>
-        <p>Admin dapat melihat dan menghapus ulasan pelanggan di sini.</p>
-      </div>
 
       <div class="crud-container">
         <div class="table-section">

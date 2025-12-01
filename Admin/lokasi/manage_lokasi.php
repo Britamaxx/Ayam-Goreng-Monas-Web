@@ -39,11 +39,6 @@ if (isset($_GET['hapus'])) {
 
     <section class="main-content">
 
-      <div class="content-header">
-        <h1>Kelola Lokasi Cabang</h1>
-        <p>Kelola daftar lokasi cabang restoran, termasuk alamat, jam operasional, dan gambar lokasi.</p>
-      </div>
-
       <div class="table-section">
 
         <div class="table-header">
