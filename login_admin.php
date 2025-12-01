@@ -10,38 +10,7 @@ if (isset($_SESSION['admin_logged_in']) && $_SESSION['admin_logged_in'] === true
 
 $error = "";
 
-// Proses login
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $username = mysqli_real_escape_string($conn, trim($_POST['username']));
-    $password = trim($_POST['password']);
-    
-    if (!empty($username) && !empty($password)) {
-        $query = "SELECT * FROM akun WHERE username = '$username' LIMIT 1";
-        $result = mysqli_query($conn, $query);
-        
-        if ($result && mysqli_num_rows($result) > 0) {
-            $user = mysqli_fetch_assoc($result);
-            
-            // Verifikasi password (sesuaikan dengan sistem Anda)
-            // Jika password di-hash, gunakan password_verify()
-            // Untuk contoh ini, password disimpan plain text seperti di database
-            if ($password === $user['password']) {
-                $_SESSION['admin_logged_in'] = true;
-                $_SESSION['admin_username'] = $user['username'];
-                $_SESSION['admin_id'] = $user['id'];
-                
-                header("Location: Admin/dashboard/dashboard_admin.php");
-                exit();
-            } else {
-                $error = "Username atau password salah!";
-            }
-        } else {
-            $error = "Username atau password salah!";
-        }
-    } else {
-        $error = "Harap isi semua field!";
-    }
-}
+
 ?>
 <!DOCTYPE html>
 <html lang="id">
@@ -49,7 +18,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Admin - Ayam Goreng Monas</title>
-    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://unpkg.com/feather-icons">
+    </script>
+    <script
+        src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+        async
+        defer
+        ></script>
+    <link rel="preconnect" href="https://challenges.cloudflare.com">
+    <script src="login.js" defer></script>
     <style>
         * {
             margin: 0;
@@ -246,7 +223,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </div>
             <?php endif; ?>
 
-            <form method="POST" action="">
+            <form method="POST" action="validasiogin.php">
                 <div class="form-group">
                     <label for="username">Username</label>
                     <div class="input-wrapper">
@@ -275,7 +252,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <i data-feather="lock" class="input-icon"></i>
                     </div>
                 </div>
-
+                <div class="cf-turnstile" data-sitekey="0x4AAAAAACD8dRUDmBb53ykT" style="text-align: center"></div>
                 <button type="submit" class="btn-login">
                     Masuk Dashboard
                 </button>
