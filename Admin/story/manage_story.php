@@ -27,7 +27,7 @@ if (isset($_GET['hapus'])) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>Dashboard Admin - Manage Story</title>
-  <link rel="icon" type="image/png" sizes="16x16" href="../source/Logo.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="./source/<?php echo $h['logo']; ?>" />
 
   <link rel="stylesheet" href="../style_admin/manage_menu.css" />
 

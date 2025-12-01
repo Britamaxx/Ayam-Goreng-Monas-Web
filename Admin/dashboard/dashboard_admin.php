@@ -41,6 +41,7 @@ $pekerja = mysqli_query($conn, $qPekerja);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../style_admin/manage_menu.css" />
+    <link rel="icon" type="image/png" sizes="16x16" href="./source/<?php echo $h['logo']; ?>" />
     <script src="https://unpkg.com/feather-icons"></script>
     <title>Dashboard Admin - Ayam Goreng Monas</title>
 

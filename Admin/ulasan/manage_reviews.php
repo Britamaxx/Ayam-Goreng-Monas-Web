@@ -41,7 +41,7 @@ if (isset($_POST['update'])) {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dashboard Admin - Manage Reviews</title>
-    <link rel="icon" type="image/png" sizes="16x16" href="../source/Logo.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="./source/<?php echo $h['logo']; ?>" />
     <link rel="stylesheet" href="../style_admin/manage_menu.css" />
     <script src="https://unpkg.com/feather-icons"></script>
   </head>
