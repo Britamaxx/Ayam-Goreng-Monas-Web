@@ -31,12 +31,12 @@ ALTER TABLE menu ADD karbohidrat INT DEFAULT NULL;
 ALTER TABLE menu ADD protein INT DEFAULT NULL;
 
 INSERT INTO menu (nama, gambar, status, kalori, karbohidrat, protein) VALUES
-('Paket Ayam Monas', 'Paket Monas.png', 'FAVORITE', 650, 45, 35),
-('Bakwan', 'Bakwan.png', NULL, 150, 20, 3),
-('Chicken Strip', 'Chicken Strip.png', 'FAVORITE', 300, 25, 20),
-('French Fries', 'French fries.png', NULL, 220, 30, 4),
-('Es Blewah', 'Es Blewah.png', 'FAVORITE', 180, 40, 1),
-('Siomay', 'Siomay.png', 'FAVORITE', 250, 15, 10);
+('Paket Ayam Monas', 'Paket Monas.png', 'FAVORITE'),
+('Bakwan', 'Bakwan.png', NULL),
+('Chicken Strip', 'Chicken Strip.png', 'FAVORITE'),
+('French Fries', 'French fries.png', NULL),
+('Es Blewah', 'Es Blewah.png', 'FAVORITE'),
+('Siomay', 'Siomay.png', 'FAVORITE');
 
 CREATE TABLE berita (
     id INT AUTO_INCREMENT PRIMARY KEY,
