@@ -104,7 +104,6 @@ $reviews = mysqli_query($conn, "SELECT * FROM review ORDER BY id DESC");
       <div id="menu" class="menu-section">
         <div class="menu-name">
           <h3 class="section-heading">Menu Unggulan</h3>
-          <a class="menu-direct" href="menu.html">Lihat Semua Menu</a>
         </div>
         <div class="menu-grid">
           <article class="menu-card">
@@ -113,6 +112,7 @@ $reviews = mysqli_query($conn, "SELECT * FROM review ORDER BY id DESC");
               <h4>Bakwan</h4>
               <!-- <p class="price">Rp 28.000</p> -->
               <!-- <a class="menu-btn" href="#">Pesan</a> -->
+              <a class="menu-direct" href="menu.html">Lihat Semua Menu</a>
             </div>
           </article>
 
