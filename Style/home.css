@@ -69,9 +69,11 @@
 }
 
 .menu-section { 
-  margin:2rem 0;
+  margin:2rem;
   background-color: #f3f3f3;
   height: 65vh;
+  padding:2rem;
+  border-radius:12px;
 }
 
 .section-heading {
