@@ -44,7 +44,6 @@ $pekerja = mysqli_query($conn, $qPekerja);
     <title>Dashboard Admin - Ayam Goreng Monas</title>
 
     <style>
-        /* reset ringan */
         * {
             box-sizing: border-box;
             margin: 0;

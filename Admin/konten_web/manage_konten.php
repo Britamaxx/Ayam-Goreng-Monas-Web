@@ -14,63 +14,6 @@ $footer = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM footer WHERE id 
   <title>Dashboard Admin - Kelola Konten</title>
   <link rel="stylesheet" href="../style_admin/manage_menu.css"> <!-- reuse css -->
   <link rel="icon" type="image/png" sizes="16x16" href="./source/Logo.png" />
-  <style>
-    .content-card {
-      background: #fff;
-      border-radius: 16px;
-      padding: 20px;
-      margin-bottom: 20px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-
-    .content-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 15px 30px rgba(0,0,0,0.12);
-    }
-
-    .card-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 12px;
-    }
-
-    .card-header h2 {
-      margin: 0;
-      font-size: 20px;
-      color: #1f2937;
-    }
-
-    .card-header a button {
-      background: linear-gradient(135deg, #DC2626, #EF4444);
-      color: white;
-      border: none;
-      padding: 8px 16px;
-      border-radius: 8px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-
-    .card-header a button:hover {
-      background: linear-gradient(135deg, #DC2626, #EF4444);
-    }
-
-    .card-content p {
-      margin: 8px 0;
-      color: #4B5563;
-      line-height: 1.6;
-    }
-
-    @media (max-width: 768px) {
-      .card-header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 8px;
-      }
-    }
-  </style>
 </head>
 <body>
   <?php 
