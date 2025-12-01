@@ -86,8 +86,8 @@ if (isset($_GET['hapus'])) {
             echo "<td>{$row['jam']}</td>";
             echo "<td>$gambar</td>";
 
-            echo "<td>
-                    <a href='edit_lokasi.php?id={$row['id']}'><button>Edit</button></a>
+            echo "<td style='white-space: nowrap;'>
+                    <a href='edit_lokasi.php?id={$row['id']}' style='display: inline-block; text-decoration: none;'><button>Edit</button></a>
                     <button onclick=\"showDeleteConfirmation({$row['id']}, '{$namaLokasi}', 'lokasi')\">Hapus</button>
                   </td>";
             echo "</tr>";
@@ -97,7 +97,6 @@ if (isset($_GET['hapus'])) {
         </table>
       </div>
     </section>
-
     <script src="../js/admin.js"></script>
     <script>
       feather.replace();
