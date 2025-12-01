@@ -52,10 +52,16 @@ if (isset($_POST['update'])) {
     ?>
   
     <section class="main-content">
-
       <div class="crud-container">
         <div class="table-section">
           <h2>Daftar Ulasan</h2>
+          <div class="table-tools">
+            <input type="text" placeholder="Cari menu..." class="search-menu">
+
+            <button class="filter-btn">
+              <i data-feather="sliders"></i>
+            </button>
+          </div>
           <table border="1" cellpadding="8">
             <tr>
               <th>ID</th>
