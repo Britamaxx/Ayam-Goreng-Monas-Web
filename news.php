@@ -70,9 +70,11 @@ $pages = ceil($total / $limit);
               </p>
 
               <button class="read-more-btn">Baca selengkapnya →</button>
-
             </div>
-            <img src="./Source/Berita/<?php echo $row['gambar']; ?>" alt="News Image" />
+
+            <div class="card-image">
+              <img src="./Source/Berita/<?php echo $row['gambar']; ?>" alt="News Image" />
+            </div>
           </div>
         <?php } ?>
       </div>
