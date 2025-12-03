@@ -43,7 +43,6 @@ if (isset($_POST['update'])) {
     <title>Dashboard Admin - Manage Reviews</title>
     <link rel="icon" type="image/png" sizes="16x16" href="./source/Logo.png" />
     <link rel="stylesheet" href="../style_admin/manage_menu.css" />
-    <script src="https://unpkg.com/feather-icons"></script>
   </head>
   <body>
     <?php 
@@ -108,8 +107,5 @@ if (isset($_POST['update'])) {
     </section>
 
     <script src="../js/admin.js"></script>
-    <script>
-      feather.replace();
-    </script>
   </body>
 </html>

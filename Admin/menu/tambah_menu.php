@@ -29,7 +29,6 @@ if (isset($_POST['tambah'])) {
     <title>Dashboard Admin - Manage Menu</title>
     <link rel="icon" type="image/png" sizes="16x16" href="./source/Logo.png" />
     <link rel="stylesheet" href="../style_admin/manage_menu.css" />
-    <script src="https://unpkg.com/feather-icons"></script>
   </head>
   <body>
     <?php 

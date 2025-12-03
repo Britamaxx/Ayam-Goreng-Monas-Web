@@ -14,7 +14,6 @@ $footer = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM footer WHERE id 
   <title>Dashboard Admin - Kelola Konten</title>
   <link rel="stylesheet" href="../style_admin/manage_menu.css">
   <link rel="icon" type="image/png" sizes="16x16" href="./source/Logo.png" />
-  <script src="https://unpkg.com/feather-icons"></script>
 </head>
 <body>
   <?php 
@@ -54,9 +53,5 @@ $footer = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM footer WHERE id 
       </p>
     </div>
   </section>
-
-  <script>
-    feather.replace()
-  </script>
 </body>
 </html>

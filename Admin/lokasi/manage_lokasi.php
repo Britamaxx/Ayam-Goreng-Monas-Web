@@ -28,7 +28,6 @@ if (isset($_GET['hapus'])) {
     <link rel="icon" type="image/png" sizes="16x16" href="../source/Logo.png" />
     <link rel="stylesheet" href="../style_admin/manage_menu.css" />
 
-    <script src="https://unpkg.com/feather-icons"></script>
   </head>
 
   <body>
@@ -98,8 +97,6 @@ if (isset($_GET['hapus'])) {
       </div>
     </section>
     <script src="../js/admin.js"></script>
-    <script>
-      feather.replace();
-    </script>
+
   </body>
 </html>
