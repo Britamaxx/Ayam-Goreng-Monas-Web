@@ -22,5 +22,8 @@ $current_page = basename($_SERVER['PHP_SELF']);
     <li class="manage story <?php if ($current_page == 'manage_story.php') {echo 'active';} ?>">
       <a href="../story/manage_story.php">Kelola Cerita</a>
     </li>
+    <li class="settings <?php if ($current_page == 'settings.php') {echo 'active';} ?>">
+      <a href="../konten_Web/manage_konten.php">Pengaturan</a>
+    </li>
   </ul>
 </section>
