@@ -45,13 +45,11 @@ body {
 }
 
 .Review-list {
-  display: grid;
-  grid-auto-flow: column;
-  grid-auto-columns: minmax(320px, 1fr);
-  overflow-x: auto;
-  padding-bottom: 10px;
+  display: flex;
+  flex-direction: column;
   gap: 20px;
-  justify-items: center;
+  padding-bottom: 10px;
+  align-items: center;
 }
 
 .review-card {
@@ -61,7 +59,7 @@ body {
   padding: 20px;
   transition: all 0.3s ease;
   width: 100%;
-  max-width: 360px;
+  max-width: 720px;
 }
 
 .review-card:hover {
@@ -220,7 +218,7 @@ body {
   }
 
   .review-card {
-    max-width: 300px;
+    max-width: 100%;
   }
 
   .review-photo img,

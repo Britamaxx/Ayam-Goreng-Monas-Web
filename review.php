@@ -53,37 +53,35 @@ $reviews = mysqli_query($conn, "SELECT * FROM review ORDER BY id DESC");
   <div class="Card-Review">
     <div class="Review-list">
       <?php while($row = mysqli_fetch_assoc($reviews)) { ?>
-        
-        <!-- Card 1: Foto, Nama, dan Bintang -->
-        <div class="review-card card-profile">
-          <div class="profile-content">
-            <?php if (!empty($row['foto'])) { ?>
-              <div class="review-photo">
-                <img src="<?php echo htmlspecialchars($row['foto']); ?>" alt="Foto Reviewer">
-              </div>
-            <?php } else { ?>
-              <div class="review-photo">
-                <div class="photo-placeholder">
-                  <span>👤</span>
+
+        <div class="review-card">
+          <div class="card-profile">
+            <div class="profile-content">
+              <?php if (!empty($row['foto'])) { ?>
+                <div class="review-photo">
+                  <img src="<?php echo htmlspecialchars($row['foto']); ?>" alt="Foto Reviewer">
                 </div>
-              </div>
-            <?php } ?>
-            
-            <div class="profile-info">
-              <p class="reviewer-name">
-                <strong><?php echo htmlspecialchars($row['nama']); ?></strong>
-              </p>
-              <div class="stars">
-                <?php
-                  $filled = $row['rating'];
-                  $empty = 5 - $filled;
-                  for ($i = 0; $i < $filled; $i++) echo '<span class="star filled">★</span>';
-                  for ($i = 0; $i < $empty; $i++) echo '<span class="star">★</span>';
-                ?>
+              <?php } else { ?>
+                <div class="review-photo">
+                  <div class="photo-placeholder">
+                    <span>👤</span>
+                  </div>
+                </div>
+              <?php } ?>
+
+              <div class="profile-info">
+                <p class="reviewer-name"><strong><?php echo htmlspecialchars($row['nama']); ?></strong></p>
+                <div class="stars">
+                  <?php
+                    $filled = (int)$row['rating'];
+                    $empty = 5 - $filled;
+                    for ($i = 0; $i < $filled; $i++) echo '<span class="star filled">★</span>';
+                    for ($i = 0; $i < $empty; $i++) echo '<span class="star">★</span>';
+                  ?>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
         <!-- Card 2: Deskripsi/Komentar -->
         <div class="review-card card-comment">

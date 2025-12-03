@@ -193,9 +193,9 @@ CREATE TABLE `review` (
 --
 
 INSERT INTO `review` (`id`, `nama`, `komentar`, `rating`, `tanggal`, `foto`) VALUES
-(1, 'Dunia Kuliner Samarinda', 'Dari dulu rasanya ga berubah, ayamnya empuk berbumbu dengan daging yang juicy.', 5, '2025-09-01 07:52:30', 'DuniaKulinerSamarinda'),
-(2, 'Eri Fahmi', 'Rasa sama dan tidak berubah.', 5, '2025-11-01 07:52:30', 'EriFahmi.png'),
-(3, 'Zulaihaa 22', 'Rasanya udah beda sama yang dulu, dari segi rasa masih lumayan enak tapi sambal nya dikit. Apalagi harga agak pricy 40.000 paket ayam nasi+teh botol sosro. sangat di sayangkan belum ada metode pembayaran cashless, jadi mesti siapin uang tunai.', 3, '2024-12-01 07:52:30', 'Zulhaiha22.png');
+(1, 'Dunia Kuliner Samarinda', 'Dari dulu rasanya ga berubah, ayamnya empuk berbumbu dengan daging yang juicy.', 5, '2025-09-01 07:52:30', 'C:\laragon\www\AyamGorengMonas\Source\DuniaKulinerSamarinda.png'),
+(2, 'Eri Fahmi', 'Rasa sama dan tidak berubah.', 5, '2025-11-01 07:52:30', 'C:\laragon\www\AyamGorengMonas\Source\EriFahmi.png'),
+(3, 'Zulaihaa 22', 'Rasanya udah beda sama yang dulu, dari segi rasa masih lumayan enak tapi sambal nya dikit. Apalagi harga agak pricy 40.000 paket ayam nasi+teh botol sosro. sangat di sayangkan belum ada metode pembayaran cashless, jadi mesti siapin uang tunai.', 3, '2024-12-01 07:52:30', 'C:\laragon\www\AyamGorengMonas\Source\Zulhaiha22.png');
 
 -- --------------------------------------------------------
 
