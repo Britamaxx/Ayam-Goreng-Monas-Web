@@ -78,72 +78,55 @@ $lokasi = mysqli_query($conn, "SELECT * FROM lokasi");
 </section>
 
 
-<section class="footer">
-    <div class="footer-container">
+  <section class="footer">
+      <div class="footer-container">
 
-        <div class="footer-logo">
-            <img src="./Source/<?php echo $footer['logo']; ?>" alt="Logo" />
-            <p class="footer-slogan"><?php echo $footer['slogan']; ?></p>
+        <div class="footer-logo-section">
+          <div class="footer-logo">
+            <img src="./Source/<?php echo $f['logo']; ?>" alt="Ayam Goreng Monas Logo" />
+            <p class="footer-slogan"><?php echo $f['slogan']; ?></p>
+          </div>
+          <div class="footer-description">
+            <p>Ayam goreng terbaik dengan cita rasa autentik dan bumbu khas yang telah dipercaya oleh ribuan pelanggan setia kami.</p>
+          </div>
         </div>
 
         <div class="footer-column">
-            <h3>Link</h3>
-            <ul>
-                <li><a href="<?php echo $footer['link_story']; ?>">Kisah</a></li>
-                <li><a href="<?php echo $footer['link_menu']; ?>">Menu</a></li>
-                <li><a href="<?php echo $footer['link_news']; ?>">Berita</a></li>
-            </ul>
-        </div>
-
-        <div class="footer-column">
-            <h3>Hubungi</h3>
-            <ul>
-                <li><a href="<?php echo $footer['whatsapp']; ?>" target="_blank">WhatsApp</a></li>
-                <li><a href="mailto:<?php echo $footer['email']; ?>">Email</a></li>
-            </ul>
+          <h3>Link</h3>
+          <ul>
+            <li><a href="<?php echo $f['link_story']; ?>">Cerita</a></li>
+            <li><a href="<?php echo $f['link_menu']; ?>">Menu</a></li>
+            <li><a href="<?php echo $f['link_news']; ?>">Berita</a></li>
+          </ul>
         </div>
 
         <div class="Footer-cabang">
-            <h3>Cabang utama</h3>
-            <div class="footer-cabang-content">
-                <p><?php echo nl2br($footer['alamat']); ?></p>
-            </div>
+          <h3>Alamat Kami</h3>
+          <div class="footer-cabang-content">
+            <p><?php echo $f['alamat']; ?></p>
+          </div>
+          <div class="footer-social">
+            <a href="<?php echo $f['instagram']; ?>" class="social-icon">
+              <img src="./source/instagram.svg" alt="Instagram" />
+            </a>
+            <a href="<?php echo $f['tiktok']; ?>" class="social-icon">
+              <img src="./source/tiktok.svg" alt="TikTok" />
+            </a>
+            <a href="<?php echo $f['x']; ?>" class="social-icon">
+              <img src="./source/x.svg" alt="X" />
+            </a>
+            <a href="<?php echo $f['facebook']; ?>" class="social-icon">
+              <img src="./source/facebook.svg" alt="Facebook" />
+            </a>
+          </div>
         </div>
 
-        <?php echo $footer['maps_embed']; ?>
+      </div>
 
-        <div class="footer-social">
-            <?php if (!empty($footer['instagram'])): ?>
-                <a href="<?php echo $footer['instagram']; ?>" class="social-icon" target="_blank">
-                    <img src="./source/instagram.svg" alt="Instagram" />
-                </a>
-            <?php endif; ?>
-
-            <?php if (!empty($footer['tiktok'])): ?>
-                <a href="<?php echo $footer['tiktok']; ?>" class="social-icon" target="_blank">
-                    <img src="./source/tiktok.svg" alt="TikTok" />
-                </a>
-            <?php endif; ?>
-
-            <?php if (!empty($footer['x'])): ?>
-                <a href="<?php echo $footer['x']; ?>" class="social-icon" target="_blank">
-                    <img src="./source/x.svg" alt="X" />
-                </a>
-            <?php endif; ?>
-
-            <?php if (!empty($footer['facebook'])): ?>
-                <a href="<?php echo $footer['facebook']; ?>" class="social-icon" target="_blank">
-                    <img src="./source/facebook.svg" alt="Facebook" />
-                </a>
-            <?php endif; ?>
-        </div>
-
-    </div>
-
-    <div class="footer-bottom">
-        <p>Copyright &copy; 2025 <?php echo $header['nama_bisnis']; ?>. Hak Cipta Dilindungi.</p>
-    </div>
-</section>
+      <div class="footer-bottom">
+        <p>Copyright &copy; 2025 Ayam Goreng Monas. Hak Cipta Dilindungi</p>
+      </div>
+    </section>
 
 
 <script>
