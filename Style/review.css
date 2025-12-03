@@ -45,11 +45,13 @@ body {
 }
 
 .Review-list {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(320px, 1fr);
+  overflow-x: auto;
   padding-bottom: 10px;
-  align-items: center;
+  gap: 20px;
+  justify-items: center;
 }
 
 .review-card {
@@ -59,7 +61,11 @@ body {
   padding: 20px;
   transition: all 0.3s ease;
   width: 100%;
-  max-width: 720px;
+  max-width: 360px;
+  min-height: 280px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
 .review-card:hover {
@@ -69,25 +75,31 @@ body {
 
 /* Card 1: Profile (Foto, Nama, Bintang) */
 .card-profile {
-  min-height: 120px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
 }
 
 .profile-content {
   display: flex;
   align-items: center;
   gap: 15px;
+  width: 100%;
 }
 
 .review-photo {
   flex-shrink: 0;
+  width: 80px;
+  height: 80px;
 }
 
 .review-photo img {
-  width: 70px;
-  height: 70px;
+  width: 80px;
+  height: 80px;
   border-radius: 50%;
   object-fit: cover;
   border: 3px solid #d64531;
+  display: block;
 }
 
 .photo-placeholder {
@@ -129,10 +141,7 @@ body {
 
 /* Card 2: Komentar */
 .card-comment {
-  min-height: 100px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  padding: 10px 0;
 }
 
 .review-comment {
