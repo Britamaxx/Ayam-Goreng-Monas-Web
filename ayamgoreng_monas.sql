@@ -174,32 +174,6 @@ INSERT INTO `menu` (`id`, `nama`, `gambar`, `status`, `deskripsi`, `karbohidrat`
 
 -- --------------------------------------------------------
 
---
--- Table structure for table `pesanan`
---
-
-CREATE TABLE `pesanan` (
-  `id` int NOT NULL,
-  `kode_pesanan` varchar(50) NOT NULL,
-  `nama_pelanggan` varchar(100) NOT NULL,
-  `cabang_id` int DEFAULT NULL,
-  `total_harga` int NOT NULL,
-  `status` enum('pending','proses','selesai','batal') DEFAULT 'pending',
-  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
---
--- Dumping data for table `pesanan`
---
-
-INSERT INTO `pesanan` (`id`, `kode_pesanan`, `nama_pelanggan`, `cabang_id`, `total_harga`, `status`, `created_at`) VALUES
-(1, 'ORD-202501-001', 'Andi', 1, 85000, 'selesai', '2025-12-01 05:52:30'),
-(2, 'ORD-202501-002', 'Budi', 2, 120000, 'proses', '2025-12-01 06:52:30'),
-(3, 'ORD-202501-003', 'Citra', 3, 45000, 'pending', '2025-12-01 07:22:30'),
-(4, 'ORD-202501-004', 'Dewi', 1, 99000, 'selesai', '2025-12-01 07:42:30'),
-(5, 'ORD-202501-005', 'Eka', 2, 73000, 'batal', '2025-12-01 07:47:30');
-
--- --------------------------------------------------------
 
 --
 -- Table structure for table `review`
@@ -289,20 +263,6 @@ ALTER TABLE `menu`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `pekerja`
---
-ALTER TABLE `pekerja`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `cabang_id` (`cabang_id`);
-
---
--- Indexes for table `pesanan`
---
-ALTER TABLE `pesanan`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `cabang_id` (`cabang_id`);
-
---
 -- Indexes for table `review`
 --
 ALTER TABLE `review`
@@ -343,13 +303,6 @@ ALTER TABLE `menu`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `pekerja`
---
-ALTER TABLE `pekerja`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
--- AUTO_INCREMENT for table `pesanan`
 --
 ALTER TABLE `pesanan`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
