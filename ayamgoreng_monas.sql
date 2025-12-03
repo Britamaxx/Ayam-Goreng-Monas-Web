@@ -303,11 +303,6 @@ ALTER TABLE `menu`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
---
-ALTER TABLE `pesanan`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
 -- AUTO_INCREMENT for table `review`
 --
 ALTER TABLE `review`
@@ -321,19 +316,6 @@ ALTER TABLE `story_timeline`
 
 --
 -- Constraints for dumped tables
---
-
---
--- Constraints for table `pekerja`
---
-ALTER TABLE `pekerja`
-  ADD CONSTRAINT `pekerja_ibfk_1` FOREIGN KEY (`cabang_id`) REFERENCES `lokasi` (`id`);
-
---
--- Constraints for table `pesanan`
---
-ALTER TABLE `pesanan`
-  ADD CONSTRAINT `pesanan_ibfk_1` FOREIGN KEY (`cabang_id`) REFERENCES `lokasi` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
