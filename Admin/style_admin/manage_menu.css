@@ -368,13 +368,21 @@ body {
 }
 
 .add-btn {
-  background: green;
+  background: #12ce31 !important;
   color: white;
   border: none;
   padding: 10px 16px;
   border-radius: 8px;
   font-weight: 600;
   cursor: pointer;
+}
+
+.edit-btn {
+  background: #FFC107 !important;
+}
+
+.delete-btn {
+  background: rgb(220, 38, 38);
 }
 
 .add-btn:hover {

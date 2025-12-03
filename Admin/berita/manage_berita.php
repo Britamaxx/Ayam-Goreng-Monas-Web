@@ -72,8 +72,8 @@ if (isset($_GET['hapus'])) {
 
             echo "<td style='max-width:300px;text-align:justify;'>{$row['deskripsi']}</td>";
             echo "<td>
-                    <a href='edit_berita.php?id={$row['id']}'><button>Edit</button></a>
-                    <button onclick=\"showDeleteConfirmation({$row['id']}, '{$judulBerita}', 'berita')\">Hapus</button>
+                    <a href='edit_berita.php?id={$row['id']}'><button class='edit-btn'>Edit</button></a>
+                    <button class='delete-btn' onclick=\"showDeleteConfirmation({$row['id']}, '{$judulBerita}', 'berita')\">Hapus</button>
                   </td>";
             echo "</tr>";
           }

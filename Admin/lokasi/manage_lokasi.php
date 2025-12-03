@@ -86,8 +86,8 @@ if (isset($_GET['hapus'])) {
             echo "<td>$gambar</td>";
 
             echo "<td style='white-space: nowrap;'>
-                    <a href='edit_lokasi.php?id={$row['id']}' style='display: inline-block; text-decoration: none;'><button>Edit</button></a>
-                    <button onclick=\"showDeleteConfirmation({$row['id']}, '{$namaLokasi}', 'lokasi')\">Hapus</button>
+                    <a href='edit_lokasi.php?id={$row['id']}' style='display: inline-block; text-decoration: none;'><button class='edit-btn'>Edit</button></a>
+                    <button class='delete-btn' onclick=\"showDeleteConfirmation({$row['id']}, '{$namaLokasi}', 'lokasi')\">Hapus</button>
                   </td>";
             echo "</tr>";
           }

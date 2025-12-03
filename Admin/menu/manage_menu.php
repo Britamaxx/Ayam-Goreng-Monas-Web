@@ -79,8 +79,8 @@ if (isset($_GET['hapus'])) {
             echo "<td>{$row['protein']}</td>";
 
             echo "<td>
-                    <a href='edit_menu.php?id={$row['id']}'><button>Edit</button></a>
-                    <button onclick=\"showDeleteConfirmation({$row['id']}, '{$namaMenu}', 'menu')\">Hapus</button>
+                    <a href='edit_menu.php?id={$row['id']}'><button class='edit-btn'>Edit</button></a>
+                    <button class='delete-btn' onclick=\"showDeleteConfirmation({$row['id']}, '{$namaMenu}', 'menu')\">Hapus</button>
                   </td>"; 
             echo "</tr>";
           }

@@ -108,10 +108,10 @@ include "../layout/sidebar_admin.php";
 
         <td style="white-space: nowrap;">
           <a href="edit_story.php?id=<?= $row['id']; ?>" style="display: inline-block; text-decoration: none;">
-            <button>Edit</button>
+            <button class='edit-btn'>Edit</button>
           </a>
 
-          <button onclick="showDeleteConfirmation(<?= $row['id']; ?>, '<?= htmlspecialchars($row['judul'], ENT_QUOTES); ?>', 'story_timeline')">
+          <button class='delete-btn' onclick="showDeleteConfirmation(<?= $row['id']; ?>, '<?= htmlspecialchars($row['judul'], ENT_QUOTES); ?>', 'story_timeline')">
             Hapus
           </button>
         </td>

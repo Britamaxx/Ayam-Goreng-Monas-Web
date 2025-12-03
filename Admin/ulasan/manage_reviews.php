@@ -96,8 +96,8 @@ if (isset($_POST['update'])) {
             echo "<td>$foto</td>";
             echo "<td>{$row['tanggal']}</td>";
             echo "<td style='white-space: nowrap;'>
-                    <a href='edit_review.php?id={$row['id']}' style='display: inline-block; text-decoration: none;'><button>Edit</button></a>
-                    <button onclick=\"showDeleteConfirmation({$row['id']}, '{$row['nama']}')\">Hapus</button>
+                    <a href='edit_review.php?id={$row['id']}' style='display: inline-block; text-decoration: none;'><button class='edit-btn'>Edit</button></a>
+                    <button class='delete-btn' onclick=\"showDeleteConfirmation({$row['id']}, '{$row['nama']}')\">Hapus</button>
                   </td>";
             echo "</tr>";
           }
