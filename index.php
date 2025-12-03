@@ -134,45 +134,57 @@ $reviews = mysqli_query($conn, "SELECT * FROM review ORDER BY id DESC");
           <a class="menu-direct" href="menu.php">Lihat Semua Menu</a>
         </div>
 
-    <section class="review">
-      <h2>Apa Kata Mereka?</h2>
+<section class="review">
+  <h2>Apa Kata Mereka?</h2>
 
-      <div class="Card-Review">
-        <div class="Review-list">
-          <?php while($row = mysqli_fetch_assoc($reviews)) { ?>
-            <div class="review-card">
+  <div class="Card-Review">
+    <div class="Review-list">
+      <?php while($row = mysqli_fetch_assoc($reviews)) { ?>
 
-              <?php if (!empty($row['foto'])) { ?>
-                <div class="review-photo">
-                  <img src="<?php echo htmlspecialchars($row['foto']); ?>" alt="Foto Reviewer">
+        <div class="review-card">
+          <div class="card-profile">
+            <?php if (!empty($row['foto'])) { ?>
+              <div class="review-photo">
+                <img src="<?php echo htmlspecialchars($row['foto']); ?>" alt="Foto Reviewer">
+              </div>
+            <?php } else { ?>
+              <div class="review-photo">
+                <div class="photo-placeholder">
+                  <span>👤</span>
                 </div>
-              <?php } ?>
+              </div>
+            <?php } ?>
 
+            <div class="profile-info">
+              <p class="reviewer-name"><strong><?php echo htmlspecialchars($row['nama']); ?></strong></p>
               <div class="stars">
                 <?php
-                  $filled = $row['rating'];
+                  $filled = (int)$row['rating'];
                   $empty = 5 - $filled;
                   for ($i = 0; $i < $filled; $i++) echo '<span class="star filled">★</span>';
                   for ($i = 0; $i < $empty; $i++) echo '<span class="star">★</span>';
                 ?>
               </div>
-
-              <p class="review-comment">
-                “<?php echo htmlspecialchars($row['komentar']); ?>”
-              </p>
-
-              <p class="reviewer-name">
-                <strong><?php echo htmlspecialchars($row['nama']); ?></strong>
-              </p>
-
-              <small class="review-date">
-                <?php echo htmlspecialchars($row['tanggal']); ?>
-              </small>
-
             </div>
-          <?php } ?>
+          </div>
+
+          <div class="card-comment">
+            <p class="review-comment">
+              "<?php echo htmlspecialchars($row['komentar']); ?>"
+            </p>
+          </div>
+
+          <div class="card-date">
+            <small class="review-date">
+              <?php echo htmlspecialchars($row['tanggal']); ?>
+            </small>
+          </div>
         </div>
-    </section>
+
+      <?php } ?>
+    </div>
+  </div>
+</section>
 
     <section class="footer">
       <div class="footer-container">
