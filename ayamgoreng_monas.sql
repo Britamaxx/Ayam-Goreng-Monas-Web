@@ -171,29 +171,6 @@ INSERT INTO `menu` (`id`, `nama`, `gambar`, `status`, `deskripsi`, `karbohidrat`
 
 -- --------------------------------------------------------
 
---
--- Table structure for table `pekerja`
---
-
-CREATE TABLE `pekerja` (
-  `id` int NOT NULL,
-  `nama` varchar(100) NOT NULL,
-  `posisi` varchar(100) NOT NULL,
-  `shift` varchar(50) NOT NULL,
-  `status` enum('aktif','cuti','resign') DEFAULT 'aktif',
-  `cabang_id` int DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
---
--- Dumping data for table `pekerja`
---
-
-INSERT INTO `pekerja` (`id`, `nama`, `posisi`, `shift`, `status`, `cabang_id`) VALUES
-(1, 'Rina', 'Kasir', 'Pagi', 'aktif', 1),
-(2, 'Doni', 'Koki', 'Siang', 'aktif', 1),
-(3, 'Sari', 'Pramusaji', 'Malam', 'aktif', 2),
-(4, 'Bayu', 'Supervisor', 'Pagi', 'cuti', 2),
-(5, 'Lilis', 'Crew Dapur', 'Malam', 'aktif', 3);
 
 -- --------------------------------------------------------
 
@@ -242,9 +219,9 @@ CREATE TABLE `review` (
 --
 
 INSERT INTO `review` (`id`, `nama`, `komentar`, `rating`, `tanggal`, `foto`) VALUES
-(1, 'Britama Putra', 'Pelayanannya cepat dan ramah.', 4, '2025-12-01 07:52:30', NULL),
-(2, 'Dimas Islamay', 'Tempatnya nyaman, recommended.', 5, '2025-12-01 07:52:30', NULL),
-(3, 'Richo Anan', 'Harga terjangkau, rasa enak.', 4, '2025-12-01 07:52:30', NULL);
+(1, 'Dunia Kuliner Samarinda', 'Dari dulu rasanya ga berubah, ayamnya empuk berbumbu dengan daging yang juicy.', 5, '2025-09-01 07:52:30', 'DuniaKulinerSamarinda'),
+(2, 'Eri Fahmi', 'Rasa sama dan tidak berubah.', 5, '2025-11-01 07:52:30', 'EriFahmi.png'),
+(3, 'Zulaihaa 22', 'Rasanya udah beda sama yang dulu, dari segi rasa masih lumayan enak tapi sambal nya dikit. Apalagi harga agak pricy 40.000 paket ayam nasi+teh botol sosro. sangat di sayangkan belum ada metode pembayaran cashless, jadi mesti siapin uang tunai.', 3, '2024-12-01 07:52:30', 'Zulhaiha22.png');
 
 -- --------------------------------------------------------
 
