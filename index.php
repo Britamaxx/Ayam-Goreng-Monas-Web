@@ -96,7 +96,7 @@ $reviews = mysqli_query($conn, "SELECT * FROM review ORDER BY id DESC");
           </p>
           <div class="cta-buttons">
             <!-- <a href="menu.html" class="btn btn-primary">Lihat Menu</a> -->
-            <a href="story.php" class="btn btn-secondary">Lihat Kisah Kami</a></div>
+            <a href="story.php" class="btn btn-secondary">Lihat Cerita Kami</a></div>
         </div>
 
         <div id="menu" class="menu-section">
