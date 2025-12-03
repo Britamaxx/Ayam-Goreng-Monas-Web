@@ -1,4 +1,3 @@
-
 <?php
 include "conn.php";
 
@@ -58,6 +57,9 @@ $lokasi = mysqli_query($conn, "SELECT * FROM lokasi");
     <div class="location-card">
     <?php while ($row = mysqli_fetch_assoc($lokasi)) { ?>
         <div class="card">
+            <img src="Source/<?php echo htmlspecialchars($row['gambar']); ?>"
+                 alt="<?php echo htmlspecialchars($row['nama']); ?>" />
+            
             <div class="card-content">
                 <h3><?php echo htmlspecialchars($row['nama']); ?></h3>
 
@@ -70,9 +72,6 @@ $lokasi = mysqli_query($conn, "SELECT * FROM lokasi");
 
                 <button class="detail-btn">Temukan Kami</button>
             </div>
-
-            <img src="Source/<?php echo htmlspecialchars($row['gambar']); ?>"
-                 alt="<?php echo htmlspecialchars($row['nama']); ?>" />
         </div>
     <?php } ?>
     </div>
