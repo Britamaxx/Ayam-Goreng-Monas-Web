@@ -42,10 +42,6 @@ $reviews = mysqli_query($conn, "SELECT * FROM review ORDER BY id DESC LIMIT 10")
   </head>
 
   <body>
-
-    <!-- ======================= -->
-    <!--        HEADER           -->
-    <!-- ======================= -->
     <section class="main-header">
       <div class="header-left">
         <div class="restaurant-logo">
@@ -72,41 +68,32 @@ $reviews = mysqli_query($conn, "SELECT * FROM review ORDER BY id DESC LIMIT 10")
       </div>
     </section>
 
+  <section id="hero" class="hero">
+  <div class="carousel-container">
+    <div class="image-carousel">
+      <div class="carousel-track">
 
-    <!-- ======================= -->
-    <!--       HERO SLIDER       -->
-    <!-- ======================= -->
-    <section id="hero" class="hero">
-      <div class="carousel-container">
-        <div class="image-carousel">
-          <div class="carousel-track">
-
-            <?php while($s = mysqli_fetch_assoc($slider)) : ?>
-            <div class="carousel-slide">
-              <img src="./Source/Background/slider/<?= $s['gambar']; ?>" alt="slider">
-              <div class="hero-overlay"></div>
-            </div>
-            <?php endwhile; ?>
-
-          </div>
+        <?php while($s = mysqli_fetch_assoc($slider)) : ?>
+        <div class="carousel-slide">
+          <img src="./Source/Background/slider/<?= $s['gambar']; ?>" alt="slider">
+          <div class="hero-overlay"></div>
         </div>
-
-        <!-- Dots (Auto match jumlah slider) -->
-        <div class="carousel-dots">
-          <?php 
-          $totalSlider = mysqli_num_rows(mysqli_query($conn, "SELECT id FROM hero_slider"));
-          for ($i = 0; $i < $totalSlider; $i++): ?>
-            <button class="dot <?= $i == 0 ? 'active' : '' ?>" data-index="<?= $i ?>"></button>
-          <?php endfor; ?>
-        </div>
+        <?php endwhile; ?>
 
       </div>
-    </section>
+    </div>
 
+    <div class="carousel-dots">
+      <?php 
+      $totalSlider = mysqli_num_rows(mysqli_query($conn, "SELECT id FROM hero_slider"));
+      for ($i = 0; $i < $totalSlider; $i++): ?>
+        <button class="dot <?= $i == 0 ? 'active' : '' ?>" data-index="<?= $i ?>"></button>
+      <?php endfor; ?>
+    </div>
 
-    <!-- ======================= -->
-    <!--    WELCOME SECTION      -->
-    <!-- ======================= -->
+  </div>
+</section>
+
     <section class="home">
       <div class="home-container">
 
@@ -119,10 +106,6 @@ $reviews = mysqli_query($conn, "SELECT * FROM review ORDER BY id DESC LIMIT 10")
           </div>
         </div>
 
-
-        <!-- ======================= -->
-        <!--     MENU UNGGULAN       -->
-        <!-- ======================= -->
         <div id="menu" class="menu-section">
           <div class="menu-name">
             <h3 class="section-heading">Menu Unggulan</h3>
@@ -144,10 +127,6 @@ $reviews = mysqli_query($conn, "SELECT * FROM review ORDER BY id DESC LIMIT 10")
           <a class="menu-direct" href="menu.php">Lihat Semua Menu</a>
         </div>
 
-
-        <!-- ======================= -->
-        <!--      REVIEW SECTION     -->
-        <!-- ======================= -->
         <section class="review">
           <h2>Apa Kata Mereka?</h2>
 

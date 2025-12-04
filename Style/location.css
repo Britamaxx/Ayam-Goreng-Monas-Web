@@ -10,6 +10,7 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  background-color: #f3f3f3;
 }
 
 .main-header,
@@ -48,17 +49,11 @@ body {
   background: #fff;
   border: 1px solid #e8e8e8;
   border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
   overflow: hidden;
   text-align: left;
   transition: transform 0.2s ease;
   cursor: pointer;
   display: flex;
-}
-
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
 }
 
 .card img {

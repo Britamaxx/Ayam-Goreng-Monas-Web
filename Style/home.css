@@ -15,9 +15,7 @@
 
 .welcome-section { 
   text-align:center;
-  padding-top: 50px; 
-  padding-bottom: 100px;
-  height: 70vh;
+  height:70vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -66,10 +64,9 @@
 }
 
 .menu-section { 
-  margin:2rem;
+  margin:0.5rem;
   background-color: #f3f3f3;
-  height: 65vh;
-  padding:2rem;
+  padding:0.5rem;
   border-radius:12px;
 }
 
@@ -84,7 +81,7 @@
 .menu-direct {
   display: block;       
   text-align: center;  
-  margin-top: 30px;
+  margin: 30px 0;
   font-size: 1.2rem;
   font-weight: 600;
   color: black;
@@ -113,7 +110,6 @@
 
 .menu-card { 
   background:var(--card-bg);
-  border: 2px solid #f0d680; 
   border-radius:12px; 
   overflow:hidden; 
   display:flex; 

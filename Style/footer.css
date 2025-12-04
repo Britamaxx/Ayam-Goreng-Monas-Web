@@ -1,134 +1,92 @@
+/* ================= CSS (ganti/letakkan di file css) ================= */
 @import url("https://fonts.googleapis.com/css2?family=Slabo+27px&display=swap");
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: "Slabo 27px", serif;
-  height: 100vh;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: "Slabo 27px", serif; }
 
 .footer {
+  border-top: 7px solid #d9b53d;
   color: #ffffff;
-  position: relative;
-  background-color: #d64531;
+  background-color: #b73727; /* tetap gelap */
 }
 
-.footer-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
-  gap: 32px;
-  padding: 40px 3vw;
-  align-items: start;
+/* ---------- Footer Top: dua kolom ---------- */
+.footer-top{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 48px;
+  padding: 30px 3vw;
+  flex-wrap: wrap;
 }
 
-.footer-col--logo .footer-logo {
-  min-width: 150px;
+/* kiri dan kanan proporsional */
+.footer-left { flex: 1.6; min-width: 280px; }
+.footer-right { flex: 1; min-width: 260px; }
+
+/* di dalam kolom kiri: pisah gambar & teks (sejajar) */
+.footer-left-inner{
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
 }
 
-.footer-logo-section {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
+.footer-logo-img img{
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+  flex-shrink: 0;
 }
 
-.footer-logo {
-  padding: 20px;
-  border-radius: 12px;
+.footer-logo-text {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
+  gap: 8px;
 }
 
-.footer-logo img {
-  width: 90px;
-  margin-bottom: 12px;
-  display: block;
-}
-
-.footer-slogan {
+.footer-slogan h2{
   font-weight: 700;
-  font-size: 18px;
-  letter-spacing: 0.3px;
+  font-size: 2rem;
   color: #f4f4f4;
   margin: 0;
 }
 
-.footer-description {
-  padding: 20px;
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-}
-
-.footer-description p {
-  font-size: 14px;
+.footer-desc {
+  font-size: 1.3rem;
   line-height: 1.6;
   color: #e8e8e8;
   margin: 0;
+  max-width: 100%;
 }
 
-.footer-col--links .footer-column {
-  min-width: 120px;
-}
-
-.footer-column h3 {
+/* kanan: alamat & judul */
+.footer-right-title {
   font-size: 22px;
-  margin-bottom: 14px;
-  position: relative;
-  color: #ffffff;
+  color: #fff;
+  margin-bottom: 12px;
 }
 
-.footer-column h3::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -6px;
-  width: 40px;
-  height: 3px;
-  background-color: #d64531;
+/* alamat */
+.footer-cabang-content p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #e8e8e8;
+  margin: 0 0 12px 0;
 }
 
-.footer-column ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.footer-column ul li {
-  margin-bottom: 10px;
-}
-
-.footer-column ul li a {
-  color: #f3f3f3;
-  text-decoration: none;
-  transition: color 0.2s ease;
-  font-size: 18px;
-}
-
-.footer-column ul li a:hover {
-  color: #ffdede;
-}
-
-
+/* sosial */
 .footer-social {
   display: flex;
-  gap: 16px;
+  gap: 14px;
   align-items: center;
-  margin-top: 16px;
 }
 
 .social-icon {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   background: #ffffff;
   box-shadow: 0 2px 6px rgba(0,0,0,0.15);
@@ -140,163 +98,44 @@ body {
   display: block;
 }
 
-.social-icon:hover {
-  transform: translateY(-3px);
-}
-
+/* ---------- Footer Bottom ---------- */
 .footer-bottom {
-  padding: 16px 24px;
+  padding: 14px 24px;
   text-align: center;
-  font-size: 18px;
-  color: #ffffff;
-  background-color: #b83a24;
-  width: 100%;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-
-.footer-col--contact .Footer-cabang {
-  min-width: 200px;
-  max-width: 450px;
-}
-
-.Footer-cabang h3 {
-  font-size: 22px;
-  margin-bottom: 12px;
-  position: relative;
-  color: #fff;
-}
-
-.footer-cabang-content {
-  display: block;
-  gap: 0;
-  margin-bottom: 16px;
-}
-
-.Footer-cabang p {
   font-size: 16px;
-  line-height: 1.6;
-  color: #e8e8e8;
-  margin: 0;
+  color: #ffffff;
+  border-top: 2px solid rgba(255,255,255,0.06);
 }
 
-/* iframe removed from footer markup per layout change */
-iframe {
-  display: none;
+/* ---------------- Responsive ---------------- */
+@media (max-width: 880px) {
+  .footer-top { gap: 28px; padding: 30px 5vw; }
+
+  /* lebih sempit: biar kanan tidak terlalu kecil */
+  .footer-left { min-width: 220px; }
+  .footer-right { min-width: 220px; }
 }
 
-@media (max-width: 768px) {
-  .footer-container {
-    grid-template-columns: 1fr;
-    gap: 35px;
-    padding: 40px 5vw 0;
+@media (max-width: 680px) {
+  /* Stack vertikal: kiri di atas, kanan di bawah */
+  .footer-top {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 18px;
+    padding: 28px 5vw;
+  }
+
+  /* di mobile, logo & teks jadi vertikal */
+  .footer-left-inner {
+    flex-direction: column;
     align-items: center;
-  }
-
-  .footer-logo-section {
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
-
-  .footer-logo,
-  .footer-description {
-    width: 100%;
-  }
-
-  .footer-logo img {
-    width: 80px;
-  }
-
-  .footer-slogan {
-    font-size: 16px;
-  }
-
-  .footer-col--links .footer-column,
-  .footer-col--contact .Footer-cabang {
-    width: 100%;
-  }
-
-  .footer-column h3 {
-    font-size: 17px;
-    margin-bottom: 12px;
-  }
-
-  .footer-column ul li {
-    margin-bottom: 8px;
-  }
-
-  .footer-social {
-    margin-left: 0;
-    justify-content: center;
-    width: 100%;
-  }
-
-  .footer-bottom {
-    margin-top: 30px;
-    padding: 12px 5vw 18px;
-    font-size: 13px;
-  }
-}
-
-@media (max-width: 480px) {
-  .footer-container {
-    gap: 30px;
-    padding: 35px 5vw 0;
-  }
-
-  .footer-logo-section {
-    grid-template-columns: 1fr;
+    text-align: center;
     gap: 12px;
   }
 
-  .footer-logo {
-    padding: 16px;
-  }
-
-  .footer-logo img {
-    width: 70px;
-  }
-
-  .footer-slogan {
-    font-size: 14px;
-  }
-
-  .footer-description {
-    padding: 16px;
-  }
-
-  .footer-description p {
-    font-size: 12px;
-  }
-
-  .footer-column h3 {
-    font-size: 16px;
-    margin-bottom: 10px;
-  }
-
-  .footer-column h3::after {
-    width: 30px;
-  }
-
-  .footer-column ul li {
-    margin-bottom: 7px;
-    font-size: 14px;
-  }
-
-  .footer-social {
-    gap: 12px;
-    justify-content: center;
-  }
-
-  .footer-social img {
-    width: 26px;
-    height: 26px;
-  }
-
-  .footer-bottom {
-    margin-top: 25px;
-    padding: 10px 4vw 15px;
-    font-size: 12px;
-    line-height: 1.5;
-  }
+  .footer-logo-img img { width: 80px; }
+  .footer-slogan h2 { font-size: 1.5rem; }
+  .footer-desc { font-size: 0.8rem; max-width: 420px; }
+  .footer-right { text-align: center; }
+  .footer-social { justify-content: center; }
 }
