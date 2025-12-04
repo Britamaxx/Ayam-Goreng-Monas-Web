@@ -3,31 +3,26 @@ $conn = mysqli_connect("localhost", "root", "", "ayamgoreng_monas");
 if (!$conn) {
   die("Koneksi gagal: " . mysqli_connect_error());
 }
-
-$timeline = mysqli_query($conn, "SELECT * FROM story_timeline ORDER BY tahun ASC");
-
-$header = mysqli_query($conn, "SELECT * FROM header WHERE id = 1");
-$h = mysqli_fetch_assoc($header);
+$header = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM header WHERE id = 1"));
 
 $footer = mysqli_query($conn, "SELECT * FROM footer WHERE id = 1");
 $f = mysqli_fetch_assoc($footer);
+$timeline = mysqli_query($conn, "SELECT * FROM story_timeline ORDER BY tahun ASC");
 ?>
 
 <!DOCTYPE html>
 <html>
   <head>
-    <title><?php echo $h['nama_bisnis']; ?></title>
-
+    <title>Ayam Goreng Monas</title>
     <link rel="stylesheet" href="./style/header.css" />
     <link rel="stylesheet" href="./style/story.css" />
     <link rel="stylesheet" href="./style/footer.css" />
-    <link rel="icon" type="image/png" sizes="16x16" href="./source/<?php echo $h['logo']; ?>" />
+    <link rel="icon" type="image/png" sizes="16x16" href="./source/Logo.png" />
 
     <script src="./script.js" defer></script>
   </head>
-
   <body>
-    <?php include 'header.php'; ?>
+   <?php include 'header.php'; ?>
 
     <section class="story-section">
       <div class="story-header">
@@ -58,6 +53,5 @@ $f = mysqli_fetch_assoc($footer);
     </section>
 
     <?php include 'footer.php'; ?>
-
   </body>
 </html>

@@ -96,7 +96,8 @@
   white-space: nowrap;
 }
 
-.header-middle a::after {
+.header-middle a::after,
+.header-right .find-store::after {
   content: "";
   position: absolute;
   left: 50%;
@@ -114,8 +115,11 @@
   width: 100%;
 }
 
+
+
 .header-middle a:hover,
-.header-middle a.active {
+.header-middle a.active,
+.header-right .find-store.active {
   color: #c0392b;
 }
 
@@ -125,7 +129,7 @@
   gap: 6px;
   font-size: 1.5rem;
   font-weight: 600;
-  color: #c0392b;
+  color: black;
   text-decoration: none;
 }
 

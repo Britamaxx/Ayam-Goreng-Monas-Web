@@ -72,14 +72,14 @@ body {
 }
 
 .card h3 {
-  font-size: 18px;
+  font-size: 1.3rem;
   font-weight: 700;
   color: #222;
   margin-bottom: 4px;
 }
 
 .card p {
-  font-size: 14px;
+  font-size: 1rem;
   color: #555;
   line-height: 1.5;
 }
