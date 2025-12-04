@@ -23,26 +23,33 @@ if (isset($_POST['tambah'])) {
 <html>
 <head>
     <title>Tambah Lokasi</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="./source/Logo.png" />
+    <link rel="stylesheet" href="../style_admin/manage_menu.css" />
 </head>
 <body>
+      <?php 
+    include "../layout/header_admin.php";
+    include "../layout/sidebar_admin.php"; 
+    ?>
 
-<h2>Tambah Lokasi</h2>
+<section class="main-content">
+      <div class="content-header">
+        <h1>Kelola Lokasi</h1>
+        <p style ="margin-bottom: 10px">Pilih aksi di bawah untuk menambah, memperbarui, atau menghapus menu.</p>
+      </div>
 
-<form method="POST" enctype="multipart/form-data">
-    Nama Lokasi:<br>
-    <input type="text" name="nama" required><br><br>
-
-    Alamat:<br>
-    <textarea name="alamat" required></textarea><br><br>
-
-    Jam Operasional:<br>
-    <input type="text" name="jam" required><br><br>
-
-    Upload Gambar:<br>
-    <input type="file" name="gambar" required><br><br>
-
-    <button type="submit" name="tambah">Tambah</button>
-</form>
-
+      <div class="crud-container">
+        <div class="form-section">
+          <h2>Tambah lLokasi Baru</h2>
+          <form method="POST" enctype="multipart/form-data">
+            <input type="text" name="nama" placeholder="Nama lokasi" required />
+            <textarea name="alamat" placeholder ="Alamat" required></textarea>
+            <input type="text" name="jam"  placeholder = "Jam operasional"required>
+            <input type="file" name="gambar" required />
+            <button type="submit" name="tambah">Tambah</button>
+          </form>
+        </div>
+      </div>
+    </section>
 </body>
 </html>

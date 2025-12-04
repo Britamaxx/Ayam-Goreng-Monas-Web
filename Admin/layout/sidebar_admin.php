@@ -11,7 +11,7 @@ $current_page = basename($_SERVER['PHP_SELF']);
       .sidebar-menu li a i {
     font-size: 18px;
     width: 22px;
-    margin-right: 12px;   /* 💛 Tambahan jarak ikon ke teks */
+    margin-right: 12px;  
 }
 
       </style>

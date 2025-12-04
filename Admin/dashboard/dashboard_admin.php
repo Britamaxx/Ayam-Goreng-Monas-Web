@@ -258,6 +258,7 @@ include "../layout/sidebar_admin.php";
                 <div class="summary-label">Total menu aktif</div>
                 <div class="summary-value"><?= $totalMenu; ?></div>
                 <div class="summary-caption">Data dari tabel <code>menu</code></div>
+                <i class="summary-icon" data-feather="" style="margin-top: 8px; color: #FF7A00;"></i>
             </div>
             <div class="summary-card">
                 <div class="summary-label">Total cabang</div>
