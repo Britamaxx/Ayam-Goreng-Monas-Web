@@ -174,7 +174,6 @@ SELECT * FROM menu;
 
 set sql_safe_updates = 0;
 
-DELETE FROM menu;
 -- --------------------------------------------------------
 
 
@@ -361,3 +360,4 @@ INSERT INTO beranda_menu (id_menu) VALUES
 (1),
 (5);
 
+use ayamgoreng_monas;
