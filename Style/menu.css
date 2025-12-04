@@ -38,8 +38,9 @@ body {
 
 .menu-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* hanya 4 kolom */
+  grid-template-columns: repeat(4, 1fr); 
   gap: 40px;
+  padding: 6px 2vw;
 }
 
 .menu-item {

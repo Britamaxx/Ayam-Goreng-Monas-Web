@@ -72,8 +72,14 @@
   color: #c0392b;
   letter-spacing: 0.2px;
   transition: color 0.3s ease;
+  
 }
 
+.restaurant-name a {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
 .restaurant-name:hover {
   color: #a93226;
 }

@@ -4,7 +4,6 @@ if (!$conn) {
   die("Koneksi gagal: " . mysqli_connect_error());
 }
 
-
 $timeline = mysqli_query($conn, "SELECT * FROM story_timeline ORDER BY tahun ASC");
 
 $header = mysqli_query($conn, "SELECT * FROM header WHERE id = 1");
