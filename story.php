@@ -1,4 +1,3 @@
-
 <?php
 $conn = mysqli_connect("localhost", "root", "", "ayamgoreng_monas");
 if (!$conn) {
@@ -29,30 +28,7 @@ $f = mysqli_fetch_assoc($footer);
   </head>
 
   <body>
-
-    <section class="main-header">
-      <div class="header-left">
-        <div class="restaurant-logo">
-          <img src="./source/<?php echo $h['logo']; ?>" alt="Restaurant Logo" />
-        </div>
-        <div class="restaurant-name"><?php echo $h['nama_bisnis']; ?></div>
-      </div>
-
-      <nav class="header-middle">
-        <a href="index.php" class="nav home"><?php echo $h['nav_home']; ?></a>
-        <a href="story.php" class="nav story active"><?php echo $h['nav_story']; ?></a>
-        <a href="menu.php" class="nav menu"><?php echo $h['nav_menu']; ?></a>
-        <a href="news.php" class="nav news"><?php echo $h['nav_news']; ?></a>
-        <a href="review.php" class="nav nav-review"><?php echo $h['nav_review']; ?></a>
-      </nav>
-
-      <div class="header-right">
-        <a href="location.php" class="find-store">
-          <img src="Source/map-pin.svg" alt="map icon" />
-          Temukan kami
-        </a>
-      </div>
-    </section>
+    <?php include 'header.php'; ?>
 
     <section class="story-section">
       <div class="story-header">

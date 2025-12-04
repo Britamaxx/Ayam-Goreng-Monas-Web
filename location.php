@@ -26,31 +26,7 @@ $lokasi = mysqli_query($conn, "SELECT * FROM lokasi");
 
 <body>
 
-<section class="main-header">
-    <div class="header-left">
-        <div class="restaurant-logo">
-            <img src="./source/<?php echo $header['logo']; ?>" alt="Restaurant Logo" />
-        </div>
-        <div class="restaurant-name"><?php echo $header['nama_bisnis']; ?></div>
-    </div>
-
-    <nav class="header-middle">
-        <a href="index.php" class="nav home"><?php echo $header['nav_home']; ?></a>
-        <a href="story.php" class="nav story"><?php echo $header['nav_story']; ?></a>
-        <a href="menu.php" class="nav menu"><?php echo $header['nav_menu']; ?></a>
-        <a href="news.php" class="nav news"><?php echo $header['nav_news']; ?></a>
-        <a href="review.php" class="nav nav-review"><?php echo $header['nav_review']; ?></a>
-      </nav>
-
-    <div class="header-right">
-        <a href="<?php echo $header['location_url']; ?>" class="find-store active">
-            <img src="Source/map-pin.svg" alt="map icon" />
-            Temukan kami
-        </a>
-    </div>
-</section>
-
-
+<?php include 'header.php'; ?>
 
 <section class="location">
     <h2>Outlet Ayam Goreng Monas</h2>

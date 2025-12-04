@@ -20,30 +20,7 @@ $f = mysqli_fetch_assoc($footer);
     <link rel="icon" type="image/png" sizes="16x16" href="./source/Logo.png" />
   </head>
   <body>
-    <section class="main-header">
-      <div class="header-left">
-        <div class="restaurant-logo">
-          <img src="./source/<?php echo $header["logo"]; ?>" alt="Restaurant Logo" />
-        </div>
-        <div class="restaurant-name"><?php echo $header["nama_bisnis"]; ?></div>
-      </div>
-
-      <nav class="header-middle">
-        <a href="index.php" class="nav home"><?php echo $header['nav_home']; ?></a>
-        <a href="story.php" class="nav story"><?php echo $header['nav_story']; ?></a>
-        <a href="menu.php" class="nav menu active"><?php echo $header['nav_menu']; ?></a>
-        <a href="news.php" class="nav news"><?php echo $header['nav_news']; ?></a>
-        <a href="review.php" class="nav nav-review"><?php echo $header['nav_review']; ?></a>
-      </nav>
-
-
-      <div class="header-right">
-        <a href="location.php" class="find-store">
-          <img src="Source/map-pin.svg" alt="map icon" />
-          Temukan kami
-        </a>
-      </div>
-    </section>
+   <?php include 'header.php'; ?>
 
     <section class="menu">
       <h2>Menu Kami</h2>
