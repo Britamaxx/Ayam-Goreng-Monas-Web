@@ -169,6 +169,12 @@ INSERT INTO `menu` (`id`, `nama`, `gambar`, `status`, `deskripsi`, `karbohidrat`
 (5, 'Es Blewah', 'Es Blewah.png', 'FAVORITE', 'Minuman segar dari jus melon dengan es batu, disajikan dalam gelas plastik. Sempurna untuk menghilangkan dahaga di cuaca panas.', 10, 100, 5),
 (6, 'Siomay', 'Siomay.png', 'FAVORITE', 'Hidangan siomay kukus dengan saus kacang, disertai pare isi dan sosis goreng. Perpaduan rasa gurih dan sedikit pedas yang menggugah selera.', 14, 120, 5);
 
+
+SELECT * FROM menu;
+
+set sql_safe_updates = 0;
+
+DELETE FROM menu;
 -- --------------------------------------------------------
 
 
@@ -321,3 +327,37 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+CREATE TABLE hero_slider (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    gambar VARCHAR(255)
+);
+
+INSERT INTO hero_slider (gambar) VALUES
+('Banner.png'),
+('Banner1.png'),
+('Banner2.png');
+
+SELECT * FROM hero_slider;
+
+CREATE TABLE welcome_section (
+    id INT PRIMARY KEY,
+    judul VARCHAR(255),
+    deskripsi TEXT
+);
+
+INSERT INTO welcome_section (id, judul, deskripsi) VALUES
+(1, 'Rasa yang Tiada Tanding',
+'Kami menyajikan ayam goreng dengan resep turun-temurun, bumbu meresap, dan tekstur yang selalu renyah. Cocok untuk disantap bersama keluarga atau teman');
+
+
+CREATE TABLE beranda_menu (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    id_menu INT
+);
+
+INSERT INTO beranda_menu (id_menu) VALUES
+(2),
+(1),
+(5);
+

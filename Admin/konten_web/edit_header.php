@@ -1,4 +1,3 @@
-
 <?php
 $conn = mysqli_connect("localhost", "root", "", "ayamgoreng_monas");
 if (!$conn) {
@@ -15,11 +14,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nav_news      = $_POST['nav_news'];
     $nav_review    = $_POST['nav_review'];
 
+    // Upload logo jika ada
     if (!empty($_FILES['logo']['name'])) {
         $targetDir = "uploads/";
-        if (!is_dir($targetDir)) {
-            mkdir($targetDir);
-        }
+        if (!is_dir($targetDir)) mkdir($targetDir);
 
         $logoName = time() . "_" . basename($_FILES['logo']['name']);
         move_uploaded_file($_FILES['logo']['tmp_name'], $targetDir . $logoName);
@@ -50,46 +48,97 @@ $header = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM header WHERE id 
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
+
+<style>
+.orange-btn {
+    background-color: #ff7a00;
+    color: white;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 8px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.orange-btn:hover {
+    background-color: #e86d00;
+}
+</style>
+
 <head>
-    <title>Edit Header</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Header Website</title>
+    <link rel="stylesheet" href="../style_admin/manage_menu.css" />
+    <script src="https://unpkg.com/feather-icons"></script>
 </head>
 
 <body>
+    <?php 
+        include "../layout/header_admin.php";
+        include "../layout/sidebar_admin.php"; 
+    ?>
 
-<h2>Edit Header</h2>
+    <section class="main-content">
 
-<form method="POST" enctype="multipart/form-data">
+        <div class="content-header">
+            <h1>Edit Header Website</h1>
+            <p>Perbarui informasi header dan navigasi website Anda.</p>
+        </div>
 
-  <label>Logo </label><br>
-  <input type="file" name="logo"><br><br>
+        <div class="form-section">
+            <h2>Form Edit Header</h2>
 
-  <label>Nama Bisnis:</label><br>
-  <input type="text" name="nama_bisnis" value="<?= $header['nama_bisnis'] ?>"><br><br>
+            <form method="POST" enctype="multipart/form-data">
 
-  <label>URL Lokasi:</label><br>
-  <input type="text" name="location_url" value="<?= $header['location_url'] ?>"><br><br>
+                <label>Logo Saat Ini</label><br>
+                <img 
+                    src="uploads/<?= $header['logo'] ?>" 
+                    width="120" 
+                    style="border-radius: 10px; margin-bottom: 15px;"
+                >
 
-  <label>Nama Navigasi:</label><br>
+                <label>Ganti Logo (opsional)</label>
+                <input type="file" name="logo">
 
-  Home:<br>
-  <input type="text" name="nav_home" value="<?= $header['nav_home'] ?>"><br>
+                <label>Nama Bisnis</label>
+                <input type="text" name="nama_bisnis" value="<?= $header['nama_bisnis'] ?>" required>
 
-  Story:<br>
-  <input type="text" name="nav_story" value="<?= $header['nav_story'] ?>"><br>
+            
+                <h3 style="margin-top: 25px;">Nama Menu Navigasi</h3>
 
-  Menu:<br>
-  <input type="text" name="nav_menu" value="<?= $header['nav_menu'] ?>"><br>
+                <label>Home</label>
+                <input type="text" name="nav_home" value="<?= $header['nav_home'] ?>">
 
-  News:<br>
-  <input type="text" name="nav_news" value="<?= $header['nav_news'] ?>"><br>
+                <label>Story</label>
+                <input type="text" name="nav_story" value="<?= $header['nav_story'] ?>">
 
-  Review:<br>
-  <input type="text" name="nav_review" value="<?= $header['nav_review'] ?>"><br><br>
+                <label>Menu</label>
+                <input type="text" name="nav_menu" value="<?= $header['nav_menu'] ?>">
 
-  <button type="submit">Simpan Perubahan</button>
+                <label>News</label>
+                <input type="text" name="nav_news" value="<?= $header['nav_news'] ?>">
 
-</form>
+                <label>Review</label>
+                <input type="text" name="nav_review" value="<?= $header['nav_review'] ?>">
 
+                <button 
+                 type="submit" 
+                 class="orange-btn"
+                 style="margin-top: 20px;">
+                 Simpan Perubahan
+                </button>
+
+            </form>
+        </div>
+
+    </section>
+
+    <script>
+        feather.replace()
+    </script>
 </body>
 </html>

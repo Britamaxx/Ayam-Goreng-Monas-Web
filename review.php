@@ -3,7 +3,8 @@ include "conn.php";
 
 $header = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM header WHERE id = 1"));
 
-$footer = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM footer WHERE id = 1"));
+$footer = mysqli_query($conn, "SELECT * FROM footer WHERE id = 1");
+$f = mysqli_fetch_assoc($footer);
 
 $reviews = mysqli_query($conn, "SELECT * FROM review ORDER BY id DESC");
 ?>
@@ -98,7 +99,7 @@ $reviews = mysqli_query($conn, "SELECT * FROM review ORDER BY id DESC");
     </div>
 
     <div class="submit-section">
-      <a href="form_review.php" class="add-review-btn">Tambahkan Review</a>
+      <a href="form_review.php" class="add-review-btn">Tambahkan Ulasan</a>
     </div>
   </div>
 </section>

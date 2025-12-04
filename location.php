@@ -3,7 +3,8 @@ include "conn.php";
 
 $header = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM header WHERE id = 1"));
 
-$footer = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM footer WHERE id = 1"));
+$footer = mysqli_query($conn, "SELECT * FROM footer WHERE id = 1");
+$f = mysqli_fetch_assoc($footer);
 
 $lokasi = mysqli_query($conn, "SELECT * FROM lokasi");
 ?>

@@ -1,50 +1,67 @@
-
-
 <?php
 $conn = mysqli_connect("localhost", "root", "", "ayamgoreng_monas");
 if (!$conn) {
   die("Koneksi gagal: " . mysqli_connect_error());
 }
 
-$header = mysqli_query($conn, "SELECT * FROM header WHERE id = 1");
-$h = mysqli_fetch_assoc($header);
+// Header
+$header = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM header WHERE id = 1"));
 
+// Footer
 $footer = mysqli_query($conn, "SELECT * FROM footer WHERE id = 1");
 $f = mysqli_fetch_assoc($footer);
 
-$reviews = mysqli_query($conn, "SELECT * FROM review ORDER BY id DESC");
+// Hero Slider
+$slider = mysqli_query($conn, "SELECT * FROM hero_slider ORDER BY id ASC");
+
+// Welcome Section
+$welcome = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM welcome_section WHERE id = 1"));
+
+// Menu Unggulan (JOIN)
+$menuUnggulan = mysqli_query($conn, "
+  SELECT menu.nama, menu.gambar 
+  FROM beranda_menu
+  JOIN menu ON beranda_menu.id_menu = menu.id
+");
+
+// Review
+$reviews = mysqli_query($conn, "SELECT * FROM review ORDER BY id DESC LIMIT 10");
 ?>
 
 <!DOCTYPE html>
 <html>
   <head>
-    <title><?php echo $h['nama_bisnis']; ?></title>
+    <title><?= $header['nama_bisnis']; ?></title>
     <link rel="stylesheet" href="./style/header.css" />
     <link rel="stylesheet" href="./style/home.css" />
     <link rel="stylesheet" href="./style/hero.css" />
     <link rel="stylesheet" href="./style/footer.css" />
     <link rel="stylesheet" href="./style/review.css" />
-    <link rel="icon" type="image/png" sizes="16x16" href="./source/<?php echo $h['logo']; ?>" />
+    <link rel="icon" type="image/png" sizes="16x16" href="./source/<?= $header['logo']; ?>" />
     <script src="./script.js" defer></script>
   </head>
 
   <body>
+
+    <!-- ======================= -->
+    <!--        HEADER           -->
+    <!-- ======================= -->
     <section class="main-header">
       <div class="header-left">
         <div class="restaurant-logo">
-          <img src="./source/<?php echo $h['logo']; ?>" alt="Restaurant Logo" />
+          <img src="./source/<?= $header['logo']; ?>" alt="Restaurant Logo" />
         </div>
         <div class="restaurant-name">
-          <?php echo $h['nama_bisnis']; ?>
+          <?= $header['nama_bisnis']; ?>
         </div>
       </div>
 
       <nav class="header-middle">
-        <a href="index.php" class="nav home active"><?php echo $h['nav_home']; ?></a>
-        <a href="story.php" class="nav story"><?php echo $h['nav_story']; ?></a>
-        <a href="menu.php" class="nav menu"><?php echo $h['nav_menu']; ?></a>
-        <a href="news.php" class="nav news"><?php echo $h['nav_news']; ?></a>
-        <a href="review.php" class="nav nav-review"><?php echo $h['nav_review']; ?></a>
+        <a href="index.php" class="nav home active"><?= $header['nav_home']; ?></a>
+        <a href="story.php" class="nav story"><?= $header['nav_story']; ?></a>
+        <a href="menu.php" class="nav menu"><?= $header['nav_menu']; ?></a>
+        <a href="news.php" class="nav news"><?= $header['nav_news']; ?></a>
+        <a href="review.php" class="nav nav-review"><?= $header['nav_review']; ?></a>
       </nav>
 
       <div class="header-right">
@@ -53,140 +70,137 @@ $reviews = mysqli_query($conn, "SELECT * FROM review ORDER BY id DESC");
           Temukan kami
         </a>
       </div>
-      
     </section>
 
+
+    <!-- ======================= -->
+    <!--       HERO SLIDER       -->
+    <!-- ======================= -->
     <section id="hero" class="hero">
-    <div class="carousel-container">
-      <div class="image-carousel">
-        <div class="carousel-track">
-          <div class="carousel-slide">
-            <img src="./Source/Background/Banner.png" alt="bann 1" />
-            <div class="hero-overlay">
-            </div>
-          </div>
+      <div class="carousel-container">
+        <div class="image-carousel">
+          <div class="carousel-track">
 
-          <div class="carousel-slide">
-            <img src="./Source/Background/Banner1.png" alt="bann 2" />
-            <div class="hero-overlay">
+            <?php while($s = mysqli_fetch_assoc($slider)) : ?>
+            <div class="carousel-slide">
+              <img src="./Source/Background/slider/<?= $s['gambar']; ?>" alt="slider">
+              <div class="hero-overlay"></div>
             </div>
-          </div>
+            <?php endwhile; ?>
 
-          <div class="carousel-slide">
-            <img src="./Source/Background/Banner2.png" alt="bann 3" />
-            <div class="hero-overlay">
-            </div>
           </div>
         </div>
-      </div>
 
-      <div class="carousel-dots" role="tablist" aria-label="Carousel Navigation">
-        <button class="dot active" data-index="0" aria-label="Slide 1"></button>
-        <button class="dot" data-index="1" aria-label="Slide 2"></button>
-        <button class="dot" data-index="2" aria-label="Slide 3"></button>
+        <!-- Dots (Auto match jumlah slider) -->
+        <div class="carousel-dots">
+          <?php 
+          $totalSlider = mysqli_num_rows(mysqli_query($conn, "SELECT id FROM hero_slider"));
+          for ($i = 0; $i < $totalSlider; $i++): ?>
+            <button class="dot <?= $i == 0 ? 'active' : '' ?>" data-index="<?= $i ?>"></button>
+          <?php endfor; ?>
+        </div>
+
       </div>
-    </div>
     </section>
 
-      <section class="home">
+
+    <!-- ======================= -->
+    <!--    WELCOME SECTION      -->
+    <!-- ======================= -->
+    <section class="home">
       <div class="home-container">
+
         <div class="welcome-section">
-          <h2 class="tagline">Rasa yang Tiada Tanding</h2>
-          <p class="description">
-            Kami menyajikan ayam goreng dengan resep turun-temurun, bumbu meresap, dan tekstur yang selalu renyah. Cocok untuk disantap bersama keluarga atau teman
-          </p>
+          <h2 class="tagline"><?= $welcome['judul']; ?></h2>
+          <p class="description"><?= nl2br($welcome['deskripsi']); ?></p>
+
           <div class="cta-buttons">
-            <!-- <a href="menu.html" class="btn btn-primary">Lihat Menu</a> -->
-            <a href="story.php" class="btn btn-secondary">Lihat Cerita Kami</a></div>
+            <a href="story.php" class="btn btn-secondary">Lihat Cerita Kami</a>
+          </div>
         </div>
 
+
+        <!-- ======================= -->
+        <!--     MENU UNGGULAN       -->
+        <!-- ======================= -->
         <div id="menu" class="menu-section">
           <div class="menu-name">
             <h3 class="section-heading">Menu Unggulan</h3>
           </div>
+
           <div class="menu-grid">
-            <article class="menu-card">
-              <img src="./Source/Daftar menu/Bakwan.png" alt="Bakwan">
-              <div class="menu-body">
-                <h4>Bakwan</h4>
-                <!-- <p class="price">Rp 28.000</p> -->
-                <!-- <a class="menu-btn" href="#">Pesan</a> -->
-              </div>
-            </article>
 
-            <article class="menu-card">
-              <img src="./Source/Daftar menu/Paket Monas.png" alt="paket monas">
-              <div class="menu-body">
-                <h4>Paket Ayam Monas</h4>
-                <!-- <p class="price">Rp 30.000</p> -->
-                <!-- <a class="menu-btn" href="#">Pesan</a> -->
-              </div>
-            </article>
+            <?php while($m = mysqli_fetch_assoc($menuUnggulan)) : ?>
+              <article class="menu-card">
+                <img src="./Source/Daftar menu/<?= $m['gambar'] ?>" alt="<?= $m['nama']; ?>">
+                <div class="menu-body">
+                  <h4><?= $m['nama']; ?></h4>
+                </div>
+              </article>
+            <?php endwhile; ?>
 
-            <article class="menu-card">
-              <img src="./Source/Daftar menu/Es Blewah.png" alt="blewah">
-              <div class="menu-body">
-                <h4>Es Blewah</h4>
-                <!-- <p class="price">Mulai Rp 45.000</p> -->
-                <!-- <a class="menu-btn" href="#">Pesan</a> -->
-              </div>
-            </article>
           </div>
+
           <a class="menu-direct" href="menu.php">Lihat Semua Menu</a>
         </div>
 
-    <section class="review">
-  <h2>Apa Kata Mereka?</h2>
 
-  <div class="Card-Review">
-    <div class="Review-list">
-      <?php while($row = mysqli_fetch_assoc($reviews)) { ?>
+        <!-- ======================= -->
+        <!--      REVIEW SECTION     -->
+        <!-- ======================= -->
+        <section class="review">
+          <h2>Apa Kata Mereka?</h2>
 
-        <div class="review-card">
-          <div class="card-profile">
-            <?php if (!empty($row['foto'])) { ?>
-              <div class="review-photo">
-                <img src="<?php echo htmlspecialchars($row['foto']); ?>" alt="Foto Reviewer">
-              </div>
-            <?php } else { ?>
-              <div class="review-photo">
-                <div class="photo-placeholder">
-                  <span>👤</span>
+          <div class="Card-Review">
+            <div class="Review-list">
+
+              <?php while($row = mysqli_fetch_assoc($reviews)) { ?>
+                <div class="review-card">
+
+                  <div class="card-profile">
+                    <div class="review-photo">
+                      <?php if (!empty($row['foto'])) { ?>
+                        <img src="<?= $row['foto']; ?>" alt="Foto Reviewer">
+                      <?php } else { ?>
+                        <div class="photo-placeholder"><span>👤</span></div>
+                      <?php } ?>
+                    </div>
+
+                    <div class="profile-info">
+                      <p class="reviewer-name"><strong><?= htmlspecialchars($row['nama']); ?></strong></p>
+
+                      <div class="stars">
+                        <?php
+                          $filled = (int)$row['rating'];
+                          $empty = 5 - $filled;
+
+                          for ($i=0; $i<$filled; $i++) echo '<span class="star filled">★</span>';
+                          for ($i=0; $i<$empty; $i++) echo '<span class="star">★</span>';
+                        ?>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="card-comment">
+                    <p class="review-comment">"<?= htmlspecialchars($row['komentar']); ?>"</p>
+                  </div>
+
+                  <div class="card-date">
+                    <small class="review-date"><?= $row['tanggal']; ?></small>
+                  </div>
                 </div>
-              </div>
-            <?php } ?>
+              <?php } ?>
 
-            <div class="profile-info">
-              <p class="reviewer-name"><strong><?php echo htmlspecialchars($row['nama']); ?></strong></p>
-              <div class="stars">
-                <?php
-                  $filled = (int)$row['rating'];
-                  $empty = 5 - $filled;
-                  for ($i = 0; $i < $filled; $i++) echo '<span class="star filled">★</span>';
-                  for ($i = 0; $i < $empty; $i++) echo '<span class="star">★</span>';
-                ?>
-              </div>
             </div>
           </div>
+        </section>
 
-          <div class="card-comment">
-            <p class="review-comment">
-              "<?php echo htmlspecialchars($row['komentar']); ?>"
-            </p>
-          </div>
+      </div>
+    </section>
 
-          <div class="card-date">
-            <small class="review-date">
-              <?php echo htmlspecialchars($row['tanggal']); ?>
-            </small>
-          </div>
-        </div>
 
-      <?php } ?>
-    </div>
-  </div>
-</section>
+    <!-- FOOTER -->
+    <?php include 'footer.php'; ?>
 
-<?php include 'footer.php'; ?>
-</body>
+  </body>
 </html>

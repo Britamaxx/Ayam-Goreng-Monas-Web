@@ -6,7 +6,8 @@ if (!$conn) {
 
 $header = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM header WHERE id = 1"));
 
-$footer = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM footer WHERE id = 1"));
+$footer = mysqli_query($conn, "SELECT * FROM footer WHERE id = 1");
+$f = mysqli_fetch_assoc($footer);
 
 $limit = 4; 
 $page  = isset($_GET['page']) ? $_GET['page'] : 1;

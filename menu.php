@@ -6,9 +6,9 @@ if (!$conn) {
 }
 
 $header = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM header WHERE id = 1"));
-$footer = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM footer WHERE id = 1"));
+$footer = mysqli_query($conn, "SELECT * FROM footer WHERE id = 1");
+$f = mysqli_fetch_assoc($footer);
 ?>
-
 
 <!DOCTYPE html>
 <html>
@@ -147,7 +147,61 @@ $footer = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM footer WHERE id 
         </div>
       </div>
     </div>
-    
- <?php include 'footer.php'; ?>
+        
+    <script>
+      function openMenuModal(menuData) {
+        const modal = document.getElementById('menuModal');
+        document.getElementById('modalImage').src = './Source/Daftar menu/' + menuData.gambar;
+        document.getElementById('modalTitle').textContent = menuData.nama;
+        document.getElementById('modalDescription').textContent = menuData.deskripsi || 'Deskripsi belum tersedia.';
+
+        const statusEl = document.getElementById('modalStatus');
+        if (menuData.status) {
+          statusEl.textContent = '#' + menuData.status;
+          statusEl.style.display = 'inline-block';
+        } else {
+          statusEl.style.display = 'none';
+        }
+
+        document.getElementById('kaloriValue').textContent = menuData.kalori ? menuData.kalori + ' Kal' : '-';
+        document.getElementById('karboValue').textContent = menuData.karbohidrat ? menuData.karbohidrat + ' g' : '-';
+        document.getElementById('proteinValue').textContent = menuData.protein ? menuData.protein + ' g' : '-';
+
+        modal.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeMenuModal() {
+        document.getElementById('menuModal').style.display = 'none';
+        document.body.style.overflow = 'auto';
+      }
+
+      window.onclick = e => {
+        const modal = document.getElementById('menuModal');
+        if (e.target === modal) closeMenuModal();
+      };
+
+      document.addEventListener('keydown', e => {
+        if (e.key === 'Escape') closeMenuModal();
+      });
+
+      document.addEventListener('DOMContentLoaded', function() {
+        console.log('DOM loaded'); 
+          
+        const menuItems = document.querySelectorAll('.menu-item');
+        console.log('Found menu items:', menuItems.length); 
+          
+        if (menuItems.length > 0) {
+          menuItems.forEach((item, index) => {
+            setTimeout(() => {
+              item.classList.add('show');
+              console.log('Showing item', index); 
+            }, index * 150); 
+          });
+        }
+      });
+    </script>
+
+    <?php include 'footer.php'; ?>
   </body>
 </html>

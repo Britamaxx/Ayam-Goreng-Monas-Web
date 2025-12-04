@@ -4,7 +4,9 @@ if (!$conn) {
   die("Koneksi gagal: " . mysqli_connect_error());
 }
 
-// Handle delete request
+/* ============================================
+   HANDLE DELETE
+============================================ */
 if (isset($_GET['hapus'])) {
   $id = $_GET['hapus'];
   $query = "DELETE FROM review WHERE id=$id";
@@ -13,27 +15,25 @@ if (isset($_GET['hapus'])) {
       alert('Review berhasil dihapus!');
       window.location.href = 'manage_reviews.php';
     </script>";
+    exit;
   }
 }
 
-if (isset($_POST['update'])) {
-  $id = $_POST['id'];
-  $nama = $_POST['nama'];
-  $status = $_POST['status'];
+/* ============================================
+   PAGINATION SETUP
+============================================ */
+$limit = 5; // jumlah data per halaman
+$page  = isset($_GET['page']) ? (int) $_GET['page'] : 1;
+$start = ($page - 1) * $limit;
 
-  if (!empty($_FILES['gambar']['name'])) {
-    $gambar = $_FILES['gambar']['name'];
-    $target = "./Source/Daftar menu/" . basename($gambar);
-    move_uploaded_file($_FILES['gambar']['tmp_name'], $target);
-    $query = "UPDATE menu SET nama='$nama', gambar='$gambar', status='$status' WHERE id=$id";
-  } else {
-    $query = "UPDATE menu SET nama='$nama', status='$status' WHERE id=$id";
-  }
+// total data
+$total_result = mysqli_query($conn, "SELECT COUNT(*) AS total FROM review");
+$total_data   = mysqli_fetch_assoc($total_result)['total'];
 
-  mysqli_query($conn, $query);
-  echo "<script>alert('Menu berhasil diperbarui!');</script>";
-}
+$total_page = ceil($total_data / $limit);
 
+/* ambil data sesuai halaman */
+$result = mysqli_query($conn, "SELECT * FROM review ORDER BY tanggal DESC LIMIT $start, $limit");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -43,6 +43,39 @@ if (isset($_POST['update'])) {
     <title>Dashboard Admin - Manage Reviews</title>
     <link rel="icon" type="image/png" sizes="16x16" href="./source/Logo.png" />
     <link rel="stylesheet" href="../style_admin/manage_menu.css" />
+
+    <style>
+  .pagination {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.page-btn {
+    display: inline-block;
+    padding: 8px 14px;
+    margin: 2px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    text-decoration: none;
+    font-size: 14px;
+    color: #333;
+    transition: 0.2s;
+}
+
+.page-btn:hover {
+    background: #ff7a00;
+    color: white;
+    border-color: #ff7a00;
+}
+
+.page-btn.active {
+    background: #ff7a00;
+    color: white;
+    border-color: #ff7a00;
+}
+
+  </style>
+
   </head>
   <body>
     <?php 
@@ -69,7 +102,7 @@ if (isset($_POST['update'])) {
           </div>
         </div>
 
-        <table border="1" cellpadding="8">
+        <table border="1" cellpadding="8" width="100%">
           <tr>
             <th>ID</th>
             <th>Nama</th>
@@ -79,13 +112,13 @@ if (isset($_POST['update'])) {
             <th>Tanggal</th>
             <th>Aksi</th>
           </tr>
+
           <?php
-          $result = mysqli_query($conn, "SELECT * FROM review ORDER BY tanggal DESC");
           while ($row = mysqli_fetch_assoc($result)) {
 
             $foto = "-";
             if (!empty($row['foto'])) {
-              $foto = "<img src='./uploads/{$row['foto']}' width='70'>";
+              $foto = "<img src='./uploads/{$row['foto']}' width='70' class='review-img'>";
             }
 
             echo "<tr>";
@@ -95,14 +128,29 @@ if (isset($_POST['update'])) {
             echo "<td>{$row['rating']}</td>";
             echo "<td>$foto</td>";
             echo "<td>{$row['tanggal']}</td>";
+          
             echo "<td style='white-space: nowrap;'>
-                    <a href='edit_review.php?id={$row['id']}' style='display: inline-block; text-decoration: none;'><button class='edit-btn'>Edit</button></a>
                     <button class='delete-btn' onclick=\"showDeleteConfirmation({$row['id']}, '{$row['nama']}')\">Hapus</button>
                   </td>";
+
             echo "</tr>";
           }
           ?>
         </table>
+
+        <!-- ======================================
+             PAGINATION BUTTONS
+        ======================================= -->
+        <div class="pagination">
+  <?php
+  for ($i = 1; $i <= $total_page; $i++) {
+    $active = ($i == $page) ? "active" : "";
+    echo "<a class='page-btn $active' href='manage_reviews.php?page=$i'>$i</a>";
+  }
+  ?>
+</div>
+
+
       </div>
     </section>
 

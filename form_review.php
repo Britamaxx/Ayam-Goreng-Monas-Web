@@ -4,7 +4,9 @@ include "conn.php";
 
 $header = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM header WHERE id = 1"));
 
-$footer = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM footer WHERE id = 1"));
+$footer = mysqli_query($conn, "SELECT * FROM footer WHERE id = 1");
+$f = mysqli_fetch_assoc($footer);
+
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nama = mysqli_real_escape_string($conn, $_POST['nama']);
@@ -40,7 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Tambah Review - Ayam Goreng Monas</title>
+    <title>Tambah Ulasan - Ayam Goreng Monas</title>
     <link rel="stylesheet" href="./style/header.css" />
     <link rel="stylesheet" href="./style/review.css" />
     <link rel="stylesheet" href="./style/footer.css" />
@@ -78,7 +80,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 <section class="form-section">
-    <h2>Tambahkan Review Anda</h2>
+    <h2>Tambahkan Ulasan Anda</h2>
 
     <form action="" method="POST" enctype="multipart/form-data" class="review-form">
 
@@ -104,78 +106,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <label for="foto">Foto</label>
         <input type="file" id="foto" name="foto" accept="image/*" />
 
-        <button type="submit" class="submit-btn">Kirim Review</button>
+        <button type="submit" class="submit-btn">Kirim Ulasan</button>
         <a href="review.php" class="cancel-btn">Batal</a>
     </form>
 </section>
 
 
-<section class="footer">
-    <div class="footer-container">
-
-        <div class="footer-logo">
-            <img src="./Source/<?php echo $footer['logo']; ?>" alt="Ayam Goreng Monas Logo" />
-            <p class="footer-slogan"><?php echo $footer['slogan']; ?></p>
-        </div>
-
-        <div class="footer-column">
-            <h3>Link</h3>
-            <ul>
-                <li><a href="<?php echo $footer['link_story']; ?>">Kisah</a></li>
-                <li><a href="<?php echo $footer['link_menu']; ?>">Menu</a></li>
-                <li><a href="<?php echo $footer['link_news']; ?>">Berita</a></li>
-            </ul>
-        </div>
-
-        <div class="footer-column">
-            <h3>Hubungi</h3>
-            <ul>
-                <li><a href="<?php echo $footer['whatsapp']; ?>" target="_blank">WhatsApp</a></li>
-                <li><a href="mailto:<?php echo $footer['email']; ?>">Email</a></li>
-            </ul>
-        </div>
-
-        <div class="Footer-cabang">
-            <h3>Cabang utama</h3>
-            <div class="footer-cabang-content">
-                <p><?php echo nl2br($footer['alamat']); ?></p>
-            </div>
-        </div>
-
-        <?php echo $footer['maps_embed']; ?>
-
-        <div class="footer-social">
-            <?php if (!empty($footer['instagram'])): ?>
-                <a href="<?php echo $footer['instagram']; ?>" class="social-icon" target="_blank">
-                    <img src="./source/instagram.svg" alt="Instagram" />
-                </a>
-            <?php endif; ?>
-
-            <?php if (!empty($footer['tiktok'])): ?>
-                <a href="<?php echo $footer['tiktok']; ?>" class="social-icon" target="_blank">
-                    <img src="./source/tiktok.svg" alt="TikTok" />
-                </a>
-            <?php endif; ?>
-
-            <?php if (!empty($footer['x'])): ?>
-                <a href="<?php echo $footer['x']; ?>" class="social-icon" target="_blank">
-                    <img src="./source/x.svg" alt="X" />
-                </a>
-            <?php endif; ?>
-
-            <?php if (!empty($footer['facebook'])): ?>
-                <a href="<?php echo $footer['facebook']; ?>" class="social-icon" target="_blank">
-                    <img src="./source/facebook.svg" alt="Facebook" />
-                </a>
-            <?php endif; ?>
-        </div>
-
-    </div>
-
-    <div class="footer-bottom">
-        <p>Copyright &copy; 2025 Ayam Goreng Monas. Hak Cipta Dilindungi.</p>
-    </div>
-</section>
+<?php include 'footer.php'; ?>
 
 </body>
 </html>

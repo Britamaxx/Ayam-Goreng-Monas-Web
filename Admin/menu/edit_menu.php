@@ -102,7 +102,7 @@ if (isset($_POST['update'])) {
           <label>Protein</label>
           <input type="number" name="protein" value="<?php echo $menu['protein']; ?>" />
 
-          <button type="submit" name="update">Update Menu</button>
+          <button type="submit" name="update">Perbarui Menu</button>
         </form>
       </div>
     </section>

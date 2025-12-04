@@ -1,4 +1,3 @@
-
 <?php
 $conn = mysqli_connect("localhost", "root", "", "ayamgoreng_monas");
 if (!$conn) {
@@ -20,6 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $x          = $_POST['x'];
     $facebook   = $_POST['facebook'];
 
+    // Upload logo jika ada file baru
     if (!empty($_FILES['logo']['name'])) {
         $logo = "uploads/" . basename($_FILES['logo']['name']);
         move_uploaded_file($_FILES['logo']['tmp_name'], $logo);
@@ -48,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     mysqli_query($conn, $query);
 
-    echo "<script>alert('Footer berhasil diperbarui'); window.location='manage_konten.php';</script>";
+    echo "<script>alert('Footer berhasil diperbarui!'); window.location='manage_konten.php';</script>";
     exit;
 }
 
@@ -56,56 +56,92 @@ $footer = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM footer WHERE id 
 ?>
 
 <!DOCTYPE html>
-<html>
-<head><title>Edit Footer</title></head>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Footer</title>
+
+    <link rel="icon" type="image/png" sizes="16x16" href="./source/Logo.png" />
+    <link rel="stylesheet" href="../style_admin/manage_menu.css" />
+    <script src="https://unpkg.com/feather-icons"></script>
+</head>
 
 <body>
-<h2>Edit Footer</h2>
 
-<form method="POST" enctype="multipart/form-data">
+    <?php 
+        include "../layout/header_admin.php";
+        include "../layout/sidebar_admin.php"; 
+    ?>
 
-    <label>Slogan</label><br>
-    <input type="text" name="slogan" value="<?= $footer['slogan'] ?>"><br><br>
+    <section class="main-content">
 
-    <label>Link Story</label><br>
-    <input type="text" name="link_story" value="<?= $footer['link_story'] ?>"><br><br>
+        <div class="content-header">
+            <h1>Edit Footer</h1>
+            <p>Perbarui informasi footer website di bawah ini.</p>
+        </div>
 
-    <label>Link Menu</label><br>
-    <input type="text" name="link_menu" value="<?= $footer['link_menu'] ?>"><br><br>
+        <div class="form-section">
+            <h2>Form Edit Footer</h2>
 
-    <label>Link Berita</label><br>
-    <input type="text" name="link_news" value="<?= $footer['link_news'] ?>"><br><br>
+            <form method="POST" enctype="multipart/form-data">
 
-    <label>No WhatsApp</label><br>
-    <input type="text" name="whatsapp" value="<?= $footer['whatsapp'] ?>"><br><br>
+                <label>Slogan</label>
+                <input type="text" name="slogan" value="<?= $footer['slogan'] ?>" required />
 
-    <label>Email</label><br>
-    <input type="text" name="email" value="<?= $footer['email'] ?>"><br><br>
+                <label>Link Story</label>
+                <input type="text" name="link_story" value="<?= $footer['link_story'] ?>" />
 
-    <label>Alamat</label><br>
-    <textarea name="alamat"><?= $footer['alamat'] ?></textarea><br><br>
+                <label>Link Menu</label>
+                <input type="text" name="link_menu" value="<?= $footer['link_menu'] ?>" />
 
-    <label>Google Maps Iframe</label><br>
-    <textarea name="maps_embed"><?= $footer['maps_embed'] ?></textarea><br><br>
+                <label>Link Berita</label>
+                <input type="text" name="link_news" value="<?= $footer['link_news'] ?>" />
 
-    <label>Instagram</label><br>
-    <input type="text" name="instagram" value="<?= $footer['instagram'] ?>"><br><br>
+                <label>No WhatsApp</label>
+                <input type="text" name="whatsapp" value="<?= $footer['whatsapp'] ?>" />
 
-    <label>TikTok</label><br>
-    <input type="text" name="tiktok" value="<?= $footer['tiktok'] ?>"><br><br>
+                <label>Email</label>
+                <input type="text" name="email" value="<?= $footer['email'] ?>" />
 
-    <label>X (Twitter)</label><br>
-    <input type="text" name="x" value="<?= $footer['x'] ?>"><br><br>
+                <label>Alamat</label>
+                <textarea name="alamat" rows="3"><?= $footer['alamat'] ?></textarea>
 
-    <label>Facebook</label><br>
-    <input type="text" name="facebook" value="<?= $footer['facebook'] ?>"><br><br>
+                <label>Google Maps Embed</label>
+                <textarea name="maps_embed" rows="3"><?= $footer['maps_embed'] ?></textarea>
 
-    <label>Logo</label><br>
-    <input type="file" name="logo"><br><br>
+                <label>Instagram</label>
+                <input type="text" name="instagram" value="<?= $footer['instagram'] ?>" />
 
-    <button type="submit">Simpan Perubahan</button>
+                <label>TikTok</label>
+                <input type="text" name="tiktok" value="<?= $footer['tiktok'] ?>" />
 
-</form>
+                <label>X (Twitter)</label>
+                <input type="text" name="x" value="<?= $footer['x'] ?>" />
+
+                <label>Facebook</label>
+                <input type="text" name="facebook" value="<?= $footer['facebook'] ?>" />
+
+                <label>Logo (opsional)</label>
+                <input type="file" name="logo" />
+
+                <p>Logo saat ini:</p>
+                <?php if (!empty($footer['logo'])): ?>
+                    <img src="<?= $footer['logo'] ?>" width="120">
+                <?php else: ?>
+                    <p><i>Belum ada logo</i></p>
+                <?php endif; ?>
+
+                <button type="submit">Simpan Perubahan</button>
+
+            </form>
+        </div>
+
+    </section>
+
+    <script>
+        feather.replace()
+    </script>
 
 </body>
 </html>

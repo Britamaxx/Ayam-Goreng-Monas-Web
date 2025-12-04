@@ -27,7 +27,7 @@ if (isset($_POST['update'])) {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dashboard Admin - Manage Berita</title>
+    <title>Dasbor Admin - Kelola Berita</title>
     <link rel="icon" type="image/png" sizes="16x16" href="./source/Logo.png" />
     <link rel="stylesheet" href="../style_admin/manage_menu.css" />
     <script src="https://unpkg.com/feather-icons"></script>
@@ -44,13 +44,13 @@ if (isset($_POST['update'])) {
       </div>
 
 			<div class="form-section">
-				<h2>Update Berita</h2>
+				<h2>Perbarui Berita</h2>
 				<form method="POST" enctype="multipart/form-data">
 					<input type="hidden" id="edit-id" name="id" />
 					<input type="text" id="edit-judul" name="judul" placeholder="Judul berita" required />
 					<input type="file" name="gambar" />
 					<textarea id="edit-deskripsi" name="deskripsi" rows="4" placeholder="Deskripsi berita..."></textarea>
-					<button type="submit" name="update">Update</button>
+					<button type="submit" name="update">Perbarui Berita</button>
 				</form>
 			</div>
     </section>
