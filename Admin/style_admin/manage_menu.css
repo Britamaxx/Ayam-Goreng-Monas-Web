@@ -251,10 +251,14 @@ body {
   font-size: 28px;
   font-weight: 700;
   color: #DC2626;
+  margin-bottom: 24px;
+  text-align: center;
 }
 
 .content-header p {
   color: #6B7280;
+  margin-bottom: 24px;
+  text-align: center;
 }
 
 .crud-container {
@@ -270,6 +274,7 @@ body {
   border-radius: 14px;
   box-shadow: 0 4px 14px rgba(0,0,0,0.06);
   border: 1px solid #FFE8C7;
+  margin-bottom: 24px;
 }
 
 .form-section h2 {
@@ -319,10 +324,11 @@ body {
 
 .table-section {
   background: #ffffff;
-  padding: 25px 30px;
+  padding: 16px 20px;
   border-radius: 14px;
   box-shadow: 0 4px 14px rgba(0,0,0,0.06);
   border: 1px solid #FFE8C7;
+  margin-bottom: 24px;
 }
 
 .table-header {
@@ -395,7 +401,42 @@ body {
 
 .table-section th,
 .table-section td {
-  border-right: 1px solid #FDE68A;
+  border-right: none;
+}
+
+/* Action buttons inline container */
+.action-buttons {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.action-buttons a {
+  display: inline-flex;
+}
+
+.action-buttons button {
+  padding: 8px 10px;
+  border: none;
+  color: #fff;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+}
+/* remove any link underline for action buttons */
+.action-buttons a,
+.action-buttons a:link,
+.action-buttons a:visited,
+.action-buttons a:hover,
+.action-buttons a:active {
+  text-decoration: none !important;
+  color: inherit !important;
+}
+
+/* ensure button text doesn't show underline from parent */
+.action-buttons button {
+  text-decoration: none;
 }
 
 .table-section tr:last-child td {
@@ -409,10 +450,10 @@ body {
 
 
 .table-section h2 {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 700;
   color: #DC2626;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 }
 
 .table-section table {
@@ -424,17 +465,17 @@ body {
 
 .table-section th {
   background: #FBBF24;
-  padding: 12px;
+  padding: 10px;
   text-align: left;
   color: #7C2D12;
-  font-size: 14px;
+  font-size: 13px;
 }
 
 .table-section td {
-  padding: 12px;
+  padding: 10px;
   background: #FFF;
-  border-bottom: 1px solid #FDE68A;
-  font-size: 14px;
+  border-bottom: none;
+  font-size: 13px;
 }
 
 .table-section tr:hover td {
@@ -446,6 +487,45 @@ body {
   width: 70px;
   height: 70px;
   object-fit: cover;
+}
+
+/* Reduce padding for slider preview tables */
+.slider-preview {
+  width: 120px !important;
+  height: 80px !important;
+  display: block;
+  margin: 0 !important;
+}
+
+/* Compact table cells for image-heavy tables */
+table td:has(> img.slider-preview),
+table td:has(> img[height="60"]) {
+  padding: 6px !important;
+  vertical-align: middle;
+}
+
+table th:nth-child(1),
+table td:nth-child(1) {
+  width: 60px;
+  text-align: center;
+  padding: 6px !important;
+}
+
+table th:nth-child(2),
+table td:nth-child(2) {
+  max-width: 200px;
+}
+
+/* Shrink row height for image previews */
+table tr:has(img.slider-preview),
+table tr:has(img[height="60"]) {
+  height: auto;
+}
+
+table tr:has(img.slider-preview) td,
+table tr:has(img[height="60"]) td {
+  padding: 6px 8px;
+  vertical-align: middle;
 }
 
 .table-section button {
@@ -676,5 +756,101 @@ body {
   
   .modal-actions button {
     width: 100%;
+  }
+}
+
+/* Admin responsive improvements */
+.table-section {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* ensure wide tables still fit but allow horizontal scroll on small screens */
+.table-section table {
+  min-width: 720px;
+}
+
+/* Stack header tools on medium and smaller screens */
+@media (max-width: 992px) {
+  .table-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .table-tools {
+    margin-left: 0;
+    width: 100%;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .search-menu {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .table-section {
+    padding: 18px;
+  }
+
+  .table-section th,
+  .table-section td {
+    padding: 10px;
+    font-size: 13px;
+  }
+
+  .table-section img {
+    width: 48px;
+    height: 48px;
+  }
+
+  .action-buttons {
+    gap: 6px;
+  }
+
+  .add-btn, .filter-btn, .page-btn {
+    padding: 8px 10px;
+    font-size: 13px;
+  }
+
+  .table-section table {
+    min-width: 600px;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-content {
+    padding: 12px;
+  }
+
+  .table-section {
+    padding: 12px;
+  }
+
+  .table-section table {
+    min-width: 520px;
+  }
+
+  .table-section th,
+  .table-section td {
+    padding: 8px;
+    font-size: 12px;
+  }
+
+  .table-header h2 {
+    font-size: 18px;
+  }
+
+  .search-menu {
+    width: 100%;
+  }
+
+  .action-buttons button {
+    padding: 6px 8px;
+    font-size: 12px;
   }
 }

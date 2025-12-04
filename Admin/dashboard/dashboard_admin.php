@@ -44,6 +44,7 @@ $totalCabang = $lokasi ? mysqli_num_rows($lokasi) : 0;
             font-weight: 700;
             color: #DC2626;
             margin-bottom: 0.15rem;
+            text-align: center;
         }
 
         .dashboard-grid {
@@ -280,62 +281,65 @@ include "../layout/sidebar_admin.php";
                         <thead>
                             <tr>
                                 <th>Menu</th>
+                                <th>nama</th>
                                 <th>Status</th>
                                 <th>Info Nutrisi</th>
                             </tr>
                         </thead>
                         <tbody>
-                        <?php if ($menus && mysqli_num_rows($menus) > 0): ?>
-                            <?php mysqli_data_seek($menus, 0); ?>
-                            <?php while ($m = mysqli_fetch_assoc($menus)): ?>
-                                <tr>
-                                    <td>
-                                        <div class="menu-name"><?= htmlspecialchars($m['nama']); ?></div>
-                                        <?php if (!empty($m['gambar'])): ?>
-                                            <div class="menu-meta">
-                                                <img 
-                                                    src="../../Source/Daftar menu/<?= htmlspecialchars($m['gambar']); ?>" 
-                                                    alt="<?= htmlspecialchars($m['nama']); ?>" 
-                                                    style="width: 50px; height: auto; object-fit: cover;"
-                                                >
-                                            </div>
-                                        <?php endif; ?>
-                                    </td>
-                                    <td>
-                                        <?php if (!empty($m['status'])): ?>
-                                            <?php if (strtoupper($m['status']) === 'FAVORITE'): ?>
-                                                <span class="pill pill-fav"><?= htmlspecialchars($m['status']); ?></span>
-                                            <?php else: ?>
-                                                <span class="pill"><?= htmlspecialchars($m['status']); ?></span>
-                                            <?php endif; ?>
-                                        <?php else: ?>
-                                            <span class="pill">-</span>
-                                        <?php endif; ?>
-                                    </td>
-                                    <td>
-                                        <div class="nutri">
-                                            Kalori:
-                                            <?= $m['kalori'] !== null ? intval($m['kalori']) . ' kkal' : '-'; ?>
-                                        </div>
-                                        <div class="nutri">
-                                            Karbohidrat:
-                                            <?= $m['karbohidrat'] !== null ? intval($m['karbohidrat']) . ' g' : '-'; ?>
-                                        </div>
-                                        <div class="nutri">
-                                            Protein:
-                                            <?= $m['protein'] !== null ? intval($m['protein']) . ' g' : '-'; ?>
-                                        </div>
-                                    </td>
-                                </tr>
-                            <?php endwhile; ?>
-                        <?php else: ?>
-                            <tr>
-                                <td colspan="3" class="empty-state">
-                                    Belum ada data menu di tabel <code>menu</code>.
-                                </td>
-                            </tr>
-                        <?php endif; ?>
-                        </tbody>
+<?php if ($menus && mysqli_num_rows($menus) > 0): ?>
+    <?php mysqli_data_seek($menus, 0); ?>
+    <?php while ($m = mysqli_fetch_assoc($menus)): ?>
+        <tr>
+
+            <!-- KOLOM 1: MENU (GAMBAR SAJA) -->
+            <td>
+                <?php if (!empty($m['gambar'])): ?>
+                    <img 
+                        src="../../Source/Daftar menu/<?= htmlspecialchars($m['gambar']); ?>" 
+                        alt="<?= htmlspecialchars($m['nama']); ?>" 
+                        style="width: 50px; height: auto; object-fit: cover; border-radius: 8px;"
+                    >
+                <?php else: ?>
+                    -
+                <?php endif; ?>
+            </td>
+
+            <!-- KOLOM 2: NAMA -->
+            <td>
+                <strong><?= htmlspecialchars($m['nama']); ?></strong>
+            </td>
+
+            <!-- KOLOM 3: STATUS -->
+            <td>
+                <?php if (!empty($m['status'])): ?>
+                    <?php if (strtoupper($m['status']) === 'FAVORITE'): ?>
+                        <span class="pill pill-fav"><?= htmlspecialchars($m['status']); ?></span>
+                    <?php else: ?>
+                        <span class="pill"><?= htmlspecialchars($m['status']); ?></span>
+                    <?php endif; ?>
+                <?php else: ?>
+                    <span class="pill">-</span>
+                <?php endif; ?>
+            </td>
+
+            <!-- KOLOM 4: INFO NUTRISI -->
+            <td>
+                <div class="nutri">Kalori: <?= $m['kalori'] !== null ? intval($m['kalori']) . ' kkal' : '-'; ?></div>
+                <div class="nutri">Karbohidrat: <?= $m['karbohidrat'] !== null ? intval($m['karbohidrat']) . ' g' : '-'; ?></div>
+                <div class="nutri">Protein: <?= $m['protein'] !== null ? intval($m['protein']) . ' g' : '-'; ?></div>
+            </td>
+
+        </tr>
+    <?php endwhile; ?>
+<?php else: ?>
+    <tr>
+        <td colspan="4" class="empty-state">
+            Belum ada data menu di tabel <code>menu</code>.
+        </td>
+    </tr>
+<?php endif; ?>
+</tbody>
                     </table>
                 </div>
             </section>

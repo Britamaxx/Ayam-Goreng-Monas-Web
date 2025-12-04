@@ -69,6 +69,11 @@ include "../layout/sidebar_admin.php";
 
 <section class="main-content">
 
+  <div class="content-header">
+    <h1>Kelola Menu</h1>
+    <p>Kelola menu utama restoran Anda</p>
+  </div>
+
   <div class="table-section">
     <div class="table-header">
       <h2>Daftar Menu</h2>
@@ -131,8 +136,10 @@ include "../layout/sidebar_admin.php";
         echo "<td>{$row['protein']}</td>";
 
         echo "<td>
-                <a href='edit_menu.php?id={$row['id']}'><button class='edit-btn'>Edit</button></a>
-                <button class='delete-btn' onclick=\"showDeleteConfirmation({$row['id']}, '{$namaMenu}', 'menu')\">Hapus</button>
+                <div class='action-buttons'>
+                  <a href='edit_menu.php?id={$row['id']}'><button class='edit-btn'>Edit</button></a>
+                  <button class='delete-btn' onclick=\"showDeleteConfirmation({$row['id']}, '{$namaMenu}', 'menu')\">Hapus</button>
+                </div>
               </td>"; 
         echo "</tr>";
       }

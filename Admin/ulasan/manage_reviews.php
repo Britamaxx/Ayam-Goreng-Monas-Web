@@ -43,6 +43,7 @@ $result = mysqli_query($conn, "SELECT * FROM review ORDER BY tanggal DESC LIMIT 
     <title>Dashboard Admin - Manage Reviews</title>
     <link rel="icon" type="image/png" sizes="16x16" href="./source/Logo.png" />
     <link rel="stylesheet" href="../style_admin/manage_menu.css" />
+    <Script src="https://unpkg.com/feather-icons"></script>
 
     <style>
   .pagination {
@@ -84,6 +85,11 @@ $result = mysqli_query($conn, "SELECT * FROM review ORDER BY tanggal DESC LIMIT 
     ?>
   
     <section class="main-content">
+      <div class="content-header">
+        <h1>Kelola Ulasan</h1>
+        <p>Kelola ulasan dan rating dari pelanggan</p>
+      </div>
+
       <div class="table-section">
         
         <div class="table-header">
@@ -118,7 +124,25 @@ $result = mysqli_query($conn, "SELECT * FROM review ORDER BY tanggal DESC LIMIT 
 
             $foto = "-";
             if (!empty($row['foto'])) {
-              $foto = "<img src='./uploads/{$row['foto']}' width='70' class='review-img'>";
+              // Decide correct src:
+              $raw = $row['foto'];
+
+              // Normalize common patterns stored in DB:
+              if (strpos($raw, './') === 0) {
+                // './path/to/file' -> '../../path/to/file' (from admin folder)
+                $imgSrc = preg_replace('#^\.//#', '../../', $raw);
+              } elseif (stripos($raw, 'source/') === 0) {
+                // 'Source/filename' stored -> make relative from admin: '../../Source/filename'
+                $imgSrc = '../../' . $raw;
+              } elseif (strpos($raw, '/') === 0) {
+                // absolute path starting with '/' - use as-is
+                $imgSrc = $raw;
+              } else {
+                // likely just a filename -> assume it's in main Source folder
+                $imgSrc = '../../Source/' . $raw;
+              }
+
+              $foto = "<img src='{$imgSrc}' width='70' class='review-img'>";
             }
 
             echo "<tr>";
@@ -155,5 +179,8 @@ $result = mysqli_query($conn, "SELECT * FROM review ORDER BY tanggal DESC LIMIT 
     </section>
 
     <script src="../js/admin.js"></script>
+    <script>
+      feather.replace();
+      </script>
   </body>
 </html>

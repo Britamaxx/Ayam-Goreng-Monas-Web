@@ -89,6 +89,11 @@ $result = mysqli_query($conn, "
 
     <section class="main-content">
 
+      <div class="content-header">
+        <h1>Kelola Berita</h1>
+        <p>Kelola artikel dan berita restoran</p>
+      </div>
+
       <div class="table-section">
         <div class="table-header">
           <h2>Daftar Berita</h2>

@@ -24,7 +24,7 @@ $review = mysqli_query($conn, "SELECT * FROM review ORDER BY id DESC LIMIT 3");
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kelola Beranda</title>
   <link rel="stylesheet" href="../style_admin/manage_menu.css">
-  <link rel="icon" type="image/png" sizes="16x16" href="./source/Logo.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="../../Source/Logo.png" />
   <script src="https://unpkg.com/feather-icons"></script>
 </head>
 
@@ -67,7 +67,7 @@ $review = mysqli_query($conn, "SELECT * FROM review ORDER BY id DESC LIMIT 3");
           <td style="text-align:center;"><?= $no++ ?></td>
 
           <td>
-             <img src="../Source/Background/slider/<?= $row['gambar']; ?>" class="slider-preview">
+             <img src="../../Source/Background/slider/<?= $row['gambar']; ?>" class="slider-preview">
           </td>
 
 
@@ -165,7 +165,7 @@ if (isset($_POST['simpan_menu'])) {
           <td><?= $m['nama'] ?></td>
 
         <td>
-          <img src="../Source/Daftar menu/<?= $m['gambar']; ?>" height="60">
+          <img src="../../Source/Daftar menu/<?= $m['gambar']; ?>" height="60">
         </td>
 
         </tr>
@@ -173,7 +173,7 @@ if (isset($_POST['simpan_menu'])) {
       </tbody>
     </table>
 
-    <button type="submit" name="simpan_menu" class="add-btn" style="margin-top:20px;">
+    <button type="submit" name="simpan_menu" class="add-btn" style="margin-top:20px; display: block; margin-left: auto; margin-right: auto;">
         Simpan Menu Unggulan
     </button>
   </form>

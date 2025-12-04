@@ -50,6 +50,7 @@ $result = mysqli_query($conn, "
   <title>Dashboard Admin - Manage Lokasi</title>
   <link rel="icon" type="image/png" sizes="16x16" href="../source/Logo.png" />
   <link rel="stylesheet" href="../style_admin/manage_menu.css" />
+  <script src="https://unpkg.com/feather-icons"></script>
 
   <style>
     .pagination {
@@ -96,6 +97,11 @@ include "../layout/sidebar_admin.php";
 ?>
 
 <section class="main-content">
+
+  <div class="content-header">
+    <h1>Kelola Lokasi</h1>
+    <p>Kelola cabang dan lokasi restoran</p>
+  </div>
 
   <div class="table-section">
 
@@ -165,6 +171,9 @@ include "../layout/sidebar_admin.php";
 </section>
 
 <script src="../js/admin.js"></script>
+<script>
+  feather.replace();
+</script>
 
 </body>
 </html>

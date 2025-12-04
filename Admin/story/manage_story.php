@@ -96,6 +96,11 @@ include "../layout/sidebar_admin.php";
 
 <section class="main-content">
 
+  <div class="content-header">
+    <h1>Kelola Cerita</h1>
+    <p>Kelola timeline sejarah restoran</p>
+  </div>
+
   <div class="table-section">
 
     <div class="table-header">
