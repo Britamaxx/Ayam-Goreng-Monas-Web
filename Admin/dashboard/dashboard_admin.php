@@ -11,29 +11,6 @@ $qLokasi = "SELECT id, nama, alamat, jam FROM lokasi ORDER BY id ASC";
 $lokasi = mysqli_query($conn, $qLokasi);
 $totalCabang = $lokasi ? mysqli_num_rows($lokasi) : 0;
 
-// ============ DATA PESANAN (DARI DB) ============
-// total pesanan hari ini
-$qPesananHariIni = "
-    SELECT COUNT(*) AS total 
-    FROM pesanan 
-    WHERE DATE(created_at) = CURDATE()
-";
-$rPesananHariIni = mysqli_query($conn, $qPesananHariIni);
-$pesananHariIni = 0;
-if ($rPesananHariIni && mysqli_num_rows($rPesananHariIni) > 0) {
-    $rowPesanan = mysqli_fetch_assoc($rPesananHariIni);
-    $pesananHariIni = (int)$rowPesanan['total'];
-}
-
-// ============ DATA PEKERJA (DARI DB) ============
-// join pekerja dengan lokasi biar dapat nama cabang
-$qPekerja = "
-    SELECT p.id, p.nama, p.posisi, p.shift, p.status, l.nama AS nama_cabang
-    FROM pekerja p
-    LEFT JOIN lokasi l ON p.cabang_id = l.id
-    ORDER BY l.id ASC, p.posisi ASC
-";
-$pekerja = mysqli_query($conn, $qPekerja);
 ?>
 <!DOCTYPE html>
 <html lang="id">
