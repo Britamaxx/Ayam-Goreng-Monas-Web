@@ -20,9 +20,11 @@ $totalCabang = $lokasi ? mysqli_num_rows($lokasi) : 0;
     <link rel="stylesheet" href="../style_admin/manage_menu.css" />
     <link rel="icon" type="image/png" sizes="16x16" href="./source/<?php echo $h['logo']; ?>" />
     <script src="https://unpkg.com/feather-icons"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <title>Dashboard Admin - Ayam Goreng Monas</title>
 
     <style>
+        @import url("https://fonts.googleapis.com/css2?family=Slabo+27px&display=swap");
         * {
             box-sizing: border-box;
             margin: 0;
@@ -40,11 +42,12 @@ $totalCabang = $lokasi ? mysqli_num_rows($lokasi) : 0;
         }
 
         .section-title {
-            font-size: 28px;
+            font-size: 3.5rem;
             font-weight: 700;
             color: #DC2626;
             margin-bottom: 0.15rem;
             text-align: center;
+            font-family: 'Slabo 27px', serif;
         }
 
         .dashboard-grid {
@@ -69,22 +72,20 @@ $totalCabang = $lokasi ? mysqli_num_rows($lokasi) : 0;
         }
 
         .card-title {
-            font-size: 0.95rem;
+            font-size: 1.2rem;
             font-weight: 600;
+            font-family: 'Slabo 27px', serif;
         }
 
-        .card-subtitle {
-            font-size: 0.8rem;
-            color: #6b7280;
-        }
 
         .badge {
             display: inline-block;
-            font-size: 0.7rem;
+            font-size: 1rem;
             padding: 0.15rem 0.5rem;
             border-radius: 999px;
             background: #ffedd5;
             color: #c2410c;
+            font-family: 'Slabo 27px', serif;
         }
 
         .table-wrapper {
@@ -95,7 +96,7 @@ $totalCabang = $lokasi ? mysqli_num_rows($lokasi) : 0;
         table {
             width: 100%;
             border-collapse: collapse;
-            font-size: 0.85rem;
+            font-size: 1rem;
         }
 
         th, td {
@@ -103,6 +104,7 @@ $totalCabang = $lokasi ? mysqli_num_rows($lokasi) : 0;
             border-bottom: 1px solid #e5e7eb;
             text-align: left;
             vertical-align: top;
+            
         }
 
         thead {
@@ -113,6 +115,12 @@ $totalCabang = $lokasi ? mysqli_num_rows($lokasi) : 0;
             font-size: 0.75rem;
             color: #6b7280;
             font-weight: 600;
+            font-family: 'Slabo 27px', serif;
+        }
+        
+        strong {
+            font-family: 'Slabo 27px', serif;
+            font-size:1.2rem;
         }
 
         .empty-state {
@@ -134,10 +142,13 @@ $totalCabang = $lokasi ? mysqli_num_rows($lokasi) : 0;
         .pill-fav {
             background: #f97316;
             color: #ffffff;
+            font-family: 'Slabo 27px', serif;
+            font-size:1rem;
         }
 
         .menu-name {
             font-weight: 600;
+            font-family: 'Slabo 27px', serif;
         }
 
         .menu-meta {
@@ -146,21 +157,23 @@ $totalCabang = $lokasi ? mysqli_num_rows($lokasi) : 0;
         }
 
         .nutri {
-            font-size: 0.75rem;
+            font-size: 1rem;
             color: #4b5563;
+            font-family: 'Slabo 27px', serif;
         }
 
         .lokasi-alamat {
-            font-size: 0.8rem;
+            font-size: 1rem;
             color: #4b5563;
+            font-family: 'Slabo 27px', serif;
         }
 
         .lokasi-jam {
-            font-size: 0.75rem;
+            font-size: 1rem;
             color: #6b7280;
+            font-family: 'Slabo 27px', serif;
         }
 
-        /* ====== CARD RINGKASAN ATAS ====== */
         .summary-row {
             display: flex;
             gap: 1rem;
@@ -169,23 +182,40 @@ $totalCabang = $lokasi ? mysqli_num_rows($lokasi) : 0;
         }
 
         .summary-card {
-            flex: 1 1 180px;
-            background: #fff;
-            border-radius: 14px;
-            padding: 14px 18px;
-            border: 1px solid #FFE8C7;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+        display: flex; /* Aktifkan Flexbox */
+        align-items: center; 
+        justify-content: space-between; 
+        
+        flex: 1 1 180px;
+        background: #fff;
+        border-radius: 14px;
+        padding: 14px 18px;
+        border: 1px solid #FFE8C7;
         }
 
+        .summary-content {
+        display: flex;
+        flex-direction: column;
+        margin-right: 15px; 
+        }
+
+        .summary-icon-wrapper {
+       
+        font-size: 2rem; /* Memperbesar ikon sedikit */
+        line-height: 1; /* Penting untuk Flexbox */
+         }
+
         .summary-label {
-            font-size: 0.8rem;
+            font-size: 1rem;
             color: #6b7280;
             margin-bottom: 4px;
+            font-family: 'Slabo 27px', serif;
         }
 
         .summary-value {
             font-size: 1.2rem;
             font-weight: 700;
+            font-family: 'Slabo 27px', serif;
         }
 
         .summary-value.red {
@@ -193,44 +223,10 @@ $totalCabang = $lokasi ? mysqli_num_rows($lokasi) : 0;
         }
 
         .summary-caption {
-            font-size: 0.75rem;
+            font-size: 1rem;
             color: #9CA3AF;
             margin-top: 2px;
-        }
-
-        .pekerja-list {
-            list-style: none;
-        }
-
-        .pekerja-item + .pekerja-item {
-            margin-top: 0.6rem;
-            padding-top: 0.6rem;
-            border-top: 1px solid #F3F4F6;
-        }
-
-        .pekerja-nama {
-            font-size: 0.9rem;
-            font-weight: 600;
-        }
-
-        .pekerja-posisi {
-            font-size: 0.8rem;
-            color: #F97316;
-            margin-bottom: 2px;
-        }
-
-        .pekerja-meta {
-            font-size: 0.78rem;
-            color: #6B7280;
-        }
-
-        .pekerja-status {
-            font-size: 0.75rem;
-            padding: 0.05rem 0.4rem;
-            border-radius: 999px;
-            background: #DCFCE7;
-            color: #166534;
-            margin-left: 6px;
+            font-family: 'Slabo 27px', serif;
         }
 
         @media (max-width: 900px) {
@@ -257,13 +253,12 @@ include "../layout/sidebar_admin.php";
             <div class="summary-card">
                 <div class="summary-label">Total menu aktif</div>
                 <div class="summary-value"><?= $totalMenu; ?></div>
-                <div class="summary-caption">Data dari tabel <code>menu</code></div>
-                <i class="summary-icon" data-feather="" style="margin-top: 8px; color: #FF7A00;"></i>
+                <i  class="fa-solid fa-utensils" style="margin-top: 8px; color: #DC2626; font-size: 1.5rem;"></i>
             </div>
             <div class="summary-card">
                 <div class="summary-label">Total cabang</div>
                 <div class="summary-value"><?= $totalCabang; ?></div>
-                <div class="summary-caption">Data dari tabel <code>lokasi</code></div>
+                <i class="fa-solid fa-store" style="margin-top: 8px; color: #FF7A00; font-size: 1.5rem;"></i>
             </div>
         </div>
 
@@ -272,7 +267,6 @@ include "../layout/sidebar_admin.php";
                 <div class="card-header">
                     <div>
                         <div class="card-title">Menu</div>
-                        <div class="card-subtitle">tabel menu</div>
                     </div>
                     <span class="badge">Menu</span>
                 </div>
@@ -350,7 +344,6 @@ include "../layout/sidebar_admin.php";
                     <div class="card-header">
                         <div>
                             <div class="card-title">Daftar Cabang</div>
-                            <div class="card-subtitle">Data dari tabel <code>lokasi</code></div>
                         </div>
                         <span class="badge">Cabang</span>
                     </div>

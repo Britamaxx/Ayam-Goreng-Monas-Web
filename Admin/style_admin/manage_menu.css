@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Slabo+27px&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -49,7 +50,8 @@ body {
 }
 
 .restaurant-name {
-  font-size: 18px;
+  font-size: 1.5rem;
+  font-family:'slabo 27px', serif;
   font-weight: 700;
   color: #c0392b;
   letter-spacing: 0.5px;
@@ -67,9 +69,10 @@ body {
   padding: 12px 20px 12px 45px;
   border: 2px solid #e8eaed;
   border-radius: 25px;
-  font-size: 14px;
+  font-size: 1rem;
   transition: all 0.3s ease;
   background: #f8f9fa;
+  font-family:'slabo 27px', serif;
 }
 
 .search-bar input:focus {
@@ -174,11 +177,12 @@ body {
   padding: 14px 20px;
   text-decoration: none;
   color: #6c757d;
-  font-size: 15px;
+  font-size: 1.1rem;
   font-weight: 500;
   border-radius: 12px;
   transition: all 0.3s ease;
   position: relative;
+  font-family:'slabo 27px', serif;
 }
 
 .sidebar-menu li a::before {
@@ -248,17 +252,20 @@ body {
 }
 
 .content-header h1 {
-  font-size: 28px;
+  font-size: 3.5rem;
   font-weight: 700;
   color: #DC2626;
   margin-bottom: 24px;
   text-align: center;
+  font-family: 'Slabo 27px', serif;
 }
 
 .content-header p {
   color: #6B7280;
   margin-bottom: 24px;
   text-align: center;
+  font-family: 'Slabo 27px', serif;
+  font-size: 1.5rem;
 }
 
 .crud-container {
@@ -342,15 +349,17 @@ body {
   display: flex;
   align-items: center;
   gap: 12px;
-  margin-left: 100px;
+  margin-left: 10px;
 }
 
 .search-menu {
   padding: 10px 15px;
-  width: 260px;
+  width: 1140px;
   border-radius: 8px;
   border: 1px solid #FBBF24;
   background: #FFFDF5;
+  font-family:'slabo 27px', serif;
+  font-size: 1rem;
 }
 
 .search-menu:focus {
@@ -450,12 +459,17 @@ body {
 
 
 .table-section h2 {
-  font-size: 18px;
+  font-size: 2rem ;
   font-weight: 700;
   color: #DC2626;
   margin-bottom: 12px;
+  font-family: 'Slabo 27px', serif;
 }
-
+.table-section p {
+  font-size: 1.4rem ;
+  margin-bottom: 12px;
+  font-family: 'Slabo 27px', serif;
+}
 .table-section table {
   width: 100%;
   border-collapse: collapse;
@@ -468,14 +482,18 @@ body {
   padding: 10px;
   text-align: left;
   color: #7C2D12;
-  font-size: 13px;
+  font-size: 1,5rem;
+  font-family: 'Slabo 27px', serif;
+  text-align: center;
 }
 
 .table-section td {
   padding: 10px;
   background: #FFF;
   border-bottom: none;
-  font-size: 13px;
+  font-size: 1rem;
+  font-family: 'Slabo 27px', serif;
+  text-align: center;
 }
 
 .table-section tr:hover td {
@@ -814,7 +832,8 @@ table tr:has(img[height="60"]) td {
 
   .add-btn, .filter-btn, .page-btn {
     padding: 8px 10px;
-    font-size: 13px;
+    font-size: 0.9rem;
+    font-family: 'slabo 27px', serif;
   }
 
   .table-section table {

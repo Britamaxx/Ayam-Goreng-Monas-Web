@@ -96,11 +96,9 @@ $result = mysqli_query($conn, "
 
       <div class="table-section">
         <div class="table-header">
-          <h2>Daftar Berita</h2>
+          <input type="text" placeholder="Cari berita..." class="search-menu">
 
           <div class="table-tools">
-            <input type="text" placeholder="Cari berita..." class="search-menu">
-
             <button class="filter-btn">
               <i data-feather="sliders"></i>
             </button>

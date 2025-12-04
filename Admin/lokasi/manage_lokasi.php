@@ -5,9 +5,6 @@ if (!$conn) {
   die("Koneksi gagal: " . mysqli_connect_error());
 }
 
-/* ==========================================
-   HANDLE DELETE
-========================================== */
 if (isset($_GET['hapus'])) {
   $id = $_GET['hapus'];
   $query = "DELETE FROM lokasi WHERE id=$id";
@@ -21,9 +18,7 @@ if (isset($_GET['hapus'])) {
   }
 }
 
-/* ==========================================
-   PAGINATION SETUP
-========================================== */
+
 $limit = 5; // jumlah data per halaman
 $page  = isset($_GET['page']) ? (int) $_GET['page'] : 1;
 $start = ($page - 1) * $limit;
@@ -106,10 +101,8 @@ include "../layout/sidebar_admin.php";
   <div class="table-section">
 
     <div class="table-header">
-      <h2>Daftar Lokasi</h2>
-
+       <input type="text" placeholder="Cari lokasi..." class="search-menu">
       <div class="table-tools">
-        <input type="text" placeholder="Cari lokasi..." class="search-menu">
         <button class="filter-btn">
           <i data-feather="sliders"></i>
         </button>

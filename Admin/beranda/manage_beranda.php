@@ -42,10 +42,6 @@ $review = mysqli_query($conn, "SELECT * FROM review ORDER BY id DESC LIMIT 3");
     <p>Edit banner, bagian sambutan, dan menu unggulan.</p>
   </div>
 
-
-  <!-- =========================== -->
-  <!--         HERO SLIDER         -->
-  <!-- =========================== -->
   <div class="table-section">
     <div class="table-header">
       <h2>Banner Hero Slider</h2>
@@ -88,10 +84,6 @@ $review = mysqli_query($conn, "SELECT * FROM review ORDER BY id DESC LIMIT 3");
 </div>
 
 
-
-  <!-- =========================== -->
-  <!--     WELCOME SECTION         -->
-  <!-- =========================== -->
   <div class="table-section">
     <div class="table-header">
       <h2>Bagian Sambutan</h2>
@@ -101,13 +93,6 @@ $review = mysqli_query($conn, "SELECT * FROM review ORDER BY id DESC LIMIT 3");
     <p>Edit teks sambutan yang tampil pada halaman beranda.</p>
   </div>
 
-
-  <!-- =========================== -->
-  <!--       MENU UNGGULAN         -->
-  <!-- =========================== -->
-  <!-- =========================== -->
-<!--       MENU UNGGULAN         -->
-<!-- =========================== -->
 <?php
 // Ambil semua menu
 $allMenu = mysqli_query($conn, "SELECT * FROM menu ORDER BY nama ASC");

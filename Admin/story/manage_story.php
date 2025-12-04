@@ -104,10 +104,9 @@ include "../layout/sidebar_admin.php";
   <div class="table-section">
 
     <div class="table-header">
-      <h2>Daftar Cerita</h2>
+       <input type="text" placeholder="Cari cerita..." class="search-menu">
 
       <div class="table-tools">
-        <input type="text" placeholder="Cari cerita..." class="search-menu">
         <button class="filter-btn">
           <i data-feather="sliders"></i>
         </button>
