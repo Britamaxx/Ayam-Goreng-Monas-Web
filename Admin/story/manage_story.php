@@ -98,7 +98,7 @@ include "../layout/sidebar_admin.php";
 
   <div class="content-header">
     <h1>Kelola Cerita</h1>
-    <p>Kelola timeline sejarah restoran</p>
+    <p>Kelola Cerita restoran dari waktu ke waktu</p>
   </div>
 
   <div class="table-section">
@@ -171,9 +171,6 @@ include "../layout/sidebar_admin.php";
 
     </table>
 
-    <!-- ===========================
-         PAGINATION
-    ============================ -->
     <div class="pagination">
       <?php if ($page > 1) : ?>
         <a href="?page=<?= $page - 1 ?>" class="prev">‹ Prev</a>
