@@ -214,7 +214,7 @@ CREATE TABLE `story_timeline` (
   `judul` varchar(255) NOT NULL,
   `deskripsi` text NOT NULL,
   `gambar` varchar(255) NOT NULL,
-  `posisi` enum('left','right') NOT NULL DEFAULT 'left'
+  `posisi` enum('Kiri','Kanan') NOT NULL DEFAULT 'Kiri'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
@@ -222,9 +222,9 @@ CREATE TABLE `story_timeline` (
 --
 
 INSERT INTO `story_timeline` (`id`, `tahun`, `judul`, `deskripsi`, `gambar`, `posisi`) VALUES
-(1, '2010', 'Awal Berdiri', 'Ayam Goreng Monas lahir dari sebuah dapur kecil di rumah keluarga sederhana. Berawal dari resep ayam goreng warisan orang tua, yang dulu hanya disajikan saat kumpul keluarga, banyak teman dan tetangga memuji bumbu gurihnya yang meresap hingga ke tulang.', 'scp3.webp', 'left'),
-(2, '2012', 'Cabang Pertama', 'Pada tahun 2012, cabang pertama Ayam Goreng Monas resmi dibuka di pusat kota. Cabang pertama ini tidak besar, tetapi memiliki suasana hangat dengan meja kayu dan dapur terbuka.', 'Back1.jpg', 'right'),
-(3, '2025', 'Cabang Kedua', 'Pada tahun 2025, Ayam Goreng Monas membuka cabang kedua di mall Samarinda Square. Kehadiran cabang ini memperkuat posisi brand sebagai ayam goreng lokal yang serius menjaga kualitas.', 'Back3.jpg', 'left');
+(1, '2010', 'Awal Berdiri', 'Ayam Goreng Monas lahir dari sebuah dapur kecil di rumah keluarga sederhana. Berawal dari resep ayam goreng warisan orang tua, yang dulu hanya disajikan saat kumpul keluarga, banyak teman dan tetangga memuji bumbu gurihnya yang meresap hingga ke tulang.', 'scp3.webp', 'Kiri'),
+(2, '2012', 'Cabang Pertama', 'Pada tahun 2012, cabang pertama Ayam Goreng Monas resmi dibuka di pusat kota. Cabang pertama ini tidak besar, tetapi memiliki suasana hangat dengan meja kayu dan dapur terbuka.', 'Back1.jpg', 'Kanan'),
+(3, '2025', 'Cabang Kedua', 'Pada tahun 2025, Ayam Goreng Monas membuka cabang kedua di mall Samarinda Square. Kehadiran cabang ini memperkuat posisi brand sebagai ayam goreng lokal yang serius menjaga kualitas.', 'Back3.jpg', 'Kiri');
 
 --
 -- Indexes for dumped tables
