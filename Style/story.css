@@ -58,12 +58,14 @@ flex-shrink: 0;
   gap: 50px;
 }
 
-.timeline-item.left {
-  flex-direction: row;
+.timeline-item.left, .timeline-content.left {
+  justify-content: flex-start;
+  margin-right:auto;
+  margin-left: 0;
 }
 
-.timeline-item.right {
-  flex-direction: row-reverse;
+.timeline-item.right{
+  justify-content:flex-end
 }
 
 .timeline-dot {
