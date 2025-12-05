@@ -96,7 +96,7 @@ $header = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM header WHERE id 
 
                 <label>Logo Saat Ini</label><br>
                 <img 
-                    src="uploads/<?= $header['logo'] ?>" 
+                    src="Source/<?= $header['logo'] ?>" 
                     width="120" 
                     style="border-radius: 10px; margin-bottom: 15px;"
                 >

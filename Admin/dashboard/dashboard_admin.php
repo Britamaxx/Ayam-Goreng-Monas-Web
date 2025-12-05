@@ -56,7 +56,7 @@ $totalCabang = $lokasi ? mysqli_num_rows($lokasi) : 0;
         }
 
         .section-title {
-            font-size: 3.5rem;
+            font-size: 3rem;
             font-weight: 700;
             color: #DC2626;
             margin-bottom: 0.15rem;
@@ -66,7 +66,7 @@ $totalCabang = $lokasi ? mysqli_num_rows($lokasi) : 0;
 
         .dashboard-grid {
             display: grid;
-            grid-template-columns: 2fr 1.3fr;
+            grid-template-columns: 1.5fr 1.5fr;
             gap: 1.25rem;
         }
 
@@ -74,7 +74,6 @@ $totalCabang = $lokasi ? mysqli_num_rows($lokasi) : 0;
             background: #ffffff;
             padding: 25px 30px;
             border-radius: 14px;
-            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
             border: 1px solid #FFE8C7;
         }
 
@@ -88,17 +87,6 @@ $totalCabang = $lokasi ? mysqli_num_rows($lokasi) : 0;
         .card-title {
             font-size: 1.2rem;
             font-weight: 600;
-            font-family: 'Slabo 27px', serif;
-        }
-
-
-        .badge {
-            display: inline-block;
-            font-size: 1rem;
-            padding: 0.15rem 0.5rem;
-            border-radius: 999px;
-            background: #ffedd5;
-            color: #c2410c;
             font-family: 'Slabo 27px', serif;
         }
 
@@ -282,7 +270,6 @@ include "../layout/sidebar_admin.php";
                     <div>
                         <div class="card-title">Menu</div>
                     </div>
-                    <span class="badge">Menu</span>
                 </div>
 
                 <div class="table-wrapper">
@@ -359,7 +346,6 @@ include "../layout/sidebar_admin.php";
                         <div>
                             <div class="card-title">Daftar Cabang</div>
                         </div>
-                        <span class="badge">Cabang</span>
                     </div>
 
                     <div class="table-wrapper">
