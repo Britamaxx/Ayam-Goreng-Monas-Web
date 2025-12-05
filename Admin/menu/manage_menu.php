@@ -78,10 +78,6 @@ include "../layout/sidebar_admin.php";
     <div class="table-header">
       <input type="text" placeholder="Cari menu..." class="search-menu">
       <div class="table-tools">
-    
-        <button class="filter-btn">
-          <i data-feather="sliders"></i>
-        </button>
 
         <a href="tambah_menu.php">
           <button class="add-btn">+ Tambah</button>

@@ -107,9 +107,6 @@ include "../layout/sidebar_admin.php";
        <input type="text" placeholder="Cari cerita..." class="search-menu">
 
       <div class="table-tools">
-        <button class="filter-btn">
-          <i data-feather="sliders"></i>
-        </button>
 
         <a href="tambah_story.php">
           <button class="add-btn">+ Tambah</button>

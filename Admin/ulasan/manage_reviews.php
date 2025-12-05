@@ -97,10 +97,6 @@ $result = mysqli_query($conn, "SELECT * FROM review ORDER BY tanggal DESC LIMIT 
           <div class="table-tools">
             
 
-            <button class="filter-btn">
-              <i data-feather="sliders"></i>
-            </button>
-
             <a href="tambah_review.php">
               <button class="add-btn">+ Tambah</button>
             </a>

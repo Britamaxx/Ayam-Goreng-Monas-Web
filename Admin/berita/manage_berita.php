@@ -99,9 +99,6 @@ $result = mysqli_query($conn, "
           <input type="text" placeholder="Cari berita..." class="search-menu">
 
           <div class="table-tools">
-            <button class="filter-btn">
-              <i data-feather="sliders"></i>
-            </button>
 
             <a href="tambah_berita.php">
               <button class="add-btn">+ Tambah</button>
