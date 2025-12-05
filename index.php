@@ -73,35 +73,47 @@ $reviews = mysqli_query($conn, "SELECT * FROM review ORDER BY id DESC LIMIT 10")
     <section class="home">
       <div class="home-container">
 
-        <div class="welcome-section">
-          <h2 class="tagline"><?= $welcome['judul']; ?></h2>
-          <p class="description"><?= nl2br($welcome['deskripsi']); ?></p>
+    <!-- Kolom 1: gambar welcome -->
+    <div class="home-left">
+      <img src="./Source/welcome.png" alt="Welcome image" class="welcome-img">
+    </div>
 
-          <div class="cta-buttons">
-            <a href="story.php" class="btn btn-secondary">Lihat Cerita Kami</a>
-          </div>
+    <!-- Kolom 2: teks (atas) + CTA (bawah) -->
+    <div class="home-right">
+      <!-- Baris atas: tulisan -->
+      <div class="welcome-content">
+        <h2 class="tagline"><?= $welcome['judul']; ?></h2>
+        <p class="description"><?= nl2br($welcome['deskripsi']); ?></p>
+      </div>
+
+      <!-- Baris bawah: CTA -->
+      <div class="welcome-cta">
+        <div class="cta-buttons">
+          <a href="story.php" class="btn btn-secondary">Lihat Cerita Kami</a>
         </div>
+      </div>
+    </div>
 
-        <div id="menu" class="menu-section">
-          <div class="menu-name">
-            <h3 class="section-heading">Menu Unggulan</h3>
+  </div>
+
+  <!-- Menu (tetap diletakkan di bawah) -->
+  <div id="menu" class="menu-section">
+    <div class="menu-name">
+      <h3 class="section-heading">Menu Unggulan</h3>
+    </div>
+
+    <div class="menu-grid">
+      <?php while($m = mysqli_fetch_assoc($menuUnggulan)) : ?>
+        <article class="menu-card">
+          <img src="./Source/Daftar menu/<?= $m['gambar'] ?>" alt="<?= $m['nama']; ?>">
+          <div class="menu-body">
+            <h4><?= $m['nama']; ?></h4>
           </div>
-
-          <div class="menu-grid">
-
-            <?php while($m = mysqli_fetch_assoc($menuUnggulan)) : ?>
-              <article class="menu-card">
-                <img src="./Source/Daftar menu/<?= $m['gambar'] ?>" alt="<?= $m['nama']; ?>">
-                <div class="menu-body">
-                  <h4><?= $m['nama']; ?></h4>
-                </div>
-              </article>
-            <?php endwhile; ?>
-
-          </div>
-
-          <a class="menu-direct" href="menu.php">Lihat Semua Menu</a>
-        </div>
+        </article>
+      <?php endwhile; ?>
+    </div>
+     <a class="menu-direct" href="menu.php">Lihat Semua Menu</a>
+  </div>
 
         <section class="review">
           <h2>Apa Kata Mereka?</h2>
