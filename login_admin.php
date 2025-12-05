@@ -26,7 +26,7 @@ $error = "";
         defer
         ></script>
     <link rel="preconnect" href="https://challenges.cloudflare.com">
-    <script src="login.js" defer></script>
+    <!-- <script src="login.js" defer></script> -->
     <style>
         * {
             margin: 0;

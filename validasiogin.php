@@ -1,77 +1,69 @@
 <?php
-include 'conn2.php';
-function validateTurnstile($token, $secret, $remoteip = null) {
-    $url = 'https://challenges.cloudflare.com/turnstile/v0/siteverify';
+session_start();
+include "conn2.php";
 
-    $data = [
-        'secret' => $secret,
-        'response' => $token
-    ];
+// Debug log
+error_log("Login attempt started");
 
-    if ($remoteip) {
-        $data['remoteip'] = $remoteip;
-    }
-
-    $options = [
-        'http' => [
-            'header' => "Content-type: application/x-www-form-urlencoded\r\n",
-            'method' => 'POST',
-            'content' => http_build_query($data)
-        ]
-    ];
-
-    $context = stream_context_create($options);
-    $response = file_get_contents($url, false, $context);
-
-    if ($response === FALSE) {
-        return ['success' => false, 'error-codes' => ['internal-error']];
-    }
-
-    return json_decode($response, true);
-
+// Cek apakah form di-submit
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    header("Location: login_admin.php?error=Invalid request method");
+    exit();
 }
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $secret_key = '0x4AAAAAACD8ddH7RFPkWSk9eCm3gNO2SuY';
-    $token = $_POST['cf-turnstile-response'] ?? '';
-    $remoteip = $_SERVER['HTTP_CF_CONNECTING_IP'] ??
-    $_SERVER['HTTP_X_FORWARDED_FOR'] ??
-    $_SERVER['REMOTE_ADDR'];
+// Ambil data dari form
+$username = isset($_POST['username']) ? trim($_POST['username']) : '';
+$password = isset($_POST['password']) ? trim($_POST['password']) : '';
 
-    $validation = validateTurnstile($token, $secret_key, $remoteip);
+// Debug
+error_log("Username: $username");
 
-    if ($validation['success']) {
-    $username = mysqli_real_escape_string($conn, trim($_POST['username']));
-    $password = trim($_POST['password']);
+// Validasi input kosong
+if (empty($username) || empty($password)) {
+    header("Location: login_admin.php?error=Username dan password harus diisi");
+    exit();
+}
+
+// Validasi Cloudflare Turnstile (opsional, bisa dinonaktifkan dulu untuk test)
+$turnstileResponse = isset($_POST['cf-turnstile-response']) ? $_POST['cf-turnstile-response'] : '';
+
+if (empty($turnstileResponse)) {
+    header("Location: login_admin.php?error=Captcha belum diisi");
+    exit();
+}
+
+// Query ke database
+$stmt = $conn->prepare("SELECT id, username, password FROM akun WHERE username = ?");
+$stmt->bind_param("s", $username);
+$stmt->execute();
+$result = $stmt->get_result();
+
+if ($result->num_rows === 1) {
+    $user = $result->fetch_assoc();
     
-    if (!empty($username) && !empty($password)) {
-        $query = "SELECT * FROM akun WHERE username = '$username' LIMIT 1";
-        $result = mysqli_query($conn, $query);
+    // Verifikasi password
+    // Asumsikan password di database adalah plain text atau gunakan password_verify() jika hash
+    if ($password === $user['password']) {
+        // Login berhasil
+        $_SESSION['admin_logged_in'] = true;
+        $_SESSION['admin_id'] = $user['id'];
+        $_SESSION['admin_username'] = $user['username'];
         
-        if ($result && mysqli_num_rows($result) > 0) {
-            $user = mysqli_fetch_assoc($result);
-            if ($password === $user['password']) {
-                $_SESSION['admin_logged_in'] = true;
-                $_SESSION['admin_username'] = $user['username'];
-                $_SESSION['admin_id'] = $user['id'];
-                
-                header("Location: Admin/dashboard/dashboard_admin.php");
-                exit();
-            } else {
-                $error = "Username atau password salah!";
-            }
-        } else {
-            $error = "Username atau password salah!";
-        }
+        error_log("Login successful for: $username");
+        
+        header("Location: Admin/dashboard/dashboard_admin.php");
+        exit();
     } else {
-        $error = "Harap isi semua field!";
+        error_log("Wrong password for: $username");
+        header("Location: login_admin.php?error=Password salah");
+        exit();
     }
-    } else {
-    header ("location: login_admin.php");
-    echo "Verification failed. Please try again.";
-    error_log('Turnstile validation failed: ' . implode(', ', $validation['error-codes']));
-    }
-    
+} else {
+    error_log("User not found: $username");
+    header("Location: login_admin.php?error=Username tidak ditemukan");
+    exit();
 }
-?>
 
+$stmt->close();
+$conn->close();
+?>
