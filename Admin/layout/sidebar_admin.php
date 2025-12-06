@@ -70,7 +70,7 @@ $current_page = basename($_SERVER['PHP_SELF']);
         <li class="<?php if ($current_page == 'manage_konten.php') echo 'active'; ?>">
             <a href="../konten_Web/manage_konten.php">
                 <i class="fa-solid fa-gear"></i>
-                <span>Pengaturan Konten</span>
+                <span>Pengaturan</span>
             </a>
         </li>
 

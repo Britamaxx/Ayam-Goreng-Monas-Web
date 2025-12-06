@@ -9,7 +9,7 @@
           <img src="./source/<?= $header['logo']; ?>" alt="Restaurant Logo" />
         </div>
         <div class="restaurant-name">
-        <a href="login_admin.php">
+        <a href="index.php">
           <?= $header['nama_bisnis']; ?>
         </a>
         </div>

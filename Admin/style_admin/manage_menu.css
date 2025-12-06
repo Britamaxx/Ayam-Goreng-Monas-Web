@@ -551,8 +551,9 @@ table tr:has(img[height="60"]) td {
   border-radius: 6px;
   border: none;
   cursor: pointer;
-  font-size: 13px;
+  font-size: 1.25rem;
   font-weight: 600;
+  font-family:"slabo 27px", serif;
 }
 
 .table-section button:first-child {

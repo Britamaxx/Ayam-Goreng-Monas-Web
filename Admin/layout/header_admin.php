@@ -6,9 +6,6 @@
     </div>
     <div class="restaurant-name">AYAM GORENG MONAS</div>
   </div>
-  <div class="search-bar">
-    <input type="text" placeholder="Mau cari apa hari ini?" />
-  </div>
   <div class="header-right">
     <div class="profile" id="profileBtn">
       <img src="../../Source/admin.png" alt="admin-profile" />
