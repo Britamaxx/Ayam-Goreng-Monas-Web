@@ -41,6 +41,7 @@ $pages = ceil($total / $limit);
           <div class="card-item">
             <div class="card-item-content">
               <h3><?php echo $row['judul']; ?></h3>
+              
               <p class="news-short">
                 <?php echo substr($row['deskripsi'], 0, 150) . "..."; ?>
               </p>
@@ -53,7 +54,7 @@ $pages = ceil($total / $limit);
             </div>
 
             <div class="card-image">
-              <img src="./Source/Berita/<?php echo $row['gambar']; ?>" alt="News Image" />
+              <img src="./Source/Berita/<?php echo $row['gambar']; ?>" alt="<?php echo $row['judul']; ?>" />
             </div>
           </div>
         <?php } ?>

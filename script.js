@@ -235,3 +235,30 @@ document.querySelectorAll(".read-more-btn").forEach(button => {
     }
   });
 });
+
+document.addEventListener('DOMContentLoaded', function () {
+  const readMoreBtns = document.querySelectorAll('.read-more-btn');
+
+  readMoreBtns.forEach(btn => {
+    btn.addEventListener('click', function (e) {
+      e.stopPropagation();
+
+      const cardItem = this.closest('.card-item');
+      const shortText = cardItem.querySelector('.news-short');
+      const fullText = cardItem.querySelector('.news-full');
+      const cardImage = cardItem.querySelector('.card-image');
+
+      if (fullText.style.display === 'none' || fullText.style.display === '') {
+        shortText.style.display = 'none';
+        fullText.style.display = 'block';
+        this.textContent = 'Tutup ↑';
+        cardImage.classList.add('expanded');
+      } else {
+        shortText.style.display = 'block';
+        fullText.style.display = 'none';
+        this.textContent = 'Baca selengkapnya →';
+        cardImage.classList.remove('expanded');
+      }
+    });
+  });
+});

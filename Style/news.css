@@ -54,17 +54,19 @@ body {
   border: 1px solid #e8e8e8;
   cursor: pointer;
   display: flex;
-  align-items: center; 
+  align-items: center;
   gap: 24px;
   position: relative;
   overflow: visible;
+  min-height: 200px;
 }
 
 .card-item-content {
   flex: 1;
   display: block;
-  padding-right: 320px;
+  padding-right: 0;
   text-align: left;
+  max-width: calc(100% - 304px);
 }
 
 .card-image {
@@ -72,9 +74,19 @@ body {
   right: 0;
   top: 0;
   bottom: 0;
-  width: 280px;          
-  border-radius: 0 12px 12px 0; 
+  width: 280px;
+  border-radius: 0 12px 12px 0;
   overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.card-image.expanded {
+  position: relative;
+  width: 280px;
+  height: auto;
+  min-height: 100%;
+  align-self: stretch;
+  border-radius: 8px;
 }
 
 .card-image img {
@@ -88,24 +100,11 @@ body {
   transform: translateY(-5px);
 }
 
-.card-item-content {
-  flex: 1;
-  display: block; 
-}
-
-.card-item img {
-  width: 280px;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 8px;
-  flex-shrink: 0;
-}
-
 .card-item h3 {
   font-size: 1.25rem;
   font-weight: 600;
   color: #222;
-  margin-bottom: 4px;
+  margin-bottom: 8px;
   line-height: 1.4;
 }
 
@@ -114,6 +113,7 @@ body {
   color: #555;
   line-height: 1.6;
   margin: 0;
+  margin-bottom: 12px;
 }
 
 .read-more {
@@ -172,7 +172,8 @@ body {
   color: #d62828;
   cursor: pointer;
   text-align: left; 
-  display: block; 
+  display: block;
+  padding: 0;
 }
 
 .read-more-btn:hover {
@@ -191,20 +192,9 @@ body {
   }
 
   .Card-news {
-    grid-template-columns: 1fr;
     gap: 1.5rem;
   }
 
-  .card-item {
-    padding: 1.5rem;
-  }
-
-  .card-item h3 {
-    font-size: 1.1rem;
-  }
-}
-
-@media (max-width: 768px) {
   .card-item {
     flex-direction: column;
     align-items: stretch;
@@ -213,21 +203,31 @@ body {
 
   .card-item-content {
     padding-right: 0;
+    max-width: 100%;
     text-align: left; 
   }
 
   .card-image {
     position: static;
     width: 100%;
-    height: 200px;   
+    height: 200px;
     border-radius: 8px;
-    margin-top: 12px; 
+    margin-top: 12px;
+  }
+
+  .card-image.expanded {
+    position: static;
+    width: 100%;
+    height: auto;
+    min-height: 200px;
   }
 
   .card-image img {
     height: 100%;
     object-fit: cover;
   }
+
+  .card-item h3 {
+    font-size: 1.1rem;
+  }
 }
-
-
