@@ -4,27 +4,21 @@ if (!$conn) {
   die("Koneksi gagal: " . mysqli_connect_error());
 }
 
-// Header
 $header = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM header WHERE id = 1"));
 
-// Footer
 $footer = mysqli_query($conn, "SELECT * FROM footer WHERE id = 1");
 $f = mysqli_fetch_assoc($footer);
 
-// Hero Slider
 $slider = mysqli_query($conn, "SELECT * FROM hero_slider ORDER BY id ASC");
 
-// Welcome Section
 $welcome = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM welcome_section WHERE id = 1"));
 
-// Menu Unggulan (JOIN)
 $menuUnggulan = mysqli_query($conn, "
   SELECT menu.nama, menu.gambar 
   FROM beranda_menu
   JOIN menu ON beranda_menu.id_menu = menu.id
 ");
 
-// Review
 $reviews = mysqli_query($conn, "SELECT * FROM review ORDER BY id DESC LIMIT 10");
 ?>
 
@@ -73,30 +67,24 @@ $reviews = mysqli_query($conn, "SELECT * FROM review ORDER BY id DESC LIMIT 10")
     <section class="home">
       <div class="home-container">
 
-    <!-- Kolom 1: gambar welcome -->
     <div class="home-left">
       <img src="./Source/welcome.png" alt="Welcome image" class="welcome-img">
     </div>
 
-    <!-- Kolom 2: teks (atas) + CTA (bawah) -->
     <div class="home-right">
-      <!-- Baris atas: tulisan -->
       <div class="welcome-content">
         <h2 class="tagline"><?= $welcome['judul']; ?></h2>
         <p class="description"><?= nl2br($welcome['deskripsi']); ?></p>
       </div>
 
-      <!-- Baris bawah: CTA -->
       <div class="welcome-cta">
         <div class="cta-buttons">
           <a href="story.php" class="btn btn-secondary">Lihat Cerita Kami</a>
         </div>
       </div>
     </div>
-
   </div>
 
-  <!-- Menu (tetap diletakkan di bawah) -->
   <div id="menu" class="menu-section">
     <div class="menu-name">
       <h3 class="section-heading">Menu Unggulan</h3>
@@ -114,7 +102,6 @@ $reviews = mysqli_query($conn, "SELECT * FROM review ORDER BY id DESC LIMIT 10")
     </div>
      <a class="menu-direct" href="menu.php">Lihat Semua Menu</a>
   </div>
-
         <section class="review">
           <h2>Apa Kata Mereka?</h2>
 
@@ -165,8 +152,6 @@ $reviews = mysqli_query($conn, "SELECT * FROM review ORDER BY id DESC LIMIT 10")
       </div>
     </section>
 
-
-    <!-- FOOTER -->
     <?php include 'footer.php'; ?>
 
   </body>

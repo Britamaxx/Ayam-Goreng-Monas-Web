@@ -1,13 +1,11 @@
 <?php
 session_start();
 
-// Cek apakah user sudah login
 if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== true) {
     header("Location: ../../login_admin.php");
     exit();
 }
 
-// TAMBAHKAN INI - Mencegah browser cache
 header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
 header("Cache-Control: post-check=0, pre-check=0", false);
 header("Pragma: no-cache");
@@ -28,10 +26,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nav_news      = $_POST['nav_news'];
     $nav_review    = $_POST['nav_review'];
 
-    // Upload logo baru jika ada
     if (!empty($_FILES['logo']['name'])) {
 
-        $targetDir = "source/"; // <-- disamakan dengan header.php
+        $targetDir = "source/";
 
         if (!is_dir($targetDir)) {
             mkdir($targetDir);

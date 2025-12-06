@@ -1,13 +1,11 @@
 <?php
 session_start();
 
-// Cek apakah user sudah login
 if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== true) {
     header("Location: ../../login_admin.php");
     exit();
 }
 
-// TAMBAHKAN INI - Mencegah browser cache
 header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
 header("Cache-Control: post-check=0, pre-check=0", false);
 header("Pragma: no-cache");
@@ -33,7 +31,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $x          = $_POST['x'];
     $facebook   = $_POST['facebook'];
 
-    // Upload logo jika ada file baru
     if (!empty($_FILES['logo']['name'])) {
         $logo = "uploads/" . basename($_FILES['logo']['name']);
         move_uploaded_file($_FILES['logo']['tmp_name'], $logo);
