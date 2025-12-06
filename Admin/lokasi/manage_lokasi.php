@@ -125,6 +125,7 @@ include "../layout/sidebar_admin.php";
     </div>
 
     <table border="1" cellpadding="8" width="100%">
+      <thead>
       <tr>
         <th>ID</th>
         <th>Nama Lokasi</th>
@@ -133,7 +134,8 @@ include "../layout/sidebar_admin.php";
         <th>Gambar</th>
         <th>Aksi</th>
       </tr>
-
+    </thead>
+    
       <?php
       while ($row = mysqli_fetch_assoc($result)) {
         $namaLokasi = htmlspecialchars($row['nama'], ENT_QUOTES);

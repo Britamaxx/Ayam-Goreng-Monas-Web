@@ -94,34 +94,28 @@ document.addEventListener('click', function(event) {
   }
 });
 
-// Close modal with ESC key
 document.addEventListener('keydown', function(event) {
   if (event.key === 'Escape') {
     closeDeleteModal();
   }
 });
 
-// Initialize feather icons if available
 document.addEventListener('DOMContentLoaded', function() {
   if (typeof feather !== 'undefined') {
     feather.replace();
   }
   
-  // Search functionality (optional enhancement)
-  const searchInput = document.querySelector('.search-menu');
-  if (searchInput) {
-    searchInput.addEventListener('input', function(e) {
-      const searchTerm = e.target.value.toLowerCase();
-      const tableRows = document.querySelectorAll('table tbody tr, table tr:not(:first-child)');
-      
-      tableRows.forEach(row => {
-        const text = row.textContent.toLowerCase();
-        if (text.includes(searchTerm)) {
-          row.style.display = '';
-        } else {
-          row.style.display = 'none';
-        }
-      });
+const searchInput = document.querySelector('.search-menu');
+
+if (searchInput) {
+  searchInput.addEventListener('input', function (e) {
+    const searchTerm = e.target.value.toLowerCase();
+    const tableRows = document.querySelectorAll('table tbody tr');
+
+    tableRows.forEach(row => {
+      const text = row.textContent.toLowerCase();
+      row.style.display = text.includes(searchTerm) ? '' : 'none';
     });
-  }
+  });
+}
 });

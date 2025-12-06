@@ -114,6 +114,7 @@ $result = mysqli_query($conn, "SELECT * FROM review ORDER BY tanggal DESC LIMIT 
         </div>
 
         <table border="1" cellpadding="8" width="100%">
+          <thead>
           <tr>
             <th>ID</th>
             <th>Nama</th>
@@ -123,7 +124,7 @@ $result = mysqli_query($conn, "SELECT * FROM review ORDER BY tanggal DESC LIMIT 
             <th>Tanggal</th>
             <th>Aksi</th>
           </tr>
-
+          </thead>
           <?php
           while ($row = mysqli_fetch_assoc($result)) {
 

@@ -117,6 +117,7 @@ include "../layout/sidebar_admin.php";
     ?>
 
     <table border="1" cellpadding="8">
+    <thead>
       <tr>
         <th>ID</th>
         <th>Nama</th>
@@ -128,7 +129,7 @@ include "../layout/sidebar_admin.php";
         <th>Protein</th>
         <th>Aksi</th>
       </tr>
-
+    </thead>
       <?php
       while ($row = mysqli_fetch_assoc($result)) {
 

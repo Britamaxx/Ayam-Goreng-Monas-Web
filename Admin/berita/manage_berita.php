@@ -121,6 +121,7 @@ $result = mysqli_query($conn, "
         </div>
 
         <table border="1" cellpadding="8" width="100%">
+          <thead>
           <tr>
             <th>ID</th>
             <th>Judul</th>
@@ -128,6 +129,7 @@ $result = mysqli_query($conn, "
             <th>Deskripsi</th>
             <th>Aksi</th>
           </tr>
+          </thead>
 
           <?php
           while ($row = mysqli_fetch_assoc($result)) {

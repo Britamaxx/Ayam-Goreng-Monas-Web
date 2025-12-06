@@ -129,6 +129,7 @@ include "../layout/sidebar_admin.php";
     </div>
 
     <table border="1" cellpadding="8">
+      <thead>
       <tr>
         <th>ID</th>
         <th>Tahun</th>
@@ -137,7 +138,8 @@ include "../layout/sidebar_admin.php";
         <th>Gambar</th>
         <th>Aksi</th>
       </tr>
-
+      </thead>
+      
       <?php while ($row = mysqli_fetch_assoc($story)) { ?>
 
       <?php 
