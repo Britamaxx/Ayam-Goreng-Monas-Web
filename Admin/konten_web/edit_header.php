@@ -1,4 +1,18 @@
 <?php
+session_start();
+
+// Cek apakah user sudah login
+if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== true) {
+    header("Location: ../../login_admin.php");
+    exit();
+}
+
+// TAMBAHKAN INI - Mencegah browser cache
+header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+header("Cache-Control: post-check=0, pre-check=0", false);
+header("Pragma: no-cache");
+header("Expires: 0");
+
 $conn = mysqli_connect("localhost", "root", "", "ayamgoreng_monas");
 if (!$conn) {
     die("Koneksi gagal: " . mysqli_connect_error());
@@ -95,18 +109,6 @@ $header = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM header WHERE id 
             <h2>Form Edit Header</h2>
 
             <form method="POST" enctype="multipart/form-data">
-
-                <label>Logo Saat Ini</label><br>
-
-                <?php if (!empty($header['logo'])): ?>
-                    <img 
-                        src="./source/<?= $header['logo']; ?>" 
-                        width="120" 
-                        style="border-radius: 10px; margin-bottom: 15px;"
-                    >
-                <?php else: ?>
-                    <p style="color: gray; margin-bottom: 15px;">Belum ada logo.</p>
-                <?php endif; ?>
 
                 <label>Ganti Logo</label>
                 <input type="file" name="logo">

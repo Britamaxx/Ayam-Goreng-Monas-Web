@@ -1,4 +1,18 @@
 <?php
+session_start();
+
+// Cek apakah user sudah login
+if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== true) {
+    header("Location: ../../login_admin.php");
+    exit();
+}
+
+// TAMBAHKAN INI - Mencegah browser cache
+header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+header("Cache-Control: post-check=0, pre-check=0", false);
+header("Pragma: no-cache");
+header("Expires: 0");
+
 $conn = mysqli_connect("localhost", "root", "", "ayamgoreng_monas");
 if (!$conn) {
     die("Koneksi gagal: " . mysqli_connect_error());
@@ -124,13 +138,6 @@ $footer = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM footer WHERE id 
 
                 <label>Logo </label>
                 <input type="file" name="logo" />
-
-                <p>Logo saat ini </p>
-                <?php if (!empty($footer['logo'])): ?>
-                    <img src="<?= $footer['logo'] ?>" width="120">
-                <?php else: ?>
-                    <p><i>Belum ada logo</i></p>
-                <?php endif; ?>
 
                 <button type="submit">Simpan Perubahan</button>
 
