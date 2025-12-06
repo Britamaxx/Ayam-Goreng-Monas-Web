@@ -171,7 +171,7 @@ if (isset($_POST['edit'])) {
     <div class="page-wrapper">
         <div class="page-title">Kelola Cerita Restoran</div>
         <div class="page-subtitle">
-            Ubah detail story timeline yang tampil di halaman pelanggan
+            Ubah detail cerita yang tampil di halaman pelanggan
         </div>
 
         <div class="card">
@@ -224,14 +224,6 @@ if (isset($_POST['edit'])) {
                         class="form-file" 
                         accept="image/*"
                     >
-                </div>
-
-                <div class="form-group">
-                    <label class="form-label">Posisi</label>
-                    <select name="posisi" class="form-select">
-                        <option value="left"  <?= $row['posisi']=='left'  ? 'selected' : ''; ?>>Left</option>
-                        <option value="right" <?= $row['posisi']=='right' ? 'selected' : ''; ?>>Right</option>
-                    </select>
                 </div>
 
                 <button type="submit" name="edit" class="btn-submit">

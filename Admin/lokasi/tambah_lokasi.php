@@ -40,7 +40,7 @@ if (isset($_POST['tambah'])) {
 
       <div class="crud-container">
         <div class="form-section">
-          <h2>Tambah lLokasi Baru</h2>
+          <h2>Tambah Lokasi Baru</h2>
           <form method="POST" enctype="multipart/form-data">
             <input type="text" name="nama" placeholder="Nama lokasi" required />
             <textarea name="alamat" placeholder ="Alamat" required></textarea>

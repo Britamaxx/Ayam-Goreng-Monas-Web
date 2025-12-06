@@ -167,7 +167,7 @@ if (isset($_POST['update'])) {
         </div>
 
         <div class="card">
-            <div class="card-title">Update Lokasi</div>
+            <div class="card-title">Perbarui Lokasi</div>
 
             <form method="POST" enctype="multipart/form-data">
                 <div class="form-group">
@@ -219,7 +219,7 @@ if (isset($_POST['update'])) {
                 </div>
 
                 <button type="submit" name="update" class="btn-submit">
-                    Update
+                    Perbarui
                 </button>
             </form>
         </div>

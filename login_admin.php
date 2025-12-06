@@ -212,7 +212,7 @@ $error = "";
     <div class="login-container">
         <div class="login-header">
             <h1>Ayam Goreng Monas</h1>
-            <p>Login Admin Dashboard</p>
+            <p>Login Dasbor Admin </p>
         </div>
 
         <div class="login-body">
@@ -225,7 +225,7 @@ $error = "";
 
             <form method="POST" action="validasiogin.php">
                 <div class="form-group">
-                    <label for="username">Username</label>
+                    <label for="username">Nama Pengguna</label>
                     <div class="input-wrapper">
                         <input 
                             type="text" 
@@ -240,7 +240,7 @@ $error = "";
                 </div>
 
                 <div class="form-group">
-                    <label for="password">Password</label>
+                    <label for="password">Kata Sandi</label>
                     <div class="input-wrapper">
                         <input 
                             type="password" 
@@ -254,7 +254,7 @@ $error = "";
                 </div>
                 <div class="cf-turnstile" data-sitekey="0x4AAAAAACD8dRUDmBb53ykT" style="text-align: center"></div>
                 <button type="submit" class="btn-login">
-                    Masuk Dashboard
+                    Masuk Dasbor Admin
                 </button>
             </form>
         </div>

@@ -14,10 +14,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nav_news      = $_POST['nav_news'];
     $nav_review    = $_POST['nav_review'];
 
-    // Upload logo jika ada
+    // Upload logo baru jika ada
     if (!empty($_FILES['logo']['name'])) {
-        $targetDir = "uploads/";
-        if (!is_dir($targetDir)) mkdir($targetDir);
+
+        $targetDir = "source/"; // <-- disamakan dengan header.php
+
+        if (!is_dir($targetDir)) {
+            mkdir($targetDir);
+        }
 
         $logoName = time() . "_" . basename($_FILES['logo']['name']);
         move_uploaded_file($_FILES['logo']['tmp_name'], $targetDir . $logoName);
@@ -50,7 +54,6 @@ $header = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM header WHERE id 
 <!DOCTYPE html>
 <html lang="en">
 
-
 <style>
 .orange-btn {
     background-color: #ff7a00;
@@ -62,7 +65,6 @@ $header = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM header WHERE id 
     cursor: pointer;
     transition: 0.2s;
 }
-
 .orange-btn:hover {
     background-color: #e86d00;
 }
@@ -95,40 +97,41 @@ $header = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM header WHERE id 
             <form method="POST" enctype="multipart/form-data">
 
                 <label>Logo Saat Ini</label><br>
-                <img 
-                    src="Source/<?= $header['logo'] ?>" 
-                    width="120" 
-                    style="border-radius: 10px; margin-bottom: 15px;"
-                >
 
-                <label>Ganti Logo (opsional)</label>
+                <?php if (!empty($header['logo'])): ?>
+                    <img 
+                        src="./source/<?= $header['logo']; ?>" 
+                        width="120" 
+                        style="border-radius: 10px; margin-bottom: 15px;"
+                    >
+                <?php else: ?>
+                    <p style="color: gray; margin-bottom: 15px;">Belum ada logo.</p>
+                <?php endif; ?>
+
+                <label>Ganti Logo</label>
                 <input type="file" name="logo">
 
                 <label>Nama Bisnis</label>
                 <input type="text" name="nama_bisnis" value="<?= $header['nama_bisnis'] ?>" required>
 
-            
                 <h3 style="margin-top: 25px;">Nama Menu Navigasi</h3>
 
-                <label>Home</label>
+                <label>Beranda</label>
                 <input type="text" name="nav_home" value="<?= $header['nav_home'] ?>">
 
-                <label>Story</label>
+                <label>Cerita Kami</label>
                 <input type="text" name="nav_story" value="<?= $header['nav_story'] ?>">
 
                 <label>Menu</label>
                 <input type="text" name="nav_menu" value="<?= $header['nav_menu'] ?>">
 
-                <label>News</label>
+                <label>Berita</label>
                 <input type="text" name="nav_news" value="<?= $header['nav_news'] ?>">
 
-                <label>Review</label>
+                <label>Ulasan</label>
                 <input type="text" name="nav_review" value="<?= $header['nav_review'] ?>">
 
-                <button 
-                 type="submit" 
-                 class="orange-btn"
-                 style="margin-top: 20px;">
+                <button type="submit" class="orange-btn" style="margin-top: 20px;">
                  Simpan Perubahan
                 </button>
 

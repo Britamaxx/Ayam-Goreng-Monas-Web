@@ -248,7 +248,7 @@ include "../layout/sidebar_admin.php";
 <div class="main-content">
     <div class="dashboard-wrapper">
         <header style="margin-bottom: 0.4rem;">
-            <h1 class="section-title">Dashboard Admin Ayam Goreng Monas</h1>
+            <h1 class="section-title">Dasbor Admin Ayam Goreng Monas</h1>
         </header>
 
         <div class="summary-row">

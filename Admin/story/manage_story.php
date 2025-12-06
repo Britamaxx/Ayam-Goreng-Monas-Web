@@ -121,7 +121,6 @@ include "../layout/sidebar_admin.php";
         <th>Judul</th>
         <th>Deskripsi</th>
         <th>Gambar</th>
-        <th>Posisi</th>
         <th>Aksi</th>
       </tr>
 
@@ -153,7 +152,6 @@ include "../layout/sidebar_admin.php";
         <td><?= htmlspecialchars($row['judul']); ?></td>
         <td><?= $deskripsi; ?></td>
         <td><?= $gambar; ?></td>
-        <td><?= $row['posisi']; ?></td>
 
         <td style="white-space: nowrap;">
           <a href="edit_story.php?id=<?= $row['id']; ?>" style="text-decoration: none;">

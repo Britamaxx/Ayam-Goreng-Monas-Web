@@ -26,9 +26,9 @@
         <line x1="21" y1="12" x2="9" y2="12"></line>
       </svg>
     </div>
-    <h2 class="modal-title">Konfirmasi Logout</h2>
+    <h2 class="modal-title">Konfirmasi Keluar</h2>
     <p class="modal-message">Apakah Anda yakin ingin keluar dari akun Anda?</p>
-    <p class="modal-warning">Anda harus login kembali untuk mengakses dashboard.</p>
+    <p class="modal-warning">Anda harus masuk kembali untuk mengakses dasbor.</p>
     <div class="modal-actions">
       <button class="btn-cancel" id="cancelLogout">
         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -43,7 +43,7 @@
           <polyline points="16 17 21 12 16 7"></polyline>
           <line x1="21" y1="12" x2="9" y2="12"></line>
         </svg>
-        Logout
+        Keluar
       </button>
     </div>
   </div>

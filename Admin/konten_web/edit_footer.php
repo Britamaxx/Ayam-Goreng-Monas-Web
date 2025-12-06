@@ -122,10 +122,10 @@ $footer = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM footer WHERE id 
                 <label>Facebook</label>
                 <input type="text" name="facebook" value="<?= $footer['facebook'] ?>" />
 
-                <label>Logo (opsional)</label>
+                <label>Logo </label>
                 <input type="file" name="logo" />
 
-                <p>Logo saat ini:</p>
+                <p>Logo saat ini </p>
                 <?php if (!empty($footer['logo'])): ?>
                     <img src="<?= $footer['logo'] ?>" width="120">
                 <?php else: ?>
