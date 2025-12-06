@@ -1,5 +1,6 @@
 h2 {
   margin-bottom: 20px;
+  font-size:3rem;
 }
 
 .form-section {
@@ -21,6 +22,7 @@ h2 {
   display: block;
   margin-bottom: 8px;
   font-weight: bold;
+  font-size:1.5rem;
 }
 
 .review-form input,
@@ -42,6 +44,7 @@ h2 {
   text-decoration: none;
   font-weight: bold;
   cursor: pointer;
+  font-size:1.25rem;
 }
 
 .submit-btn {

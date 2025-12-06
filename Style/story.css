@@ -89,6 +89,7 @@ flex-shrink: 0;
   margin-bottom: 10px;
   letter-spacing: 2px;
   text-align: justify;
+  font-family:"slabo 27px", serif;
 }
 
 .timeline-title {
