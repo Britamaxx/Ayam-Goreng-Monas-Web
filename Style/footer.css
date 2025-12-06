@@ -5,10 +5,9 @@ body { font-family: "Slabo 27px", serif; }
 .footer {
   border-top: 7px solid #d9b53d;
   color: #ffffff;
-  background-color: #b73727; /* tetap gelap */
+  background-color: #b73727;
 }
 
-/* ---------- Footer Top: dua kolom ---------- */
 .footer-top{
   display: flex;
   justify-content: space-between;
@@ -18,11 +17,9 @@ body { font-family: "Slabo 27px", serif; }
   flex-wrap: wrap;
 }
 
-/* kiri dan kanan proporsional */
 .footer-left { flex: 1.6; min-width: 280px; }
 .footer-right { flex: 1; min-width: 260px; }
 
-/* di dalam kolom kiri: pisah gambar & teks (sejajar) */
 .footer-left-inner{
   display: flex;
   align-items: flex-start;
@@ -51,21 +48,19 @@ body { font-family: "Slabo 27px", serif; }
 }
 
 .footer-desc {
-  font-size: 1.3rem;
+  font-size: 1.25rem;
   line-height: 1.6;
   color: #e8e8e8;
   margin: 0;
   max-width: 100%;
 }
 
-/* kanan: alamat & judul */
 .footer-right-title {
   font-size: 22px;
   color: #fff;
   margin-bottom: 12px;
 }
 
-/* alamat */
 .footer-cabang-content p {
   font-size: 16px;
   line-height: 1.6;
@@ -73,7 +68,6 @@ body { font-family: "Slabo 27px", serif; }
   margin: 0 0 12px 0;
 }
 
-/* sosial */
 .footer-social {
   display: flex;
   gap: 14px;
@@ -97,7 +91,6 @@ body { font-family: "Slabo 27px", serif; }
   display: block;
 }
 
-/* ---------- Footer Bottom ---------- */
 .footer-bottom {
   padding: 14px 24px;
   text-align: center;
@@ -106,17 +99,13 @@ body { font-family: "Slabo 27px", serif; }
   border-top: 2px solid rgba(255,255,255,0.06);
 }
 
-/* ---------------- Responsive ---------------- */
 @media (max-width: 880px) {
   .footer-top { gap: 28px; padding: 30px 5vw; }
-
-  /* lebih sempit: biar kanan tidak terlalu kecil */
   .footer-left { min-width: 220px; }
   .footer-right { min-width: 220px; }
 }
 
 @media (max-width: 680px) {
-  /* Stack vertikal: kiri di atas, kanan di bawah */
   .footer-top {
     flex-direction: column;
     align-items: stretch;
@@ -124,7 +113,6 @@ body { font-family: "Slabo 27px", serif; }
     padding: 28px 5vw;
   }
 
-  /* di mobile, logo & teks jadi vertikal */
   .footer-left-inner {
     flex-direction: column;
     align-items: center;

@@ -16,11 +16,10 @@
       </div>
     </div>
 
-    <!-- KOLOM KANAN: alamat + sosial -->
     <div class="footer-right">
       <h3 class="footer-right-title">Alamat Kami</h3>
       <div class="footer-cabang-content">
-        <p><?php echo $f['alamat']; ?></p>
+        <p class="footer-desc"><?php echo $f['alamat']; ?></p>
       </div>
 
       <div class="footer-social">
@@ -40,7 +39,6 @@
     </div>
   </div>
 
-  <!-- Footer Bottom: copyright -->
   <div class="footer-bottom">
     <p>Copyright &copy; 2025 Ayam Goreng Monas. Hak Cipta Dilindungi</p>
   </div>

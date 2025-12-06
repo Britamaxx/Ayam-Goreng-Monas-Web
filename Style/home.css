@@ -59,7 +59,7 @@
   max-width: 760px;
   margin-bottom: 1.2rem;
   line-height: 1.6;
-  font-size: 24px; 
+  font-size: 20px; 
 }
 
 .welcome-cta {
@@ -134,7 +134,7 @@
   max-width:760px; 
   margin:0 auto 1.2rem; 
   line-height:1.7;
-  font-size: 25px;
+  font-size: 1.25rem;
 }
 
 .cta-buttons { 
@@ -148,6 +148,7 @@
   border-radius:10px; 
   text-decoration:none; 
   font-weight:700; 
+  font-size: 1.5rem;
   display:inline-block 
 }
 
@@ -179,7 +180,7 @@
   display: block;       
   text-align: center;  
   margin: 30px 0;
-  font-size: 24px;
+  font-size: 1.5rem;
   font-weight: 600;
   color: black;
   text-decoration: none;
@@ -198,7 +199,6 @@
   text-align: center;
   margin-bottom: 20px;
 }
-
 
 .menu-card { 
   background:var(--card-bg);
@@ -224,7 +224,7 @@
 
 .menu-body h4 { 
   margin:0 0 6px; 
-  font-size:24px;
+  font-size:1.5rem;
   font-family: "Slabo 27px", serif;
 }
 
