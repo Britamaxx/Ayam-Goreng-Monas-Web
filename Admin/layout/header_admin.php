@@ -4,7 +4,9 @@
     <div class="restaurant-logo">
       <img src="../../Source/Logo.png" alt="restaurant-logo" />
     </div>
-    <div class="restaurant-name">AYAM GORENG MONAS</div>
+    <div class="restaurant-name">
+        AYAM GORENG MONAS
+      </div>
   </div>
   <div class="header-right">
     <div class="profile" id="profileBtn">
