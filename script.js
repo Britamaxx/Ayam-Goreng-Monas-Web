@@ -217,25 +217,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
-document.querySelectorAll(".read-more-btn").forEach(button => {
-  button.addEventListener("click", () => {
-
-    let card = button.closest(".card-item");
-    let shortText = card.querySelector(".news-short");
-    let fullText = card.querySelector(".news-full");
-
-    if (fullText.style.display === "none") {
-      fullText.style.display = "block";
-      shortText.style.display = "none";
-      button.textContent = "Tutup ↑";
-    } else {
-      fullText.style.display = "none";
-      shortText.style.display = "block";
-      button.textContent = "Baca selengkapnya →";
-    }
-  });
-});
-
 document.addEventListener('DOMContentLoaded', function () {
   const readMoreBtns = document.querySelectorAll('.read-more-btn');
 
