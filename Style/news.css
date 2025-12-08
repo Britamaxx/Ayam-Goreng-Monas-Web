@@ -54,10 +54,10 @@ body {
   border: 1px solid #e8e8e8;
   cursor: pointer;
   display: flex;
-  align-items: center;
+  align-items: stretch;
   gap: 24px;
   position: relative;
-  overflow: visible;
+  overflow: hidden;
   min-height: 200px;
 }
 
@@ -73,20 +73,11 @@ body {
   position: absolute;
   right: 0;
   top: 0;
-  bottom: 0;
   width: 280px;
+  height: 100%;
   border-radius: 0 12px 12px 0;
   overflow: hidden;
-  transition: all 0.3s ease;
-}
-
-.card-image.expanded {
-  position: relative;
-  width: 280px;
-  height: auto;
-  min-height: 100%;
-  align-self: stretch;
-  border-radius: 8px;
+  transition: none;
 }
 
 .card-image img {
@@ -199,6 +190,7 @@ body {
     flex-direction: column;
     align-items: stretch;
     padding: 16px;
+    overflow: visible;
   }
 
   .card-item-content {
@@ -213,13 +205,6 @@ body {
     height: 200px;
     border-radius: 8px;
     margin-top: 12px;
-  }
-
-  .card-image.expanded {
-    position: static;
-    width: 100%;
-    height: auto;
-    min-height: 200px;
   }
 
   .card-image img {
