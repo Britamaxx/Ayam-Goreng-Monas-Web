@@ -25,7 +25,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $whatsapp   = $_POST['whatsapp'];
     $email      = $_POST['email'];
     $alamat     = $_POST['alamat'];
-    $maps_embed = $_POST['maps_embed'];
     $instagram  = $_POST['instagram'];
     $tiktok     = $_POST['tiktok'];
     $x          = $_POST['x'];
@@ -48,7 +47,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             whatsapp='$whatsapp',
             email='$email',
             alamat='$alamat',
-            maps_embed='$maps_embed',
             instagram='$instagram',
             tiktok='$tiktok',
             x='$x',
@@ -117,9 +115,6 @@ $footer = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM footer WHERE id 
 
                 <label>Alamat</label>
                 <textarea name="alamat" rows="3"><?= $footer['alamat'] ?></textarea>
-
-                <label>Google Maps Embed</label>
-                <textarea name="maps_embed" rows="3"><?= $footer['maps_embed'] ?></textarea>
 
                 <label>Instagram</label>
                 <input type="text" name="instagram" value="<?= $footer['instagram'] ?>" />
